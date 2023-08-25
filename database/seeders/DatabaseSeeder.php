@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'superadmin@rush2homes.com',
         ]);
-        User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@rush2homes.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Super Admin',
+        //     'email' => 'superadmin@rush2homes.com',
+        // ]);
 
         $role = Role::create(['name' => 'Super Admin']);
         $user1->assignRole($role);

@@ -70,6 +70,8 @@ return new class extends Migration
             $table->dropForeign(['property_category_id']);
             $table->dropForeign(['city_id']);
             $table->dropForeign(['district_id']);
+            $table->dropForeign(['province_id']);
+            $table->dropForeign(['agent_id']);
         });
     }
 };

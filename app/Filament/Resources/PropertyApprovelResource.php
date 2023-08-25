@@ -34,6 +34,10 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use App\Models\User;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\SelectColumn;
+use Filament\Tables\Columns\TextColumn;
 
 class PropertyApprovelResource extends Resource
 {
@@ -267,13 +271,30 @@ class PropertyApprovelResource extends Resource
     {
         return $table
             ->columns([
-                //
+                ImageColumn::make('agent.name')->circular(),
+                Split::make([
+                    Stack::make([
+                        TextColumn::make('en_title')->searchable()
+                        ->label('Property name'),
+                        TextColumn::make('property_code')
+                            ->prefix('R2H')
+                            ->icon('heroicon-m-identification'),
+                    ]),
+                    SelectColumn::make('status')
+                    ->options([
+                        'Draft' => 'Draft',
+                        'Reviewing' => 'Reviewing',
+                        'Published' => 'Published',
+                    ])
+                ])
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
