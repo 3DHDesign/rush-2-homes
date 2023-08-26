@@ -4,7 +4,6 @@ namespace App\Filament\Resources\RoleResource\Pages;
 
 use App\Filament\Resources\RoleResource;
 use Filament\Actions;
-use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 
 class EditRole extends EditRecord
@@ -16,13 +15,5 @@ class EditRole extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
-    }
-    protected function getSavedNotification(): ?Notification
-    {
-        return Notification::make()
-            ->success()
-            ->title('Role updated')
-            ->body('The role has been saved successfully.')
-            ->sendToDatabase(auth()->user());
     }
 }

@@ -283,6 +283,7 @@ class PropertyApprovelResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->poll('30s')
             ->columns([
                 ImageColumn::make('propertyAgents.avatar')->circular()->label('Property agent'),
                 TextColumn::make('en_title')->searchable()->limit(20)->wrap()->label('Title'),

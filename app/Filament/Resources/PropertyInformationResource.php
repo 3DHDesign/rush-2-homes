@@ -51,6 +51,8 @@ class PropertyInformationResource extends Resource
     protected static ?string $navigationGroup = 'Property assets';
     protected static ?int $navigationSort = 4;
 
+    protected static ?string $pollingInterval = '30s';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -85,7 +87,7 @@ class PropertyInformationResource extends Resource
                                             ->rules(['max:255'])
                                             ->required()
                                             ->placeholder('Property english name')
-                                            ->live()
+                                            
                                             ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
                                                 if (!$get('is_slug_changed_manually') && filled($state)) {
                                                     $slug = Str::slug($state);
@@ -99,7 +101,8 @@ class PropertyInformationResource extends Resource
 
                                                     $set('slug', $slug);
                                                 }
-                                            }),
+                                            })
+                                            ,
 
                                         TextInput::make('si_title')
                                             ->label('Sinhala title')
@@ -272,6 +275,7 @@ class PropertyInformationResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->poll('30s')
             ->columns([
                 ImageColumn::make('agent.avatar')->circular()->label('Property agent'),
                 TextColumn::make('en_title')->searchable()->limit(20)->wrap()->label('Title'),
