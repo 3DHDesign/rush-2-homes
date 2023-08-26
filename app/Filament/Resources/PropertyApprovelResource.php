@@ -51,6 +51,16 @@ class PropertyApprovelResource extends Resource
     protected static ?string $navigationGroup = 'Property assets';
     protected static ?int $navigationSort = 7;
 
+    public static function getNavigationBadge(): ?string
+    {
+        return PropertyApprovel::where('status', 'Reviewing')->count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'success';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
