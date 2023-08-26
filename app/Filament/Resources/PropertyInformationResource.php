@@ -270,7 +270,7 @@ class PropertyInformationResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('agent.avatar')->circular(),
+                ImageColumn::make('agent.avatar')->circular()->label('Property agent'),
                 TextColumn::make('en_title')->searchable()->limit(20)->wrap()->label('Title'),
                 TextColumn::make('property_code')
                     ->copyable()

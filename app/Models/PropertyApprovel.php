@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -56,9 +57,14 @@ class PropertyApprovel extends Model
         'label' => 'array',
     ];
 
-    public function propertyType()
+    public function propertyType() : BelongsTo
     {
-        return $this->belongsTo(PropertyType::class);
+        return $this->belongsTo(PropertyType::class, 'property_type_id');
+    }
+
+    public function propertyAgents() : BelongsTo
+    {
+        return $this->belongsTo(User::class, 'agent_id');
     }
 
     public function propertyCategory()

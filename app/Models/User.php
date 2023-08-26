@@ -76,4 +76,9 @@ class User extends Authenticatable implements HasAvatar
     {
         return $this->hasMany(PropertyInformation::class);
     }
+
+    public function propertyAgents() : HasMany
+    {
+        return $this->hasMany(PropertyApprovel::class);
+    }
 }
