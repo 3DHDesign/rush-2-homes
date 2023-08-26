@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PropertyInformationResource\Pages;
 use App\Filament\Resources\PropertyInformationResource;
 use App\Models\User;
 use Filament\Actions;
+use Filament\Notifications\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Notifications\Messages\BroadcastMessage;
@@ -26,7 +27,7 @@ class EditPropertyInformation extends EditRecord
             ->success()
             ->title(auth()->user()->name . ' property Updated!')
             ->body('The property has been saved successfully.')
-            ->sendToDatabase(auth()->user());
+            ->sendToDatabase(User::where('agent', '<>', 1)->get());
     }
 
 }

@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\PropertyApprovelResource\Pages;
 
 use App\Filament\Resources\PropertyApprovelResource;
+use App\Models\User;
 use Filament\Actions;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 
 class EditPropertyApprovel extends EditRecord

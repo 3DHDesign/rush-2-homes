@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PropertyInformationResource\Pages;
 
 use App\Filament\Resources\PropertyInformationResource;
+use App\Models\User;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Notifications\Notification;
@@ -15,9 +16,10 @@ class CreatePropertyInformation extends CreateRecord
     {
         return Notification::make()
             ->success()
-            ->title(auth()->user()->name . 'Property Created!')
-            ->body('The property created successfully.')
-            ->sendToDatabase(auth()->user());
+            ->icon('heroicon-o-building-storefront')
+            ->title(auth()->user()->name . ' created a new property!')
+            ->body('The property has been create successfully.')
+            ->sendToDatabase(User::where('agent', '<>', 1)->get());
     }
 }
 
