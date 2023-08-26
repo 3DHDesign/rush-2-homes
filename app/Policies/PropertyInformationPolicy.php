@@ -62,7 +62,7 @@ class PropertyInformationPolicy
      */
     public function update(User $user, PropertyInformation $model)
     {
-        if ($user->hasPermissionTo('Edit Property')) {
+        if ($user->hasPermissionTo('Edit Property') && ($model->status == 'Reviewing') || ($model->status == 'Draft')) {
             return true;
         }
         return false;
@@ -92,7 +92,7 @@ class PropertyInformationPolicy
      */
     public function deleteAny(User $user)
     {
-        if ($user->hasPermissionTo('Delete Property')) {
+        if ($user->hasPermissionTo('Delete Property') || $user->hasPermissionTo('Trusted Agent')) {
             return true;
         }
         return false;
@@ -107,7 +107,7 @@ class PropertyInformationPolicy
      */
     public function restore(User $user, PropertyInformation $model)
     {
-        if ($user->hasPermissionTo('Edit Property')) {
+        if ($user->hasPermissionTo('Edit Property') && ($model->status == 'Reviewing') || ($model->status == 'Draft')) {
             return true;
         }
         return false;
@@ -122,7 +122,7 @@ class PropertyInformationPolicy
      */
     public function forceDelete(User $user, PropertyInformation $model)
     {
-        if ($user->hasPermissionTo('Delete Property')) {
+        if ($user->hasPermissionTo('Delete Property') || $user->hasPermissionTo('Trusted Agent')) {
             return true;
         }
         return false;

@@ -176,7 +176,8 @@ class PropertyInformationResource extends Resource
                                             ->options([
                                                 'Draft' => 'Draft',
                                                 'Reviewing' => 'Reviewing',
-                                            ]),
+                                            ])
+                                            ->disableOptionWhen(fn (string $value): bool => $value === 'Published'),
                                         Select::make('property_category_id')
                                             ->options(PropertyCategory::pluck('en_name', 'id'))
                                             ->searchable()
@@ -269,24 +270,24 @@ class PropertyInformationResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('agent.name')->circular(),
-                Split::make([
-                    Stack::make([
-                        TextColumn::make('en_title')->searchable(),
-                        TextColumn::make('property_code')
-                            ->prefix('R2H')
-                            ->icon('heroicon-m-identification'),
-                    ]),
-                    TextColumn::make('status')
-                        ->badge()
-                        ->color(fn (string $state): string => match ($state) {
+                ImageColumn::make('agent.avatar')->circular(),
+                TextColumn::make('en_title')->searchable()->limit(20)->wrap()->label('Title'),
+                TextColumn::make('property_code')
+                    ->copyable()
+                    ->prefix('R2H')
+                    ->copyMessage('Property ID copied')
+                    ->icon('heroicon-m-identification'),
+                TextColumn::make('propertyType.en_name'),
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
                             'Draft' => 'gray',
                             'Reviewing' => 'warning',
                             'Published' => 'success',
                             'Rejected' => 'danger',
-                        }),
+                    }),
                 ])
-            ])
 
             ->filters([
                 //

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -57,9 +58,14 @@ class PropertyInformation extends Model
 
     protected $table = 'property_informations';
 
-    public function propertyType()
+    public function propertyType() : BelongsTo
     {
-        return $this->belongsTo(PropertyType::class);
+        return $this->belongsTo(PropertyType::class, 'property_type_id');
+    }
+
+    public function agent() : BelongsTo
+    {
+        return $this->belongsTo(User::class, 'agent_id');
     }
 
     public function propertyCategory()
