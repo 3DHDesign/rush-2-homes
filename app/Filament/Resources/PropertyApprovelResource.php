@@ -33,11 +33,14 @@ use Illuminate\Support\Str;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use App\Models\User;
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 
 class PropertyApprovelResource extends Resource
 {
@@ -290,7 +293,29 @@ class PropertyApprovelResource extends Resource
                     }),
                 ])
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->searchable()
+                        ->options([
+                            'Draft' => 'Draft',
+                            'Reviewing' => 'Reviewing',
+                            'Published' => 'Published',
+                    ]),
+                Filter::make('created_at')
+                    ->form([
+                        DatePicker::make('created_from'),
+                        DatePicker::make('created_until'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
