@@ -12,14 +12,16 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 use Filament\Models\Contracts\FilamentUser;
+use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements HasAvatar
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -62,10 +64,6 @@ class User extends Authenticatable implements HasAvatar
     //     return $this->hasRole('Super Admin');
     // }
 
-    public function getFilamentAvatarUrl(): ?string
-    {
-        return $this->avatar_url;
-    }
 
     public function getFilamentName(): string
     {
@@ -80,5 +78,10 @@ class User extends Authenticatable implements HasAvatar
     public function propertyAgents() : HasMany
     {
         return $this->hasMany(PropertyApprovel::class);
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar_url ? Storage::url($this->avatar_url) : null ;
     }
 }
