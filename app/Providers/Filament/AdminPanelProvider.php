@@ -19,17 +19,12 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use Awcodes\LightSwitch\Enums\Alignment;
-use Filament\Forms\Components\FileUpload;
-use Jeffgreco13\FilamentBreezy\BreezyCore;
-use Illuminate\Validation\Rules\Password;
-use App\Livewire\MyCustomComponent;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            // ->authGuard('customers')
             ->plugins([
                 LightSwitchPlugin::make()
                 ->position(Alignment::BottomCenter)
@@ -39,21 +34,6 @@ class AdminPanelProvider extends PanelProvider
                     'auth.password',
                     'auth.profile',
                 ]),
-                BreezyCore::make()
-                ->myProfileComponents([MyCustomComponent::class])
-                ->myProfile(
-                    shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
-                    shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
-                    hasAvatars: false, // Enables the avatar upload form component (default = false)
-                    slug: 'my-profile' // Sets the slug for the profile page (default = 'my-profile')
-                )
-                ->passwordUpdateRules(
-                    rules: [Password::default()->mixedCase()->uncompromised(3)], // you may pass an array of validation rules as well. (default = ['min:8'])
-                    requiresCurrentPassword: true, // when false, the user can update their password without entering their current password. (default = true)
-                )
-                ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
-                // OR, replace with your own component
-                ->avatarUploadComponent(fn() => FileUpload::make('myUpload')->disk('profile-photos')),
             ])
             ->default()
             ->id('admin')
