@@ -17,12 +17,24 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Awcodes\LightSwitch\LightSwitchPlugin;
+use Awcodes\LightSwitch\Enums\Alignment;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->plugins([
+                LightSwitchPlugin::make()
+                ->position(Alignment::BottomCenter)
+                ->enabledOn([
+                    'auth.email',
+                    'auth.login',
+                    'auth.password',
+                    'auth.profile',
+                ]),
+            ])
             ->default()
             ->id('admin')
             ->path('admin')
