@@ -1,0 +1,154 @@
+        <section class="banner-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="banner-content" data-aos="fade-down">
+                            <h1>Find Your Best Dream House for <span>Rental, Buy & Sell...</span></h1>
+                            <p>Properties for buy / rent in in your location. We have more than 3000+ listings for you
+                                to choose</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="banner-search" data-aos="fade-down">
+                            <div class="banner-tab">
+                                <ul class="nav nav-tabs" id="bannerTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" id="buy-property" data-bs-toggle="tab"
+                                            href="#buy_property" role="tab" aria-controls="buy_property"
+                                            aria-selected="true">
+                                            <img src="assets/img/icons/buy-icon.svg" alt="icon"> Buy a Property
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="rent-property" data-bs-toggle="tab"
+                                            href="#rent_property" role="tab" aria-controls="rent_property"
+                                            aria-selected="false">
+                                            <img src="assets/img/icons/rent-icon.svg" alt="icon"> Rent a Property
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="sell-property" data-bs-toggle="tab"
+                                            href="#sell_property" role="tab" aria-controls="sell_property"
+                                            aria-selected="false">
+                                            <img src="assets/img/icons/rent-icon.svg" alt="icon"> Sell a Property
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content" id="bannerTabContent">
+                                <div class="tab-pane fade show active" id="buy_property" role="tabpanel"
+                                    aria-labelledby="buy-property">
+                                    <div class="banner-tab-property">
+                                        <form action="#">
+                                            <div class="banner-property-info">
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter Keyword">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <select class="select">
+                                                        <option value="0">Select Property Type</option>
+                                                        <option value="1">House</option>
+                                                        <option value="2">Apartment</option>
+                                                    </select>
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="email" class="form-control"
+                                                        placeholder="Enter Address">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Min Price">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Max Price">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <a href="#" class="btn-primary"><span><i
+                                                                class="feather-search"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="rent_property" role="tabpanel"
+                                    aria-labelledby="rent-property">
+                                    <div class="banner-tab-property">
+                                        <form action="#">
+                                            <div class="banner-property-info">
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter Keyword">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <select class="select">
+                                                        <option value="0">Select Property Type</option>
+                                                        <option value="1">House</option>
+                                                        <option value="2">Apartment</option>
+                                                    </select>
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="email" class="form-control"
+                                                        placeholder="Enter Address">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Min Price">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Max Price">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <a href="#" class="btn-primary"><span><i
+                                                                class="feather-search"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="sell_property" role="tabpanel"
+                                    aria-labelledby="sell-property">
+                                    <div class="banner-tab-property">
+                                        <form action="#">
+                                            <div class="banner-property-info">
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter Keyword">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <select class="select">
+                                                        <option value="0">Select Property Type</option>
+                                                        <option value="1">House</option>
+                                                        <option value="2">Apartment</option>
+                                                    </select>
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="email" class="form-control"
+                                                        placeholder="Enter Address">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Min Price">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Max Price">
+                                                </div>
+                                                <div class="banner-property-grid">
+                                                    <a href="#" class="btn-primary"><span><i
+                                                                class="feather-search"></i></span></a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

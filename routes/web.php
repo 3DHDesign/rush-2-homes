@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('components.layouts.master');
 });
 
 Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
