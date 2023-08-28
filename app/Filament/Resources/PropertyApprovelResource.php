@@ -53,7 +53,7 @@ class PropertyApprovelResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return PropertyApprovel::where('status', 'Reviewing')->count();
+        return PropertyApprovel::where('status', 'Reviewing')->count() == 0 ? '' : PropertyApprovel::where('status', 'Reviewing')->count();
     }
 
     public static function getNavigationBadgeColor(): ?string
@@ -297,19 +297,19 @@ class PropertyApprovelResource extends Resource
                     ->label('Status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                            'Draft' => 'gray',
-                            'Reviewing' => 'warning',
-                            'Published' => 'success',
-                            'Rejected' => 'danger',
+                        'Draft' => 'gray',
+                        'Reviewing' => 'warning',
+                        'Published' => 'success',
+                        'Rejected' => 'danger',
                     }),
-                ])
+            ])
             ->filters([
                 SelectFilter::make('status')
                     ->searchable()
-                        ->options([
-                            'Draft' => 'Draft',
-                            'Reviewing' => 'Reviewing',
-                            'Published' => 'Published',
+                    ->options([
+                        'Draft' => 'Draft',
+                        'Reviewing' => 'Reviewing',
+                        'Published' => 'Published',
                     ]),
                 Filter::make('created_at')
                     ->form([

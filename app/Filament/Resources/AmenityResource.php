@@ -82,10 +82,10 @@ class AmenityResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('icon')->circular(),
-                TextColumn::make('en_name')->searchable(),
-                TextColumn::make('si_name'),
-                TextColumn::make('ta_name'),
+                ImageColumn::make('icon')->circular()->label('Amenity Icon'),
+                TextColumn::make('en_name')->searchable()->label('English name'),
+                TextColumn::make('si_name')->label('Sinhala name'),
+                TextColumn::make('ta_name')->label('Tamil name'),
             ])
             ->filters([
                 //
