@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+
+
+Route::get('/link', function () {
+    Artisan::call('storage:link');
+});
+
+Route::get('/cls', function () {
+    Artisan::call('optimize:clear');
+});
