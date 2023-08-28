@@ -18,7 +18,10 @@ class AmenityPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('View Amenities')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class AmenityPolicy
      */
     public function view(User $user, Amenity $model)
     {
-        return true;
+        if ($user->hasPermissionTo('View Amenities')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -41,7 +47,10 @@ class AmenityPolicy
      */
     public function create(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Create Amenities')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -53,7 +62,10 @@ class AmenityPolicy
      */
     public function update(User $user, Amenity $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Edit Amenities')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -65,7 +77,10 @@ class AmenityPolicy
      */
     public function delete(User $user, Amenity $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Amenities')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -77,7 +92,10 @@ class AmenityPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Amenities')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -89,6 +107,9 @@ class AmenityPolicy
      */
     public function restore(User $user, Amenity $model)
     {
+        if ($user->hasPermissionTo('Edit Amenities')) {
+            return true;
+        }
         return false;
     }
 
@@ -101,6 +122,9 @@ class AmenityPolicy
      */
     public function forceDelete(User $user, Amenity $model)
     {
+        if ($user->hasPermissionTo('Delete Amenities')) {
+            return true;
+        }
         return false;
     }
 }
