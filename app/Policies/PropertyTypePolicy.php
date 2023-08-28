@@ -18,7 +18,10 @@ class PropertyTypePolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('View Property Type')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class PropertyTypePolicy
      */
     public function view(User $user, PropertyType $model)
     {
-        return true;
+        if ($user->hasPermissionTo('View Property Type')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -41,7 +47,10 @@ class PropertyTypePolicy
      */
     public function create(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Create Property Type')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -53,7 +62,10 @@ class PropertyTypePolicy
      */
     public function update(User $user, PropertyType $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Edit Property Type')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -65,7 +77,10 @@ class PropertyTypePolicy
      */
     public function delete(User $user, PropertyType $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Property Type')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -77,7 +92,10 @@ class PropertyTypePolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Property Type')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -89,6 +107,9 @@ class PropertyTypePolicy
      */
     public function restore(User $user, PropertyType $model)
     {
+        if ($user->hasPermissionTo('Edit Property Type')) {
+            return true;
+        }
         return false;
     }
 
@@ -101,6 +122,9 @@ class PropertyTypePolicy
      */
     public function forceDelete(User $user, PropertyType $model)
     {
+        if ($user->hasPermissionTo('Delete Property Type')) {
+            return true;
+        }
         return false;
     }
 }

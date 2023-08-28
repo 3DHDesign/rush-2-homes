@@ -18,7 +18,10 @@ class PropertyCategoryPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('View Property Category')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class PropertyCategoryPolicy
      */
     public function view(User $user, PropertyCategory $model)
     {
-        return true;
+        if ($user->hasPermissionTo('View Property Category')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -41,7 +47,10 @@ class PropertyCategoryPolicy
      */
     public function create(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Create Property Category')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -53,7 +62,10 @@ class PropertyCategoryPolicy
      */
     public function update(User $user, PropertyCategory $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Edit Property Category')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -65,7 +77,10 @@ class PropertyCategoryPolicy
      */
     public function delete(User $user, PropertyCategory $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Property Category')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -77,7 +92,10 @@ class PropertyCategoryPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Property Category')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -89,6 +107,9 @@ class PropertyCategoryPolicy
      */
     public function restore(User $user, PropertyCategory $model)
     {
+        if ($user->hasPermissionTo('Edit Property Category')) {
+            return true;
+        }
         return false;
     }
 
@@ -101,6 +122,9 @@ class PropertyCategoryPolicy
      */
     public function forceDelete(User $user, PropertyCategory $model)
     {
+        if ($user->hasPermissionTo('Delete Property Category')) {
+            return true;
+        }
         return false;
     }
 }
