@@ -18,7 +18,10 @@ class CityPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('View City')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class CityPolicy
      */
     public function view(User $user, City $model)
     {
-        return true;
+        if ($user->hasPermissionTo('View City')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -41,7 +47,10 @@ class CityPolicy
      */
     public function create(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Create City')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -53,7 +62,10 @@ class CityPolicy
      */
     public function update(User $user, City $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Edit City')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -65,7 +77,10 @@ class CityPolicy
      */
     public function delete(User $user, City $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete City')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -77,7 +92,10 @@ class CityPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete City')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -89,6 +107,9 @@ class CityPolicy
      */
     public function restore(User $user, City $model)
     {
+        if ($user->hasPermissionTo('Edit City')) {
+            return true;
+        }
         return false;
     }
 
@@ -101,6 +122,9 @@ class CityPolicy
      */
     public function forceDelete(User $user, City $model)
     {
+        if ($user->hasPermissionTo('Delete City')) {
+            return true;
+        }
         return false;
     }
 }
