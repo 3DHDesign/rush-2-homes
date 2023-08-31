@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/', function () {
-    return view('components.layouts.master');
-});
-
+Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
 
 
