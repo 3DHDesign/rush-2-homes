@@ -16,14 +16,11 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 
-Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware('setlocale')->group(function () {
+Route::prefix('{locale?}')->where(['locale' => '[a-zA-Z]{2}'])->middleware('setlocale')->group(function () {
     Route::get('/', [SiteController::class, 'home'])->name('home');
     Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
 });
 
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
 
 Route::get('/link', function () {
     Artisan::call('storage:link');

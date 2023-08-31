@@ -27,7 +27,7 @@
                     <a href="index.html">Home</a>
                 </li>
                 <li class="">
-                    <a href="index.html">Rent</a>
+                    <a href="index.html">{{ __('homepage.header.sell') }}</a>
                 </li>
                 <li class="">
                     <a href="index.html">Buy</a>
