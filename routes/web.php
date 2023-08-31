@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/', [SiteController::class, 'home'])->name('home');
-Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
 
+Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->group(function () {
+    Route::get('/', [SiteController::class, 'home'])->name('home');
+    Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+});
 
 Route::get('/link', function () {
     Artisan::call('storage:link');
