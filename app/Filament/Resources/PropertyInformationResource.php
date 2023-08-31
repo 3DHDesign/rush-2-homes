@@ -238,6 +238,14 @@ class PropertyInformationResource extends Resource
                                                     ->label('Total price')
                                                     ->required()
                                                     ->placeholder('Enter total price'),
+                                                Select::make('price_type')
+                                                    ->options([
+                                                        'lkr' => 'Rs',
+                                                        'usd' => 'USD',
+                                                        'uae' => 'UAE'
+                                                    ])
+                                                    ->required()
+                                                    ->searchable(),
                                             ]),
                                         FileUpload::make('document')
                                             ->label('Add a property documents')

@@ -538,6 +538,7 @@
 
 
 
+        @include('frontend.components.footer')
 
         <div class="search-popup js-search-popup ">
             <a href="javascript:void(0);" class="close-button" id="search-close" aria-label="Close search">
@@ -567,7 +568,6 @@
         </div>
 
     </div>
-
 
     <div class="progress-wrap active-progress">
         <svg class="progress-circle svg-content" viewBox="-1 -1 102 102">
