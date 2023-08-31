@@ -113,6 +113,29 @@ class PropertyInformationResource extends Resource
                                             ->rules(['max:255', 'string'])
                                             ->nullable()
                                             ->placeholder('Property tamil name'),
+                                        Fieldset::make('Property additional details')
+                                            ->schema([
+                                                TextInput::make('sqft')
+                                                    ->label('Total sqft')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total sqft'),
+                                                TextInput::make('bedrooms')
+                                                    ->label('Bedrooms')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total bedrooms'),
+                                                TextInput::make('bathrooms')
+                                                    ->label('Bathrooms')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total bathrooms'),
+                                                TextInput::make('garages')
+                                                    ->label('Garages')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total garages'),
+                                                TextInput::make('floors')
+                                                    ->label('Floors')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total floors'),
+                                            ]),
                                         Textarea::make('en_description')
                                             ->label('English description')
                                             ->rows(5)
