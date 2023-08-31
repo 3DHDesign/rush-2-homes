@@ -115,10 +115,15 @@ class PropertyInformationResource extends Resource
                                             ->placeholder('Property tamil name'),
                                         Fieldset::make('Property additional details')
                                             ->schema([
-                                                TextInput::make('sqft')
-                                                    ->label('Total sqft')
+                                                TextInput::make('land_size')
+                                                    ->label('Land Size')
                                                     ->rules(['numeric'])
-                                                    ->placeholder('Enter total sqft'),
+                                                    ->placeholder('Enter land size'),
+
+                                                Select::make('size_type')
+                                                    ->default('perches')
+                                                    ->options(['perches' => 'Perches', 'acres'=> 'Acres'])
+                                                    ->searchable(),
                                                 TextInput::make('bedrooms')
                                                     ->label('Bedrooms')
                                                     ->rules(['numeric'])
@@ -199,6 +204,7 @@ class PropertyInformationResource extends Resource
                                             ->label('Select Agent')
                                             ->options(User::where('agent', 1)->pluck('name', 'id')),
                                         Select::make('status')
+                                            ->default('Reviewing')
                                             ->searchable()
                                             ->options([
                                                 'Draft' => 'Draft',
@@ -231,22 +237,29 @@ class PropertyInformationResource extends Resource
                                         Fieldset::make('Property price')
                                             ->schema([
                                                 Select::make('currency')
+                                                ->placeholder('Currency')
+                                                    ->default('lkr')
                                                     ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
                                                     ->required()
                                                     ->searchable(),
                                                 TextInput::make('price')
-                                                    ->label('Total price')
+                                                    ->label('Price')
+                                                    ->rules(['numeric'])
                                                     ->required()
                                                     ->placeholder('Enter total price'),
                                                 Select::make('price_type')
+                                                ->placeholder('Price type')
+                                                    ->default('perPerch')
                                                     ->options([
-                                                        'lkr' => 'Rs',
-                                                        'usd' => 'USD',
-                                                        'uae' => 'UAE'
+                                                        'totalPrice' => 'total price',
+                                                        'perPerch' => 'per perch',
+                                                        'perAcre' => 'per acre',
+                                                        'perMonth' => 'per month',
+                                                        'perAnnum' => 'per annum',
                                                     ])
                                                     ->required()
                                                     ->searchable(),
-                                            ]),
+                                            ])->columns(3),
                                         FileUpload::make('document')
                                             ->label('Add a property documents')
                                             ->directory('properties/documents')
