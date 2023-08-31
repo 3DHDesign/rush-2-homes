@@ -241,7 +241,6 @@ class PropertyInformationResource extends Resource
                                             ->searchable()
                                             ->multiple()
                                             ->label('Select Amenities')
-                                            ->required()
                                             ->preload(),
 
                                     ]),
