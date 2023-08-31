@@ -23,7 +23,6 @@ class PropertyInformation extends Model
         'currency',
         'price',
         'slug',
-        'sqft',
         'bedrooms',
         'bathrooms',
         'garages',
@@ -46,7 +45,10 @@ class PropertyInformation extends Model
         'status',
         'province_id',
         'agent_id',
-        'property_code'
+        'property_code',
+        'land_size',
+        'size_type',
+        'price_type',
     ];
 
     protected $casts = [
