@@ -47,9 +47,15 @@
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
-            <li class="login-link"><a href="#">English</a></li>|&nbsp;
-            <li class="login-link"><a href="#">Sinhala</a></li>|&nbsp;
-            <li class="login-link"><a href="#">Tamil</a></li>
+            <li class="login-link"><a
+                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => 'en']) }}">English</a>
+            </li>|&nbsp;
+            <li class="login-link"><a
+                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => 'si']) }}">Sinhala</a>
+            </li>|&nbsp;
+            <li class="login-link"><a
+                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => 'ta']) }}">Tamil</a>
+            </li>
             <li class="new-property-btn">
                 <a href="#">
                     <i class="bx bxs-plus-circle"></i> Add New Property
