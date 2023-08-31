@@ -87,7 +87,7 @@ class PropertyInformationResource extends Resource
                                             ->rules(['max:255'])
                                             ->required()
                                             ->placeholder('Property english name')
-                                            
+
                                             ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
                                                 if (!$get('is_slug_changed_manually') && filled($state)) {
                                                     $slug = Str::slug($state);
@@ -101,8 +101,7 @@ class PropertyInformationResource extends Resource
 
                                                     $set('slug', $slug);
                                                 }
-                                            })
-                                            ,
+                                            }),
 
                                         TextInput::make('si_title')
                                             ->label('Sinhala title')
@@ -138,8 +137,7 @@ class PropertyInformationResource extends Resource
                                                     ->searchable(),
                                                 TextInput::make('zip_code')
                                                     ->label('Enter zip code')
-                                                    ->rules(['max:5'])
-                                                    ->required(),
+                                                    ->rules(['max:6']),
                                                 Select::make('district_id')
                                                     ->label('Select district')
                                                     ->options(District::pluck('name_en', 'id'))
@@ -290,22 +288,22 @@ class PropertyInformationResource extends Resource
                     ->label('Status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                            'Draft' => 'gray',
-                            'Reviewing' => 'warning',
-                            'Published' => 'success',
-                            'Rejected' => 'danger',
+                        'Draft' => 'gray',
+                        'Reviewing' => 'warning',
+                        'Published' => 'success',
+                        'Rejected' => 'danger',
                     }),
-                ])
+            ])
 
             ->filters([
                 SelectFilter::make('status')
                     ->searchable()
-                        ->options([
-                            'Draft' => 'Draft',
-                            'Reviewing' => 'Reviewing',
-                            'Published' => 'Published',
+                    ->options([
+                        'Draft' => 'Draft',
+                        'Reviewing' => 'Reviewing',
+                        'Published' => 'Published',
                     ]),
-                    Filter::make('created_at')
+                Filter::make('created_at')
                     ->form([
                         DatePicker::make('created_from'),
                         DatePicker::make('created_until'),
