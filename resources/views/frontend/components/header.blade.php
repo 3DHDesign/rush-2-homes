@@ -47,11 +47,15 @@
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
+            <li class="login-link"><a href="#">English</a></li>|&nbsp;
+            <li class="login-link"><a href="#">Sinhala</a></li>|&nbsp;
+            <li class="login-link"><a href="#">Tamil</a></li>
             <li class="new-property-btn">
                 <a href="#">
                     <i class="bx bxs-plus-circle"></i> Add New Property
                 </a>
             </li>
+
             <!-- <li>
                 <a href="#" class="btn btn-primary"><i class="feather-user-plus"></i>Sign Up</a>
             </li>
