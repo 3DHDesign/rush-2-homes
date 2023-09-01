@@ -47,7 +47,10 @@ class PropertyApprovel extends Model
         'status',
         'province_id',
         'agent_id',
-        'property_code'
+        'property_code',
+        'land_size',
+        'size_type',
+        'price_type',
     ];
 
     protected $casts = [
@@ -57,12 +60,12 @@ class PropertyApprovel extends Model
         'label' => 'array',
     ];
 
-    public function propertyType() : BelongsTo
+    public function propertyType(): BelongsTo
     {
         return $this->belongsTo(PropertyType::class, 'property_type_id');
     }
 
-    public function propertyAgents() : BelongsTo
+    public function propertyAgents(): BelongsTo
     {
         return $this->belongsTo(User::class, 'agent_id');
     }
