@@ -121,6 +121,34 @@ class PropertyApprovelResource extends Resource
                                             ->rules(['max:255', 'string'])
                                             ->nullable()
                                             ->placeholder('Property tamil name'),
+                                        Fieldset::make('Property additional details')
+                                            ->schema([
+                                                TextInput::make('land_size')
+                                                    ->label('Land Size')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter land size'),
+
+                                                Select::make('size_type')
+                                                    ->default('perches')
+                                                    ->options(['perches' => 'Perches', 'acres' => 'Acres'])
+                                                    ->searchable(),
+                                                TextInput::make('bedrooms')
+                                                    ->label('Bedrooms')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total bedrooms'),
+                                                TextInput::make('bathrooms')
+                                                    ->label('Bathrooms')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total bathrooms'),
+                                                TextInput::make('garages')
+                                                    ->label('Garages')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total garages'),
+                                                TextInput::make('floors')
+                                                    ->label('Floors')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total floors'),
+                                            ]),
                                         Textarea::make('en_description')
                                             ->label('English description')
                                             ->rows(5)
@@ -145,8 +173,7 @@ class PropertyApprovelResource extends Resource
                                                     ->searchable(),
                                                 TextInput::make('zip_code')
                                                     ->label('Enter zip code')
-                                                    ->rules(['max:5'])
-                                                    ->required(),
+                                                    ->rules(['max:5']),
                                                 Select::make('district_id')
                                                     ->label('Select district')
                                                     ->options(District::pluck('name_en', 'id'))
@@ -218,14 +245,29 @@ class PropertyApprovelResource extends Resource
                                         Fieldset::make('Property price')
                                             ->schema([
                                                 Select::make('currency')
+                                                    ->placeholder('Currency')
+                                                    ->default('lkr')
                                                     ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
                                                     ->required()
                                                     ->searchable(),
                                                 TextInput::make('price')
-                                                    ->label('Total price')
+                                                    ->label('Price')
+                                                    ->rules(['numeric'])
                                                     ->required()
                                                     ->placeholder('Enter total price'),
-                                            ]),
+                                                Select::make('price_type')
+                                                    ->placeholder('Price type')
+                                                    ->default('perPerch')
+                                                    ->options([
+                                                        'totalPrice' => 'total price',
+                                                        'perPerch' => 'per perch',
+                                                        'perAcre' => 'per acre',
+                                                        'perMonth' => 'per month',
+                                                        'perAnnum' => 'per annum',
+                                                    ])
+                                                    ->required()
+                                                    ->searchable(),
+                                            ])->columns(3),
                                         FileUpload::make('document')
                                             ->label('Add a property documents')
                                             ->directory('properties/documents')

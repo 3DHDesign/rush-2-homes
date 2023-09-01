@@ -122,7 +122,7 @@ class PropertyInformationResource extends Resource
 
                                                 Select::make('size_type')
                                                     ->default('perches')
-                                                    ->options(['perches' => 'Perches', 'acres'=> 'Acres'])
+                                                    ->options(['perches' => 'Perches', 'acres' => 'Acres'])
                                                     ->searchable(),
                                                 TextInput::make('bedrooms')
                                                     ->label('Bedrooms')
@@ -237,7 +237,7 @@ class PropertyInformationResource extends Resource
                                         Fieldset::make('Property price')
                                             ->schema([
                                                 Select::make('currency')
-                                                ->placeholder('Currency')
+                                                    ->placeholder('Currency')
                                                     ->default('lkr')
                                                     ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
                                                     ->required()
@@ -248,7 +248,7 @@ class PropertyInformationResource extends Resource
                                                     ->required()
                                                     ->placeholder('Enter total price'),
                                                 Select::make('price_type')
-                                                ->placeholder('Price type')
+                                                    ->placeholder('Price type')
                                                     ->default('perPerch')
                                                     ->options([
                                                         'totalPrice' => 'total price',
