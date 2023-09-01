@@ -20,7 +20,7 @@
                                     <div class="doc-img">
                                         <a href="rent-details.html" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="assets/img/product/product-6.jpg">
+                                                src="{{ asset('storage/' . $property->gallery[0]) }}">
                                         </a>
                                         <div class="product-amount">
                                             <h5><span>{{ $property->price }}</span> / {{ $property->price_type }}</h5>
