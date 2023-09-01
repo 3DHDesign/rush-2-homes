@@ -27,10 +27,13 @@ class SiteController extends Controller
             'size_type',
             'bedrooms',
             'gallery',
+            'property_category_id',
             'label'
-        )->take(6)->get();
+        )->with('propertyCategory')->take(6)->get();
 
-        return view('frontend.pages.home', compact('featureProperties'));
+        $local = app()->getLocale();
+
+        return view('frontend.pages.home', compact('featureProperties', 'local'));
     }
 
     public function register()

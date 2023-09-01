@@ -16,6 +16,7 @@ class PropertyApprovel extends Model
     protected $table = 'property_informations';
 
     protected $fillable = [
+        'id',
         'property_type_id',
         'en_title',
         'si_title',
@@ -70,7 +71,7 @@ class PropertyApprovel extends Model
         return $this->belongsTo(User::class, 'agent_id');
     }
 
-    public function propertyCategory()
+    public function propertyCategory(): BelongsTo
     {
         return $this->belongsTo(PropertyCategory::class);
     }
