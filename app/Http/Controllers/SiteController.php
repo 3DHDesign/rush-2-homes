@@ -18,7 +18,7 @@ class SiteController extends Controller
 
     public function home()
     {
-        $featureProperties = PropertyInformation::where('status', 1)->orWhere('label', 'featured')->select(
+        $featureProperties = PropertyInformation::where('label', 'Featured')->select(
             $this->current_locale . '_title as title',
             $this->current_locale . '_address as address',
             'price',
@@ -26,7 +26,7 @@ class SiteController extends Controller
             'land_size',
             'size_type',
             'bedrooms',
-        )->get();
+        )->take(6)->get();
 
         return view('frontend.pages.home', compact('featureProperties'));
     }
