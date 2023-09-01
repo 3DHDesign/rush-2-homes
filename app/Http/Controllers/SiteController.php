@@ -14,17 +14,16 @@ class SiteController extends Controller
     public function __construct()
     {
         $this->current_locale = app()->getLocale();
-        // dd($this->current_locale);
     }
 
     public function home()
     {
-        // $featureProperties = PropertyInformation::where('status', 1)->orWhere('label', 'featured')->select(
-        //     $this->current_locale . '_title as title',
-        //     $this->current_locale . '_address as address',
-        // )->get();
+        $featureProperties = PropertyInformation::where('status', 1)->orWhere('label', 'featured')->select(
+            $this->current_locale . '_title as title',
+            $this->current_locale . '_address as address',
+        )->get();
 
-        return view('frontend.pages.home');
+        return view('frontend.pages.home', compact('featureProperties'));
     }
 
     public function register()
