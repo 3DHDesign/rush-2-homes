@@ -26,7 +26,8 @@ class SiteController extends Controller
             'land_size',
             'size_type',
             'bedrooms',
-            'gallery'
+            'gallery',
+            'label'
         )->take(6)->get();
 
         return view('frontend.pages.home', compact('featureProperties'));

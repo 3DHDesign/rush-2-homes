@@ -25,12 +25,9 @@
                                         <div class="product-amount">
                                             <h5><span>{{ $property->price }}</span> / {{ $property->price_type }}</h5>
                                         </div>
-                                        @php
-                                            $labels = json_decode($property->label, true);
-                                        @endphp
-                                        @foreach ($labels as $label)
+                                        @foreach ($property->label as $lable_item)
                                             <div class="featured">
-                                                <span>@dump($label)</span>
+                                                <span>@dump($lable_item)</span>
                                             </div>
                                         @endforeach
                                     </div>
