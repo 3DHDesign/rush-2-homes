@@ -21,6 +21,11 @@ class SiteController extends Controller
         $featureProperties = PropertyInformation::where('status', 1)->orWhere('label', 'featured')->select(
             $this->current_locale . '_title as title',
             $this->current_locale . '_address as address',
+            'price',
+            'price_type',
+            'land_size',
+            'size_type',
+            'bedrooms',
         )->get();
 
         return view('frontend.pages.home', compact('featureProperties'));
