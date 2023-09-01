@@ -9,13 +9,13 @@
                     <span></span>
                 </span>
             </a>
-            <a href="index.html" class="navbar-brand logo">
+            <a href="#" class="navbar-brand logo">
                 <img src="assets/img/logo.png" class="img-fluid" style="height: 5vh;" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
             <div class="menu-header">
-                <a href="index.html" class="menu-logo">
+                <a href="#" class="menu-logo">
                     <img src="assets/img/logo.png" style="height: 5vh;" class="img-fluid" alt="Logo">
                 </a>
                 <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -24,19 +24,19 @@
             </div>
             <ul class="main-nav">
                 <li class="active">
-                    <a href="index.html">Home</a>
+                    <a href="#">{{ __('homepage.header.home') }}</a>
                 </li>
                 <li class="">
-                    <a href="index.html">Rent</a>
+                    <a href="#">{{ __('homepage.header.sell') }}</a>
                 </li>
                 <li class="">
-                    <a href="index.html">Buy</a>
+                    <a href="#">{{ __('homepage.header.rent') }}</a>
                 </li>
                 <li class="">
-                    <a href="index.html">Sell</a>
+                    <a href="#">{{ __('homepage.header.land') }}</a>
                 </li>
 
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">{{ __('homepage.header.contact_us') }}</a></li>
                 <li class="searchbar">
                     <a href="javascript:void(0);">
                         <img src="assets/img/icons/search-icon.svg" alt="img">
@@ -47,11 +47,21 @@
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
+            <li class="login-link"><a
+                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => 'en']) }}">English</a>
+            </li>|&nbsp;
+            <li class="login-link"><a
+                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => 'si']) }}">Sinhala</a>
+            </li>|&nbsp;
+            <li class="login-link"><a
+                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => 'ta']) }}">Tamil</a>
+            </li>
             <li class="new-property-btn">
                 <a href="#">
-                    <i class="bx bxs-plus-circle"></i> Add New Property
+                    <i class="bx bxs-plus-circle"></i> {{ __('homepage.header.add_new_property') }}
                 </a>
             </li>
+
             <!-- <li>
                 <a href="#" class="btn btn-primary"><i class="feather-user-plus"></i>Sign Up</a>
             </li>

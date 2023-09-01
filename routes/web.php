@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/', function () {
-    return view('components.layouts.master');
-});
 
-Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+Route::prefix('{locale?}')->where(['locale' => '[a-zA-Z]{2}'])->middleware('setlocale')->group(function () {
+    Route::get('/', [SiteController::class, 'home'])->name('home');
+    Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+});
 
 
 Route::get('/link', function () {
