@@ -49,7 +49,7 @@
                                         <p>Sort By</p>
                                     </div>
                                     <div class="review-form">
-                                        <select class="select">
+                                        <select class="select-dropdown">
                                             <option value="0">Default</option>
                                             <option value="1">A-Z</option>
                                         </select>
@@ -60,7 +60,7 @@
                                         <p>Price Range</p>
                                     </div>
                                     <div class="review-form">
-                                        <select class="select">
+                                        <select class="select-dropdown">
                                             <option>Low to High</option>
                                             <option>High to Low</option>
                                         </select>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="grid-list-view">
                                     <ul>
-                                        <li><a href="buy-property-grid-sidebar.html"><i class="bx bx-grid"></i></a>
+                                        <li><a href="#"><i class="bx bx-grid"></i></a>
                                         </li>
                                         <li><a href="#" class="active"><i class="bx bx-list-ul"></i></a></li>
                                         <li><a href="buy-list-map.html"><i class="bx bxs-map"></i></a></li>
@@ -97,7 +97,7 @@
                                             </span>
                                         </li>
                                         <li class="review-form">
-                                            <select class="select">
+                                            <select class="select-dropdown">
                                                 <option>Select Location</option>
                                                 <option>Chicago</option>
                                                 <option>Newyork</option>
@@ -111,7 +111,7 @@
                                             </select>
                                         </li>
                                         <li class="review-form">
-                                            <select class="select">
+                                            <select class="select-dropdown">
                                                 <option>No of Bathrooms</option>
                                                 <option>3</option>
                                                 <option>2</option>
