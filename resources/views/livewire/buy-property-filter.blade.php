@@ -1,10 +1,10 @@
-<form action="{{ route('sales.property.listing') }}">
+<form wire:submit.prevent="searchFilter">
     <div class="banner-property-info">
         <div class="banner-property-grid">
             <input type="text" class="form-control" placeholder="Enter Keyword" wire:model="keyword">
         </div>
         <div class="banner-property-grid">
-            <select class="select-dropdown" wire:model="propertyCategory">
+            <select class="select-dropdown" wire:model="propertyCategorySet">
                 <option selected>Select Property Category</option>
                 @foreach ($propertyCategory as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>

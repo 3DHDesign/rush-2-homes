@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 
 class BuyPropertyFilter extends Component
@@ -44,6 +45,21 @@ class BuyPropertyFilter extends Component
             'id',
             'name_' . $this->current_locale . ' as name',
         )->get();
+    }
+
+    public function searchFilter()
+    {
+        $queryParams = [
+            'propertyType' => 'sell',
+            'keyword' => $this->keyword,
+            'propertyCategory' => $this->propertyCategorySet,
+            'getDistrict' => $this->getDistrict,
+            'city' => $this->city,
+            'minPrice' => $this->minPrice,
+            'maxPrice' => $this->maxPrice,
+        ];
+
+        return Redirect::route('sales.property.listing', $queryParams);
     }
 
     public function render()

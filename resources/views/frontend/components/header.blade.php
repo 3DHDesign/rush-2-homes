@@ -9,8 +9,8 @@
                     <span></span>
                 </span>
             </a>
-            <a href="#" class="navbar-brand logo">
-                <img src="assets/img/logo.png" class="img-fluid" style="height: 5vh;" alt="Logo">
+            <a href="{{ route('home') }}" class="navbar-brand logo">
+                <img src="{{ asset('assets/img/logo.png') }}" class="img-fluid" style="height: 5vh;" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
@@ -24,7 +24,7 @@
             </div>
             <ul class="main-nav">
                 <li class="active">
-                    <a href="#">{{ __('homepage.header.home') }}</a>
+                    <a href="{{ route('home') }}">{{ __('homepage.header.home') }}</a>
                 </li>
                 <li class="">
                     <a href="#">{{ __('homepage.header.sell') }}</a>
