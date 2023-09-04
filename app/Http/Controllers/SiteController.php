@@ -13,7 +13,7 @@ class SiteController extends Controller
 
     public function __construct()
     {
-        $this->current_locale = app()->getLocale();
+        $this->current_locale = App::currentLocale();
     }
 
     public function home()
