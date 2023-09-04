@@ -5657,9 +5657,11 @@ label span {
 .product-custom .new-featured {
     position: absolute;
     top: 20px;
-    left: 105px;
+    right: 20px;
     z-index: 1
 }
+
+
 
 .product-custom .new-featured span {
     font-weight: 500;
