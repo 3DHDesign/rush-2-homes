@@ -24,25 +24,24 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    @livewireStyles
 </head>
 
 <body>
 
-    <div class="page-loader">
+    {{-- <div class="page-loader">
         <div class="page-loader-inner">
             <img src="assets/img/logo-loader.png" alt="Loader">
             <label><i class="fa-solid fa-circle"></i></label>
             <label><i class="fa-solid fa-circle"></i></label>
             <label><i class="fa-solid fa-circle"></i></label>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="main-wrapper">
 
         @include('frontend.components.header')
-
-        @include('frontend.components.slider')
 
         @yield('content')
 
@@ -100,6 +99,7 @@
 <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/script.js') }}"></script>
+@livewireScripts
 </body>
 
 </html>

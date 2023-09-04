@@ -1,5 +1,6 @@
 @extends('components.layouts.master')
 @section('content')
+    @include('frontend.components.slider')
     <section class="feature-property-sec">
         <div class="container">
             <div class="section-heading text-center">
@@ -70,7 +71,8 @@
                                     </div>
                                     <div class="pro-content">
                                         <h3 class="title">
-                                            <a href="#">{{ $property->title }}</a>
+                                            <a href="#"
+                                                title="{{ $property->title }}">{{ Str::limit($property->title, 60, '...') }}</a>
                                         </h3>
                                         <p><i class="feather-map-pin"></i> {{ $property->address }}
                                         </p>

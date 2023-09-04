@@ -4015,6 +4015,14 @@ label span {
     width: 30%
 }
 
+.banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) {
+    width: 25%
+}
+
+.banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(4) {
+    width: 20%
+}
+
 @media(max-width:991.98px) {
     .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(2) {
         width: 100%

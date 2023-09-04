@@ -28,6 +28,7 @@ class SiteController extends Controller
             'bedrooms',
             'gallery',
             'property_category_id',
+            'bathrooms',
             'label'
         )->with('propertyCategory')->take(6)->get();
 
@@ -39,5 +40,11 @@ class SiteController extends Controller
     public function register()
     {
         return view('components.layouts.register');
+    }
+
+    public function propertyList()
+    {
+        // dd('hi');
+        return view('frontend.pages.propertyListing');
     }
 }
