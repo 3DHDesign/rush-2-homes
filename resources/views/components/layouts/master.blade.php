@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     @livewireStyles
+    @stack('style')
 </head>
 
 <body>
@@ -99,6 +100,7 @@
 <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/script.js') }}"></script>
+@stack('script')
 @livewireScripts
 </body>
 

@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
 use Illuminate\Support\Facades\Redirect;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class BuyPropertyFilter extends Component
