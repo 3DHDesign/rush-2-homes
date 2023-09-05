@@ -11,23 +11,33 @@
                     <div id="advance-search" class="card-collapse collapse show">
                         <ul class="show-list">
                             <li class="review-form form-wrap">
-                                <input type="text" wire:model.live="keyword" class="form-control"
+                                <input type="text" wire:model="keyword" class="form-control"
                                     placeholder="Type Keywords" value="{{ $keyword }}">
                                 <span class="form-icon">
                                     <i class="bx bx-search-alt"></i>
                                 </span>
                             </li>
                             <li class="review-form">
+                                <label for="select-district">Select district:</label>
                                 <select class="select-dropdown" wire:model.live="getDistrict">
-                                    <option selected>{{ $district }}</option>
+                                    @if ($district)
+                                        <option selected>{{ $district }}</option>
+                                    @else
+                                        <option selected>Select a district</option>
+                                    @endif
                                     @foreach ($districts as $district)
-                                        <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                        <option value="{{ $district->name }}">{{ $district->name }}</option>
                                     @endforeach
                                 </select>
                             </li>
                             <li class="review-form">
-                                <select class="select-dropdown" wire:model="city">
-                                    <option selected>{{ $city }}</option>
+                                <label for="select-district">Select city:</label>
+                                <select class="select-dropdown" wire:model="getCity">
+                                    @if ($getCity)
+                                        <option selected>{{ $getCity }}</option>
+                                    @else
+                                        <option selected>Select a city</option>
+                                    @endif
                                     @foreach ($cities as $city_item)
                                         <option value="{{ $city_item->name }}">{{ $city_item->name }}</option>
                                     @endforeach
@@ -272,29 +282,7 @@
 
 
             {{-- Pagination --}}
-            <div class="grid-pagination">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item prev">
-                        <a class="page-link" href="#"><i class="fa-solid fa-arrow-left"></i>
-                            Prev</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item next">
-                        <a class="page-link" href="#">Next <i class="fa-solid fa-arrow-right"></i></a>
-                    </li>
-                </ul>
-            </div>
+            {{ $properties->links() }}
 
         </div>
     </div>

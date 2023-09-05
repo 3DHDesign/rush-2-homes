@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
+use App\Models\PropertyType;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -67,7 +68,7 @@ class BuyPropertyFilter extends Component
         $this->cityName = City::where('id', $this->city)->select('name_' . $this->current_locale . ' as name')->first();
 
         $queryParams = [
-            'propertyType' => 'sell',
+            'propertyType' => 'For Sales',
             'keyword' => $this->keyword,
             'propertyCategory' => $this->propertyCategoryName->name ?? null,
             'district' => $this->getDistrictName->name ?? null,

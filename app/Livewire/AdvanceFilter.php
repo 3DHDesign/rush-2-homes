@@ -7,48 +7,48 @@ use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdvanceFilter extends Component
 {
     public $current_locale;
-    public $properties;
-
+    // public $properties;
 
     #[Url]
-    public $keyword;
+    public $keyword; // string value
 
-    #[Rule('string')]
     public $propertyCategory;
 
-    #[Url]
-    public $propertyType;
+    #[Url(as: 'propertyType')] 
+    public $propertyType = '';
+    public $propertyTypeId; 
 
-    #[Rule('string')]
-    public $district;
+    public $district; // district array
+    
+    #[Url(as: 'district')]    
+    public $getDistrict; //id value
+    public $getDistrictId; //string value
 
-    #[Url]
-    public $getDistrict;
+    public $cities = []; // array array
 
-    public $cities = [];
-
-    #[Url]
-    public $city;
+    #[Url(as: 'city')]  
+    public $getCity; //id value
+    public $getCityId; //string value
 
     #[Rule('integer')]
-    #[Url]
     public $minPrice;
 
     #[Rule('integer')]
-    #[Url]
     public $maxPrice;
 
     public $local;
 
-
+    use WithPagination;
 
 
     public function __construct()
@@ -57,25 +57,47 @@ class AdvanceFilter extends Component
     }
 
 
+    public function updatedGetDistrict($value)
+    {
+        $this->getDistrictId = District::where('name_'.$this->current_locale, $value)->select('id')->first();
+
+        $this->cities = City::where('district_id', $this->getDistrictId->id)->select(
+            'id',
+            'name_' . $this->current_locale . ' as name',
+        )->get();
+    }
 
     public function mount(Request $request)
     {
 
-        $this->keyword = $request->keyword ?? '';
-        $this->propertyCategory = $request->propertyCategory ?? '';
-        $this->district = $request->district ?? '';
-        $this->city = $request->city ?? '';
-        $this->minPrice = $request->minPrice ?? '';
-        $this->maxPrice = $request->maxPrice ?? '';
-        $this->propertyType = $request->propertyType ?? '';
+        // $this->keyword = $request->keyword ?? '';
+        // $this->propertyCategory = $request->propertyCategory ?? '';
+        // $this->district = $request->district ?? '';
+        // $this->city = $request->city ?? '';
+        // $this->minPrice = $request->minPrice ?? '';
+        // $this->maxPrice = $request->maxPrice ?? '';
+        // $this->propertyType = $request->propertyType ?? '';
 
-        $this->properties = PropertyInformation::where('property_type_id', 1)->where('status', 'Published')->with('propertyCategory')->get();
+        $this->propertyTypeId = PropertyType::where('en_name', $this->propertyType)->select('id')->first();
         $this->local = $this->current_locale;
     }
 
     public function filterProperties()
     {
-        $query = PropertyInformation::where('property_type_id', 1)->where('status', 'Published')->with('propertyCategory');
+
+        // Set cities array
+        if($this->getDistrict){
+            $this->cities = City::where('district_id', $this->getDistrict)->select(
+                'id',
+                'name_' . $this->current_locale . ' as name',
+            )->get();
+        }
+
+        $this->getDistrictId = District::where('name_'.$this->current_locale, $this->getDistrict)->select('id')->first();
+        $this->getCityId = City::where('name_'.$this->current_locale, $this->getCity)->select('id')->first();
+        
+
+        $query = PropertyInformation::where('property_type_id', $this->propertyType->id ?? 1)->with('propertyCategory');
 
         if ($this->keyword) {
             $query->where(function ($q) {
@@ -84,33 +106,23 @@ class AdvanceFilter extends Component
             });
         }
 
-        if ($this->getDistrict) {
-            $query->where('district_id', $this->getDistrict);
-            if ($this->city) {
-                $query->where('city_id', $this->city);
+        if ($this->getDistrictId->id) {
+            $query->where('district_id', $this->getDistrictId->id);
+            if ($this->getCityId->id) {
+                $query->where('city_id', $this->getCityId->id);
             }
         }
 
         if ($this->propertyCategory) {
             $query->where('property_category_id', $this->propertyCategory);
         }
-        $this->properties = $query->get();
+        $properties = $query->get();
     }
 
     public function updated()
     {
         // $this->filterProperties();
     }
-
-    public function updatedGetDistrict($value)
-    {
-        $this->cities[] = null;
-        $this->cities = City::where('district_id', $value)->select(
-            'id',
-            'name_' . $this->current_locale . ' as name',
-        )->get();
-    }
-
 
     public function render()
     {
@@ -123,8 +135,7 @@ class AdvanceFilter extends Component
                 'id',
                 'name_' . $this->current_locale . ' as name',
             )->get(),
-            'properties' => $this->properties,
-            'cities' => $this->cities,
+            'properties' => PropertyInformation::where('property_type_id', $this->propertyTypeId->id ?? 1)->with('propertyCategory')->paginate(2),
         ]);
     }
 }

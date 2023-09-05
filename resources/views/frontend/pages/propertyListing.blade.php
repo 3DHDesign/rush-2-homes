@@ -48,7 +48,7 @@
             <div class="container">
 
                 {{-- Advance filter component --}}
-                <livewire:advanceFilter />
+                <livewire:advance-filter />
             </div>
         </section>
     </div>
