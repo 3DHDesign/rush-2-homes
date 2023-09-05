@@ -19,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
         DatabaseNotifications::trigger('filament-notifications.database-notifications-trigger');
     }
 }

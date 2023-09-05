@@ -84,6 +84,8 @@ return [
     |
     */
 
+    // 'locale' => ,
+
     'available_locales' => [
         'en',
         'de',

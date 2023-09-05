@@ -33,6 +33,18 @@ class BuyPropertyFilter extends Component
 
     public $search;
 
+
+    // Quary Values
+
+    #[Rule('string')]
+    public $propertyCategoryName;
+
+    #[Rule('string')]
+    public $getDistrictName;
+
+    #[Rule('string')]
+    public $cityName;
+
     public function __construct()
     {
         $this->current_locale = app()->getLocale();
@@ -49,12 +61,16 @@ class BuyPropertyFilter extends Component
 
     public function searchFilter()
     {
+        $this->propertyCategoryName = PropertyCategory::where('id', $this->propertyCategorySet)->select($this->current_locale . '_name as name')->first();
+        $this->getDistrictName = District::where('id', $this->getDistrict)->select('name_' . $this->current_locale . ' as name')->first();
+        $this->cityName = City::where('id', $this->city)->select('name_' . $this->current_locale . ' as name')->first();
+
         $queryParams = [
             'propertyType' => 'sell',
             'keyword' => $this->keyword,
-            'propertyCategory' => $this->propertyCategorySet,
-            'getDistrict' => $this->getDistrict,
-            'city' => $this->city,
+            'propertyCategory' => $this->propertyCategoryName->name,
+            'district' => $this->getDistrictName->name,
+            'city' => $this->cityName->name,
             'minPrice' => $this->minPrice,
             'maxPrice' => $this->maxPrice,
         ];
