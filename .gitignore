@@ -18,3 +18,6 @@ yarn-error.log
 /.idea
 /.vscode
 rush-2-homes.zip
+*.sql
+*.zip
+*.zip

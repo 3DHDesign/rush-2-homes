@@ -69,9 +69,9 @@ class BuyPropertyFilter extends Component
         $queryParams = [
             'propertyType' => 'sell',
             'keyword' => $this->keyword,
-            'propertyCategory' => $this->propertyCategoryName->name,
-            'district' => $this->getDistrictName->name,
-            'city' => $this->cityName->name,
+            'propertyCategory' => $this->propertyCategoryName->name ?? null,
+            'district' => $this->getDistrictName->name ?? null,
+            'city' => $this->cityName->name ?? null,
             'minPrice' => $this->minPrice,
             'maxPrice' => $this->maxPrice,
         ];
