@@ -16,6 +16,10 @@
             flex-direction: row;
             gap: 10px;
         }
+
+        .small-price-type {
+            font-size: 16px !important;
+        }
     </style>
 @endpush
 @section('content')
