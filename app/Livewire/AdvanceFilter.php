@@ -123,7 +123,7 @@ class AdvanceFilter extends Component
 
     public function updated()
     {
-        // $this->filterProperties();
+        $this->filterProperties();
     }
 
     public function render()
