@@ -11,7 +11,7 @@
                     <div id="advance-search" class="card-collapse collapse show">
                         <ul class="show-list">
                             <li class="review-form form-wrap">
-                                <input type="text" wire:model="keyword" class="form-control"
+                                <input type="text" wire:model.live="keyword" class="form-control"
                                     placeholder="Type Keywords" value="{{ $keyword }}">
                                 <span class="form-icon">
                                     <i class="bx bx-search-alt"></i>
@@ -32,7 +32,7 @@
                             </li>
                             <li class="review-form">
                                 <label for="select-district">Select city:</label>
-                                <select class="select-dropdown" wire:model="getCity">
+                                <select class="select-dropdown" wire:model.live="getCity">
                                     @if ($getCity)
                                         <option selected>{{ $getCity }}</option>
                                     @else
@@ -45,9 +45,9 @@
                             </li>
                             <li class="review-form">
                                 <div class="input-row">
-                                    <input type="text" wire:model="minPrice" class="form-control"
+                                    <input type="text" wire:model.live="minPrice" class="form-control"
                                         placeholder="Min price">
-                                    <input type="text" wire:model="maxPrice" class="form-control"
+                                    <input type="text" wire:model.live="maxPrice" class="form-control"
                                         placeholder="Max price">
                                 </div>
                             </li>
