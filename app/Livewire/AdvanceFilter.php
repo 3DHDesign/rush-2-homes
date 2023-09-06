@@ -118,6 +118,15 @@ class AdvanceFilter extends Component
         if ($this->propertyCategory) {
             $query->where('property_category_id', $this->propertyCategory);
         }
+
+        if ($this->minPrice) {
+            $query->where('price', '>=', $this->minPrice);
+        }
+    
+        if ($this->maxPrice) {
+            $query->where('price', '<=', $this->maxPrice);
+        }
+        
         $this->properties = $query->get();
     }
 
