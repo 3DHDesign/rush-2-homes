@@ -17,26 +17,26 @@ use Livewire\WithPagination;
 class AdvanceFilter extends Component
 {
     public $current_locale;
-    // public $properties;
+    public $properties;
 
     #[Url]
     public $keyword; // string value
 
     public $propertyCategory;
 
-    #[Url(as: 'propertyType')] 
+    #[Url(as: 'propertyType')]
     public $propertyType = '';
-    public $propertyTypeId; 
+    public $propertyTypeId;
 
     public $district; // district array
-    
-    #[Url(as: 'district')]    
+
+    #[Url(as: 'district')]
     public $getDistrict; //id value
     public $getDistrictId; //string value
 
     public $cities = []; // array array
 
-    #[Url(as: 'city')]  
+    #[Url(as: 'city')]
     public $getCity; //id value
     public $getCityId; //string value
 
@@ -59,7 +59,7 @@ class AdvanceFilter extends Component
 
     public function updatedGetDistrict($value)
     {
-        $this->getDistrictId = District::where('name_'.$this->current_locale, $value)->select('id')->first();
+        $this->getDistrictId = District::where('name_' . $this->current_locale, $value)->select('id')->first();
 
         $this->cities = City::where('district_id', $this->getDistrictId->id)->select(
             'id',
@@ -79,6 +79,8 @@ class AdvanceFilter extends Component
         // $this->propertyType = $request->propertyType ?? '';
 
         $this->propertyTypeId = PropertyType::where('en_name', $this->propertyType)->select('id')->first();
+
+        $this->properties = PropertyInformation::where('property_type_id', $this->propertyTypeId->id ?? 1)->where('status', 'Published')->with('propertyCategory')->get();
         $this->local = $this->current_locale;
     }
 
@@ -86,18 +88,18 @@ class AdvanceFilter extends Component
     {
 
         // Set cities array
-        if($this->getDistrict){
+        if ($this->getDistrict) {
             $this->cities = City::where('district_id', $this->getDistrict)->select(
                 'id',
                 'name_' . $this->current_locale . ' as name',
             )->get();
         }
 
-        $this->getDistrictId = District::where('name_'.$this->current_locale, $this->getDistrict)->select('id')->first();
-        $this->getCityId = City::where('name_'.$this->current_locale, $this->getCity)->select('id')->first();
-        
+        $this->getDistrictId = District::where('name_' . $this->current_locale, $this->getDistrict)->select('id')->first();
+        $this->getCityId = City::where('name_' . $this->current_locale, $this->getCity)->select('id')->first();
 
-        $query = PropertyInformation::where('property_type_id', $this->propertyType->id ?? 1)->with('propertyCategory');
+
+        $query = PropertyInformation::where('property_type_id', $this->propertyTypeId->id ?? 1)->where('status', 'Published')->with('propertyCategory');
 
         if ($this->keyword) {
             $query->where(function ($q) {
@@ -116,7 +118,7 @@ class AdvanceFilter extends Component
         if ($this->propertyCategory) {
             $query->where('property_category_id', $this->propertyCategory);
         }
-        $properties = $query->get();
+        $this->properties = $query->get();
     }
 
     public function updated()
@@ -135,7 +137,7 @@ class AdvanceFilter extends Component
                 'id',
                 'name_' . $this->current_locale . ' as name',
             )->get(),
-            'properties' => PropertyInformation::where('property_type_id', $this->propertyTypeId->id ?? 1)->with('propertyCategory')->paginate(2),
+            'properties' => $this->properties,
         ]);
     }
 }

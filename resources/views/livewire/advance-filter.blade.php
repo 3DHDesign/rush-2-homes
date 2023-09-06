@@ -282,7 +282,7 @@
 
 
             {{-- Pagination --}}
-            {{ $properties->links() }}
+            {{-- {{ $properties->links() }} --}}
 
         </div>
     </div>
