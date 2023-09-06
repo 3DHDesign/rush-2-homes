@@ -75,9 +75,9 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name_en')->searchable(),
-                TextColumn::make('name_si')->searchable(),
-                TextColumn::make('name_ta')->searchable(),
+                TextColumn::make('name_en')->searchable()->label('English name'),
+                TextColumn::make('name_si')->label('Sinhala name'),
+                TextColumn::make('name_ta')->label('Tamil name'),
             ])
             ->filters([
                 //

@@ -6,6 +6,7 @@ use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -15,6 +16,7 @@ class PropertyInformation extends Model
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     protected $fillable = [
+        'id',
         'property_type_id',
         'en_title',
         'si_title',
@@ -23,7 +25,6 @@ class PropertyInformation extends Model
         'currency',
         'price',
         'slug',
-        'sqft',
         'bedrooms',
         'bathrooms',
         'garages',
@@ -46,7 +47,10 @@ class PropertyInformation extends Model
         'status',
         'province_id',
         'agent_id',
-        'property_code'
+        'property_code',
+        'land_size',
+        'size_type',
+        'price_type',
     ];
 
     protected $casts = [
@@ -58,19 +62,24 @@ class PropertyInformation extends Model
 
     protected $table = 'property_informations';
 
-    public function propertyType() : BelongsTo
+    public function propertyType(): BelongsTo
     {
         return $this->belongsTo(PropertyType::class, 'property_type_id');
     }
 
-    public function agent() : BelongsTo
+    public function labels(): HasMany
+    {
+        return $this->hasMany(Label::class, 'id', 'label');
+    }
+
+    public function agent(): BelongsTo
     {
         return $this->belongsTo(User::class, 'agent_id');
     }
 
-    public function propertyCategory()
+    public function propertyCategory(): BelongsTo
     {
-        return $this->belongsTo(PropertyCategory::class);
+        return $this->belongsTo(PropertyCategory::class, 'property_category_id');
     }
 
     public function city()

@@ -87,7 +87,7 @@ class PropertyInformationResource extends Resource
                                             ->rules(['max:255'])
                                             ->required()
                                             ->placeholder('Property english name')
-                                            
+
                                             ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
                                                 if (!$get('is_slug_changed_manually') && filled($state)) {
                                                     $slug = Str::slug($state);
@@ -101,8 +101,7 @@ class PropertyInformationResource extends Resource
 
                                                     $set('slug', $slug);
                                                 }
-                                            })
-                                            ,
+                                            }),
 
                                         TextInput::make('si_title')
                                             ->label('Sinhala title')
@@ -114,6 +113,34 @@ class PropertyInformationResource extends Resource
                                             ->rules(['max:255', 'string'])
                                             ->nullable()
                                             ->placeholder('Property tamil name'),
+                                        Fieldset::make('Property additional details')
+                                            ->schema([
+                                                TextInput::make('land_size')
+                                                    ->label('Land Size')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter land size'),
+
+                                                Select::make('size_type')
+                                                    ->default('perches')
+                                                    ->options(['perches' => 'Perches', 'acres' => 'Acres'])
+                                                    ->searchable(),
+                                                TextInput::make('bedrooms')
+                                                    ->label('Bedrooms')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total bedrooms'),
+                                                TextInput::make('bathrooms')
+                                                    ->label('Bathrooms')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total bathrooms'),
+                                                TextInput::make('garages')
+                                                    ->label('Garages')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total garages'),
+                                                TextInput::make('floors')
+                                                    ->label('Floors')
+                                                    ->rules(['numeric'])
+                                                    ->placeholder('Enter total floors'),
+                                            ]),
                                         Textarea::make('en_description')
                                             ->label('English description')
                                             ->rows(5)
@@ -138,8 +165,7 @@ class PropertyInformationResource extends Resource
                                                     ->searchable(),
                                                 TextInput::make('zip_code')
                                                     ->label('Enter zip code')
-                                                    ->rules(['max:5'])
-                                                    ->required(),
+                                                    ->rules(['max:6']),
                                                 Select::make('district_id')
                                                     ->label('Select district')
                                                     ->options(District::pluck('name_en', 'id'))
@@ -178,6 +204,7 @@ class PropertyInformationResource extends Resource
                                             ->label('Select Agent')
                                             ->options(User::where('agent', 1)->pluck('name', 'id')),
                                         Select::make('status')
+                                            ->default('Reviewing')
                                             ->searchable()
                                             ->options([
                                                 'Draft' => 'Draft',
@@ -210,14 +237,29 @@ class PropertyInformationResource extends Resource
                                         Fieldset::make('Property price')
                                             ->schema([
                                                 Select::make('currency')
+                                                    ->placeholder('Currency')
+                                                    ->default('lkr')
                                                     ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
                                                     ->required()
                                                     ->searchable(),
                                                 TextInput::make('price')
-                                                    ->label('Total price')
+                                                    ->label('Price')
+                                                    ->rules(['numeric'])
                                                     ->required()
                                                     ->placeholder('Enter total price'),
-                                            ]),
+                                                Select::make('price_type')
+                                                    ->placeholder('Price type')
+                                                    ->default('perPerch')
+                                                    ->options([
+                                                        'totalPrice' => 'total price',
+                                                        'perPerch' => 'per perch',
+                                                        'perAcre' => 'per acre',
+                                                        'perMonth' => 'per month',
+                                                        'perAnnum' => 'per annum',
+                                                    ])
+                                                    ->required()
+                                                    ->searchable(),
+                                            ])->columns(3),
                                         FileUpload::make('document')
                                             ->label('Add a property documents')
                                             ->directory('properties/documents')
@@ -243,7 +285,6 @@ class PropertyInformationResource extends Resource
                                             ->searchable()
                                             ->multiple()
                                             ->label('Select Amenities')
-                                            ->required()
                                             ->preload(),
 
                                     ]),
@@ -290,22 +331,22 @@ class PropertyInformationResource extends Resource
                     ->label('Status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                            'Draft' => 'gray',
-                            'Reviewing' => 'warning',
-                            'Published' => 'success',
-                            'Rejected' => 'danger',
+                        'Draft' => 'gray',
+                        'Reviewing' => 'warning',
+                        'Published' => 'success',
+                        'Rejected' => 'danger',
                     }),
-                ])
+            ])
 
             ->filters([
                 SelectFilter::make('status')
                     ->searchable()
-                        ->options([
-                            'Draft' => 'Draft',
-                            'Reviewing' => 'Reviewing',
-                            'Published' => 'Published',
+                    ->options([
+                        'Draft' => 'Draft',
+                        'Reviewing' => 'Reviewing',
+                        'Published' => 'Published',
                     ]),
-                    Filter::make('created_at')
+                Filter::make('created_at')
                     ->form([
                         DatePicker::make('created_from'),
                         DatePicker::make('created_until'),

@@ -92,11 +92,11 @@ class LabelResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('en_name')->searchable(),
-                TextColumn::make('si_name'),
-                TextColumn::make('ta_name'),
-                ColorColumn::make('color'),
-                TextColumn::make('priority'),
+                TextColumn::make('en_name')->searchable()->label('English name'),
+                TextColumn::make('si_name')->label('Sinhala name'),
+                TextColumn::make('ta_name')->label('Tamil name'),
+                ColorColumn::make('color')->label('Label color'),
+                TextColumn::make('priority')->label('Priority'),
             ])
             ->filters([
                 //

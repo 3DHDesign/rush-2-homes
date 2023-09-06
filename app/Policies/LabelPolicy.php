@@ -18,7 +18,10 @@ class LabelPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('View Label')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class LabelPolicy
      */
     public function view(User $user, Label $model)
     {
-        return true;
+        if ($user->hasPermissionTo('View Label')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -41,7 +47,10 @@ class LabelPolicy
      */
     public function create(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Create Label')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -53,7 +62,10 @@ class LabelPolicy
      */
     public function update(User $user, Label $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Edit Label')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -65,7 +77,10 @@ class LabelPolicy
      */
     public function delete(User $user, Label $model)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Label')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -77,7 +92,10 @@ class LabelPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        if ($user->hasPermissionTo('Delete Label')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -89,6 +107,9 @@ class LabelPolicy
      */
     public function restore(User $user, Label $model)
     {
+        if ($user->hasPermissionTo('Edit Label')) {
+            return true;
+        }
         return false;
     }
 
@@ -101,6 +122,9 @@ class LabelPolicy
      */
     public function forceDelete(User $user, Label $model)
     {
+        if ($user->hasPermissionTo('Delete Label')) {
+            return true;
+        }
         return false;
     }
 }

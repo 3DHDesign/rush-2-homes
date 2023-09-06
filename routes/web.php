@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// Route::prefix('{locale?}')->where(['locale' => '[a-zA-Z]{2}'])->middleware('setlocale')->group(function () {
+    Route::get('/', [SiteController::class, 'home'])->name('home');
+    Route::get('/sales', [SiteController::class, 'propertyList'])->name('sales.property.listing');
+    Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+// });
+
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
 });
 
-Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+
+Route::get('/link', function () {
+    Artisan::call('storage:link');
+});
+
+Route::get('/cls', function () {
+    Artisan::call('optimize:clear');
+});

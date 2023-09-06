@@ -65,9 +65,9 @@ class PropertyTypeResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('en_name')->searchable(),
-                TextColumn::make('si_name')->searchable(),
-                TextColumn::make('ta_name')->searchable(),
+                TextColumn::make('en_name')->searchable()->label('English name'),
+                TextColumn::make('si_name')->label('Sinhala name'),
+                TextColumn::make('ta_name')->label('Tamil name'),
             ])
             ->filters([
                 //
