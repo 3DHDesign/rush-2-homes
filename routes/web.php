@@ -16,11 +16,9 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 
-// Route::prefix('{locale?}')->where(['locale' => '[a-zA-Z]{2}'])->middleware('setlocale')->group(function () {
-    Route::get('/', [SiteController::class, 'home'])->name('home');
-    Route::get('/sales', [SiteController::class, 'propertyList'])->name('sales.property.listing');
-    Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
-// });
+Route::get('/', [SiteController::class, 'home'])->name('home');
+Route::get('/sales', [SiteController::class, 'propertyList'])->name('sales.property.listing');
+Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);

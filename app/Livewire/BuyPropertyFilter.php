@@ -63,9 +63,9 @@ class BuyPropertyFilter extends Component
 
     public function searchFilter()
     {
-        $this->propertyCategoryName = PropertyCategory::where('id', $this->propertyCategorySet)->select($this->current_locale . '_name as name')->first();
-        $this->getDistrictName = District::where('id', $this->getDistrict)->select('name_' . $this->current_locale . ' as name')->first();
-        $this->cityName = City::where('id', $this->city)->select('name_' . $this->current_locale . ' as name')->first();
+        $this->propertyCategoryName = PropertyCategory::where('id', $this->propertyCategorySet)->select('en_name as name')->first();
+        $this->getDistrictName = District::where('id', $this->getDistrict)->select('name_en as name')->first();
+        $this->cityName = City::where('id', $this->city)->select('name_en as name')->first();
 
         $queryParams = [
             'propertyType' => 'For Sales',

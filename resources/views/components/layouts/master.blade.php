@@ -83,6 +83,7 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
         </svg>
     </div>
+    @livewireScripts
 </body>
 <script src="{{ asset('assets/js/jquery-3.6.4.min.js') }}"></script>
 
@@ -101,7 +102,6 @@
 
 <script src="{{ asset('assets/js/script.js') }}"></script>
 @stack('script')
-@livewireScripts
 </body>
 
 </html>
