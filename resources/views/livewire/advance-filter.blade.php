@@ -20,26 +20,17 @@
                             <li class="review-form">
                                 <label for="select-district">Select district:</label>
                                 <select class="select-dropdown" wire:model.live="getDistrict">
-                                    @if ($district)
-                                        <option selected>{{ $district }}</option>
-                                    @else
-                                        <option selected>Select a district</option>
-                                    @endif
                                     @foreach ($districts as $district)
-                                        <option value="{{ $district->name }}">{{ $district->name }}</option>
+                                        <option value="{{ $district->id }}">{{ $district->name }}</option>
                                     @endforeach
                                 </select>
                             </li>
                             <li class="review-form">
                                 <label for="select-district">Select city:</label>
-                                <select class="select-dropdown" wire:model.live="getCity">
-                                    @if ($getCity)
-                                        <option selected>{{ $getCity }}</option>
-                                    @else
-                                        <option selected>Select a city</option>
-                                    @endif
-                                    @foreach ($cities as $city_item)
-                                        <option value="{{ $city_item->name }}">{{ $city_item->name }}</option>
+                                <select class="select-dropdown" wire:model="getCity">
+                                    <option value="">Select City</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city->id }}">{{ $city->name }}</option>
                                     @endforeach
                                 </select>
                             </li>
