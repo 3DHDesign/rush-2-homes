@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -54,9 +56,10 @@ class SiteController extends Controller
         $minPrice = $request->input('minPrice');
         $maxPrice = $request->input('maxPrice');
 
-        $district_id = District::where('name_' . $this->current_locale, $district)->select('id')->first();
-        $city_id = City::where('name_' . $this->current_locale, $city)->select('id')->first();
-
+        $district_id = District::where('name_en', $district)->select('id')->first();
+        $city_id = City::where('name_en', $city)->select('id')->first();
+        $property_type_id = PropertyType::where('en_name', $propertyType)->select('id')->first();
+        $property_category_id = PropertyCategory::where('en_name', $propertyCategory)->select('id')->first();
 
         $query = PropertyInformation::where('status', 'Published')
             ->select([
@@ -75,9 +78,10 @@ class SiteController extends Controller
             ])
             ->with('propertyCategory');
 
-        // if ($propertyType) {
-        //     $query->where('property_type_id', $propertyType);
-        // }
+
+        if ($propertyType) {
+            $query->where('property_type_id', $property_type_id->id);
+        }
 
         if ($keyword) {
             $query->where(function ($q) use ($keyword) {
@@ -86,9 +90,9 @@ class SiteController extends Controller
             });
         }
 
-        // if ($propertyCategory) {
-        //     $query->where('property_category_id', $propertyCategory);
-        // }
+        if ($propertyCategory) {
+            $query->where('property_category_id', $property_category_id->id);
+        }
 
         if ($district) {
             $query->where('district_id', $district_id->id);
@@ -108,7 +112,7 @@ class SiteController extends Controller
 
         $properties = $query->get();
 
-        dd($query);
+        // dd($query);
 
         $local = app()->getLocale();
 

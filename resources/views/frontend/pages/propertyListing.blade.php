@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-xl-3 theiaStickySidebar">
                         <div class="left-sidebar-widget property-sidebar">
-                            {{-- <form>
+                            <form>
 
                                 <div class="collapse-card">
                                     <h4 class="card-title">
@@ -60,35 +60,33 @@
                                     <div id="advance-search" class="card-collapse collapse show">
                                         <ul class="show-list">
                                             <li class="review-form form-wrap">
-                                                <input type="text" wire:model.live="keyword" class="form-control"
-                                                    placeholder="Type Keywords" value="{{ $keyword }}">
+                                                <input type="text" class="form-control" placeholder="Type Keywords"
+                                                    value="">
                                                 <span class="form-icon">
                                                     <i class="bx bx-search-alt"></i>
                                                 </span>
                                             </li>
                                             <li class="review-form">
                                                 <label for="select-district">Select district:</label>
-                                                <select class="select-dropdown" wire:model.live="getDistrict">
-                                                    @foreach ($districts as $district)
+                                                <select class="select-dropdown">
+                                                    {{-- @foreach ($districts as $district)
                                                         <option value="{{ $district->id }}">{{ $district->name }}</option>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </select>
                                             </li>
                                             <li class="review-form">
                                                 <label for="select-district">Select city:</label>
-                                                <select class="select-dropdown" wire:model="getCity">
+                                                <select class="select-dropdown">
                                                     <option value="">Select City</option>
-                                                    @foreach ($cities as $city)
+                                                    {{-- @foreach ($cities as $city)
                                                         <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </select>
                                             </li>
                                             <li class="review-form">
                                                 <div class="input-row">
-                                                    <input type="text" wire:model.live="minPrice" class="form-control"
-                                                        placeholder="Min price">
-                                                    <input type="text" wire:model.live="maxPrice" class="form-control"
-                                                        placeholder="Max price">
+                                                    <input type="text" class="form-control" placeholder="Min price">
+                                                    <input type="text" class="form-control" placeholder="Max price">
                                                 </div>
                                             </li>
                                         </ul>
@@ -219,7 +217,7 @@
                                     <a href="javascript:void(0);" class="reset-btn">Reset Selection</a>
                                 </div>
 
-                            </form> --}}
+                            </form>
                         </div>
                     </div>
                     <div class="col-xl-9">
@@ -276,7 +274,8 @@
                                                         {{-- <span class="me-1">Sample text here</span> --}}
                                                         <div class="product-name-price">
                                                             <h3 class="title">
-                                                                <a href="#" tabindex="-1">{{ $property->title }}</a>
+                                                                <a href="#"
+                                                                    tabindex="-1">{{ $property->title }}</a>
                                                             </h3>
                                                             <div class="product-amount">
                                                                 <h5>{{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}<span>{{ $property->price }}</span>/
