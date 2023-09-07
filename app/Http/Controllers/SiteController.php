@@ -61,7 +61,7 @@ class SiteController extends Controller
         $property_type_id = PropertyType::where('en_name', $propertyType)->select('id')->first();
         $property_category_id = PropertyCategory::where('en_name', $propertyCategory)->select('id')->first();
 
-        $query = PropertyInformation::where('status', 'Published')
+        $query = PropertyInformation::where('status', 'Published')->where('property_type_id', $property_type_id->id ?? 1)
             ->select([
                 $this->current_locale . '_title as title',
                 $this->current_locale . '_address as address',
@@ -77,11 +77,6 @@ class SiteController extends Controller
                 'currency',
             ])
             ->with('propertyCategory');
-
-
-        if ($propertyType) {
-            $query->where('property_type_id', $property_type_id->id);
-        }
 
         if ($keyword) {
             $query->where(function ($q) use ($keyword) {
