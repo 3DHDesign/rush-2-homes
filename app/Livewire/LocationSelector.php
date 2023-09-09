@@ -28,10 +28,15 @@ class LocationSelector extends Component
             return $this->cities = City::where('district_id', $this->districtInput)->select(
                 'id',
                 'name_' . $this->current_locale . ' as name',
-            )->get();
-        } else {
-            return $this->cities = [];
+                )->get();
+            } else {
+            return $this->cities = City::select('id', 'name_' . $this->current_locale . ' as name')->get();
         }
+    }
+
+    public function updatedDistrictInput($value)
+    {
+        dd('hu');
     }
 
 

@@ -1,5 +1,4 @@
 <div>
-
     <div class="collapse-card">
         <h4 class="card-title">
             <a class="collapsed" data-bs-toggle="collapse" href="#advance-search" aria-expanded="false">Advanced
@@ -14,7 +13,33 @@
                         <i class="bx bx-search-alt"></i>
                     </span>
                 </li>
-                <livewire:location-selector />
+                <li class="review-form">
+                    <label for="select-district">Select district:</label>
+                    <select class="select-dropdown" wire:model.live="getDistrict">
+                        <option value="">Select District</option>
+                        @foreach ($districts as $district)
+                            <option value="{{ $district->id }}" @if ($districName == $district->name) selected @endif>
+                                {{ $district->name }}</option>
+                        @endforeach
+                    </select>
+                </li>
+                <li class="review-form">
+                    <label for="select-district">Select city:</label>
+                    <select class="select-dropdown" wire:model.live="getCity">
+                        <option value="">Select City</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city->id }}" @if ($cityName == $city->en_name) selected @endif>
+                                @if (app()->getLocale() == 'en' && !empty($city->name_en))
+                                    {{ $city->name_en }}
+                                @elseif(app()->getLocale() == 'si' && !empty($city->name_si))
+                                    {{ $city->name_si }}
+                                @elseif(app()->getLocale() == 'ta' && !empty($city->name_ta))
+                                    {{ $city->name_ta }}
+                                @endif
+                            </option>
+                        @endforeach
+                    </select>
+                </li>
                 <li class="review-form">
                     <div class="input-row">
                         <input type="text" class="form-control" placeholder="Min price">
@@ -22,6 +47,7 @@
                     </div>
                 </li>
             </ul>
+            <button type="submit" class="btn btn-primary" wire:click.prevent="submitForm">Apply Filter</button>
         </div>
     </div>
 
