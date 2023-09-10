@@ -19,7 +19,8 @@
                             <div class="product-custom">
                                 <div class="profile-widget">
                                     <div class="doc-img">
-                                        <a href="#" class="property-img">
+                                        <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
+                                            class="property-img">
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ asset('storage/' . $property->gallery[0]) }}">
                                         </a>
@@ -71,7 +72,7 @@
                                     </div>
                                     <div class="pro-content">
                                         <h3 class="title">
-                                            <a href="#"
+                                            <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
                                                 title="{{ $property->title }}">{{ Str::limit($property->title, 60, '...') }}</a>
                                         </h3>
                                         <p><i class="feather-map-pin"></i> {{ $property->address }}

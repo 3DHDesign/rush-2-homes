@@ -153,7 +153,7 @@
                                 </li>
                                 <li>
                                     <img src="{{ asset('assets/img/icons/bath-icon.svg') }}" alt="Image">
-                                    <p>{{ isset($property->bathrooms) ? $property->bathrooms . 'Baths' : '- Baths' }}</p>
+                                    <p>{{ isset($property->bathrooms) ? $property->bathrooms . ' Baths' : '- Baths' }}</p>
                                 </li>
                                 <li>
                                     <img src="{{ asset('assets/img/icons/building-icon.svg') }}" alt="Image">
@@ -161,7 +161,7 @@
                                 </li>
                                 <li>
                                     <img src="{{ asset('assets/img/icons/garage-icon.svg') }}" alt="Image">
-                                    <p>{{ isset($property->garages) ? $property->garages . 'Garages' : '- Garages' }}</p>
+                                    <p>{{ isset($property->garages) ? $property->garages . ' Garages' : '- Garages' }}</p>
                                 </li>
                                 <li>
                                     <img src="{{ asset('assets/img/icons/calender-icon.svg') }}" alt="Image">
@@ -193,12 +193,35 @@
                         </h4>
                         <div id="address" class="card-collapse collapse show">
                             <ul class="property-address  collapse-view">
-                                <li>Address : <span> Ferris Park</span></li>
-                                <li>City : <span> Jersey City </span></li>
-                                <li>State/County : <span> New Jersey State</span></li>
-                                <li>Country : <span> United States</span></li>
-                                <li>Zip : <span> 07305</span></li>
-                                <li>Area : <span> Greenville</span></li>
+                                @if ($property->address)
+                                    <li>Address : <span> {{ $property->address ?? ' N/A' }}</span></li>
+                                @endif
+                                @if ($property->city_id)
+                                    <li>City : <span>
+                                            @if ($local === 'en')
+                                                {{ $property->city->name_en ?? ' N/A ?>' }}
+                                            @elseif($local === 'si')
+                                                {{ $property->city->name_si ?? ' N/A' }}
+                                            @elseif($local === 'ta')
+                                                {{ $property->city->name_ta ?? ' N/A' }}
+                                            @endif
+                                        </span></li>
+                                @endif
+                                @if ($property->district_id)
+                                    <li>District : <span>
+                                            @if ($local === 'en')
+                                                {{ $property->district->name_en ?? ' N/A' }}
+                                            @elseif($local === 'si')
+                                                {{ $property->district->name_si ?? ' N/A' }}
+                                            @elseif($local === 'ta')
+                                                {{ $property->district->name_ta ?? ' N/A' }}
+                                            @endif
+                                        </span></li>
+                                @endif
+                                <li>Country : <span>Sri Lanka</span></li>
+                                @if ($property->zip_code)
+                                    <li>Zip code: <span> {{ $property->zip_code ?? ' N/A' }}</span></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -211,32 +234,39 @@
                                 Details</a>
                         </h4>
                         <div id="details" class="card-collapse collapse show  collapse-view">
+                            @php
+                                $currencyType = [
+                                    'lkr' => 'Rs',
+                                    'usd' => 'USD',
+                                    'uae' => 'UAE',
+                                ];
+                            @endphp
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Property Id : <span> 22972</span></li>
-                                        <li>Price : <span> $ 860,000 </span></li>
-                                        <li>Price Info: <span> $ 1,098 /sq ft</span></li>
-                                        <li>Property Size : <span> 190 ft2</span></li>
-                                        <li>Property Lot Size : <span> 1,200 ft2</span></li>
+                                        <li>Property Id : <span> {{ 'RH' . $property->property_code }}</span></li>
+                                        <li>Price : <span>
+                                                {{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}
+                                                {{ number_format($property->price, 0, ',', ' ') }} </span></li>
+                                        <li>Land Size : <span>{{ $property->land_size }}
+                                                {{ $property->size_type }}</span></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li> Rooms : <span> 10</span></li>
-                                        <li>Bedrooms : <span> 5</span></li>
-                                        <li>Bathrooms : <span> 6</span></li>
-                                        <li>Custom Id : <span> 68</span></li>
-                                        <li>Garages : <span> 2</span></li>
+                                        <li>Bedrooms : <span>
+                                                {{ $property->bedrooms ?? ' N/A' }}</span>
+                                        </li>
+                                        <li>Bathrooms : <span>{{ $property->bathrooms ?? ' N/A' }}</span></li>
+                                        <li>Garages : <span>{{ $property->garages ?? ' N/A' }}</span></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Year Built : <span> 2005</span></li>
-                                        <li>Garage Size : <span> 2 cars </span></li>
-                                        <li>Available From : <span>18-11-2023</span></li>
-                                        <li>Structure Type : <span> Brick</span></li>
-                                        <li>Floors No : <span> 3</span></li>
+                                        <li>Listed at :
+                                            <span>{{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</span>
+                                        </li>
+                                        <li>Floors No : <span>{{ $property->floors ?? ' N/A' }}</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -250,42 +280,20 @@
                                 aria-expanded="false">Amenities</a>
                         </h4>
                         <div id="amenities" class="card-collapse collapse show  collapse-view">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <ul class="amenities-list">
-                                        <li><img src="assets/img/icons/amenities-icon-1.svg" alt="Image">Air
-                                            Conditioning</li>
-                                        <li><img src="assets/img/icons/amenities-icon-2.svg" alt="Image">Swimming
-                                            Pools</li>
-                                        <li><img src="assets/img/icons/amenities-icon-3.svg" alt="Image">Sporting
-                                            Facilities</li>
-                                        <li><img src="assets/img/icons/amenities-icon-4.svg" alt="Image">Gym</li>
-                                        <li><img src="assets/img/icons/amenities-icon-5.svg" alt="Image">Clubhouse
-                                        </li>
-                                    </ul>
+                            @foreach ($list_aminities->chunk(4) as $chunk)
+                                <div class="row">
+                                    @foreach ($chunk as $amenity)
+                                        <div class="col-md-3">
+                                            <ul class="amenities-list">
+                                                <li>
+                                                    <img src="{{ asset('storage/' . $amenity->icon) }}" alt="Image">
+                                                    {{ $amenity->name }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="col-md-4">
-                                    <ul class="amenities-list">
-                                        <li><img src="assets/img/icons/amenities-icon-6.svg" alt="Image">Landscaped
-                                            Gardens</li>
-                                        <li><img src="assets/img/icons/amenities-icon-7.svg" alt="Image">Wide-Open
-                                            Spaces</li>
-                                        <li><img src="assets/img/icons/amenities-icon-8.svg" alt="Image">Parks
-                                        </li>
-                                        <li><img src="assets/img/icons/amenities-icon-9.svg" alt="Image">Package
-                                            Lockers</li>
-                                        <li><img src="assets/img/icons/amenities-icon-10.svg" alt="Image">Spa</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="amenities-list">
-                                        <li><img src="assets/img/icons/amenities-icon-11.svg" alt="Image">Surveillance
-                                            Cameras</li>
-                                        <li><img src="assets/img/icons/amenities-icon-12.svg" alt="Image">Billiards
-                                            Table</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -299,200 +307,12 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul class="amenities-list document collapse-view">
-                                        <li><img src="assets/img/icons/pdf-icon.svg" alt="Image">Ferris Park.jpg
+                                        <li><img src="{{ asset('assets/img/icons/pdf-icon.svg') }}" alt="Image">Ferris
+                                            Park.jpg
                                         </li>
-                                        <li><img src="assets/img/icons/pdf-icon.svg"
+                                        <li><img src="{{ asset('assets/img/icons/pdf-icon.svg') }}"
                                                 alt="Image">Energetic-Certificate-PDF6</li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="collapse-card">
-                        <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#video"
-                                aria-expanded="false">Video</a>
-                        </h4>
-                        <div id="video" class="card-collapse collapse show">
-                            <div class="sample-video collapse-view">
-                                <img src="assets/img/video-img.jpg" alt="Image">
-                                <a class="play-icon" data-fancybox="" href="https://www.youtube.com/embed/AWovHEZcpQU"><i
-                                        class="bx bx-play"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="collapse-card">
-                        <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#map" aria-expanded="false">Map</a>
-                        </h4>
-                        <div id="map" class="card-collapse collapse show">
-                            <div class="map collapse-view">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509170.989457427!2d-123.80081967108484!3d37.192957227641294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1669181581381!5m2!1sen!2sin"
-                                    style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade" class="contact-map"></iframe>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="collapse-card sidebar-card">
-                        <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#FloorPlan" aria-expanded="false">Floor
-                                Plan</a>
-                        </h4>
-                        <div id="FloorPlan" class="card-collapse collapse show  collapse-view">
-                            <div class="inside-collapse-card mt-0">
-                                <h5 class="card-title p-0">
-                                    <a data-bs-toggle="collapse" href="#floorplane1" aria-expanded="false">Floor Plan
-                                        1</a>
-                                </h5>
-                                <div id="floorplane1" class="card-collapse collapse show">
-                                    <ul>
-                                        <li><img src="assets/img/icons/bed-icon.svg" alt="Image">4 Beds</li>
-                                        <li><img src="assets/img/icons/bath-icon.svg" alt="Image">4 Baths</li>
-                                        <li><img src="assets/img/icons/building-icon.svg" alt="Image">35000 Sqft
-                                        </li>
-                                        <li><img src="assets/img/icons/money-icon.svg" alt="Image">$35,000</li>
-                                    </ul>
-                                    <div class="floor-map">
-                                        <img src="assets/img/floor-map.png" alt="Image">
-                                    </div>
-                                    <div class="map-info">
-                                        <p>This property is mostly wooded and sits high on a hilltop overlooking the
-                                            Mohawk River Valley. Located right in the heart
-                                            of Upstate NYs Amish farm Country, this land is certified organic making it
-                                            extremely rare! Good road frontage on a paved county road with utilities
-                                            make it an amazing setting for your dream country getaway! If you like
-                                            views, you must see this property!, </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inside-collapse-card">
-                                <h5 class="card-title p-0">
-                                    <a class="collapsed" data-bs-toggle="collapse" href="#floorplane2"
-                                        aria-expanded="false">Floor Plan 2</a>
-                                </h5>
-                                <div id="floorplane2" class="card-collapse collapse">
-                                    <ul>
-                                        <li><img src="assets/img/icons/bed-icon.svg" alt="Image">4 Beds</li>
-                                        <li><img src="assets/img/icons/bath-icon.svg" alt="Image">4 Baths</li>
-                                        <li><img src="assets/img/icons/building-icon.svg" alt="Image">35000 Sqft
-                                        </li>
-                                        <li><img src="assets/img/icons/money-icon.svg" alt="Image">$35,000</li>
-                                    </ul>
-                                    <div class="floor-map">
-                                        <img src="assets/img/floor-map.png" alt="Image">
-                                    </div>
-                                    <div class="map-info">
-                                        <p>This property is mostly wooded and sits high on a hilltop overlooking the
-                                            Mohawk River Valley. Located right in the heart
-                                            of Upstate NYs Amish farm Country, this land is certified organic making it
-                                            extremely rare! Good road frontage on a paved county road with utilities
-                                            make it an amazing setting for your dream country getaway! If you like
-                                            views, you must see this property!, </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="collapse-card sidebar-card">
-                        <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#review" aria-expanded="false">Reviews
-                                (25)</a>
-                        </h4>
-                        <div id="review" class="card-collapse collapse show  collapse-view">
-                            <div class="review-card">
-                                <div class="customer-review">
-                                    <div class="customer-info">
-                                        <div class="customer-name">
-                                            <a href="javascript:void(0);"><img src="assets/img/profiles/avatar-01.jpg"
-                                                    alt="User"></a>
-                                            <div>
-                                                <h5><a href="javascript:void(0);">Johnson</a></h5>
-                                                <p>02 Jan 2023</p>
-                                            </div>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </span>
-                                            <p class="rating-review"><span>4.0</span>(20 Reviews)</p>
-                                        </div>
-                                    </div>
-                                    <div class="review-para">
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets
-                                            containing Lorem Ipsum passages, and more recently with desktop publishing
-                                            software like Aldus PageMaker including versions of Lorem Ipsum.It was
-                                            popularised in the 1960s </p>
-                                    </div>
-                                </div>
-                                <div class="customer-review">
-                                    <div class="customer-info">
-                                        <div class="customer-name">
-                                            <a href="javascript:void(0);"><img src="assets/img/profiles/avatar-02.jpg"
-                                                    alt="User"></a>
-                                            <div>
-                                                <h5><a href="javascript:void(0);">Casandra</a></h5>
-                                                <p>01 Jan 2023</p>
-                                            </div>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
-                                        </div>
-                                    </div>
-                                    <div class="review-para">
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets
-                                            containing Lorem Ipsum passages, and more recently with desktop publishing
-                                            software like Aldus PageMaker including versions of Lorem Ipsum.It was
-                                            popularised in the 1960s with the elease of Letraset sheets containing Lorem
-                                            Ipsum passages, and more recently with desktop publishing software like
-                                            Aldus Page Maker including versions.</p>
-                                    </div>
-                                </div>
-                                <div class="property-review">
-                                    <h5 class="card-title">Property Reviews</h5>
-                                    <form action="#">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="review-form">
-                                                    <input type="text" class="form-control" placeholder="Your Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="review-form">
-                                                    <input type="email" class="form-control" placeholder="Your Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="review-form">
-                                                    <textarea rows="5" placeholder="Enter Your Comments"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="review-form submit-btn">
-                                                    <button type="submit" class="btn-primary">Submit Review</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -506,79 +326,6 @@
                     <div class="theiaStickySidebar"
                         style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                         <div class="right-sidebar">
-
-                            <div class="sidebar-card">
-                                <div class="contact-btn contact-btn-new">
-                                    <a href="buy-details.html" class="active"><i class="feather-info"></i>Request
-                                        Info</a>
-                                    <a href="buy-detail-view.html"><i class="feather-video"></i>Schedule a Visit</a>
-                                </div>
-                                <div class="user-active">
-                                    <div class="user-img">
-                                        <a href="javascript:void(0);"><img class="avatar"
-                                                src="assets/img/profiles/avatar-03.jpg" alt="Image"></a>
-                                        <span class="avatar-online"></span>
-                                    </div>
-                                    <div class="user-name">
-                                        <h4><a href="javascript:void(0);">John Collins</a></h4>
-                                        <p> Company Agent</p>
-                                    </div>
-                                </div>
-                                <div class="review-form">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                                <div class="review-form">
-                                    <input type="email" class="form-control" placeholder="Your Email">
-                                </div>
-                                <div class="review-form">
-                                    <input type="text" class="form-control" placeholder="Your Phone Number">
-                                </div>
-                                <div class="review-form">
-                                    <textarea rows="5" placeholder="Yes, I'm Interested"></textarea>
-                                </div>
-                                <div class="review-form submit-btn">
-                                    <button type="submit" class="btn-primary">Send Email</button>
-                                </div>
-                                <ul class="connect-us">
-                                    <li><a href="javascript:void(0);"><i class="feather-phone"></i>Call Us</a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-
-                            <div class="sidebar-card">
-                                <div class="sidebar-card-title">
-                                    <h5>Listing Owner Details</h5>
-                                </div>
-                                <div class="user-active bg-white p-0">
-                                    <div class="user-img">
-                                        <a href="javascript:void(0);"><img class="avatar"
-                                                src="assets/img/profiles/avatar-03.jpg" alt="Image"></a>
-                                    </div>
-                                    <div class="user-name">
-                                        <h4><a>John Collins</a></h4>
-                                        <div class="rating">
-                                            <span class="rating-count d-inline-flex">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">5.0 (20 Reviews)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="list-details">
-                                    <li>No of Listings <span>05</span></li>
-                                    <li>No of Bookings<span>225</span></li>
-                                    <li>Memeber on<span>15 Jan 2023</span></li>
-                                    <li>Verification<span>Verified</span></li>
-                                </ul>
-                            </div>
-
-
                             <div class="sidebar-card">
                                 <div class="sidebar-card-title">
                                     <h5>Share Property</h5>
@@ -601,33 +348,67 @@
                                 </div>
                             </div>
 
-
                             <div class="sidebar-card">
-                                <div class="sidebar-card-title">
-                                    <h5>Mortarage Calculator</h5>
+                                <div class="user-active">
+                                    <div class="user-img">
+                                        <a href="javascript:void(0);"><img class="avatar"
+                                                src="{{ asset('storage/' . $property->agent->avatar) }}"
+                                                alt="Image"></a>
+                                        <span class="avatar-online"></span>
+                                    </div>
+                                    <div class="user-name">
+                                        <h4><a href="javascript:void(0);">{{ $property->agent->name }}</a></h4>
+                                        <p> Rush 2 homes agent</p>
+                                    </div>
                                 </div>
                                 <div class="review-form">
-                                    <label>Total Amount ($)</label>
-                                    <input type="text" class="form-control" placeholder="150000000">
+                                    <input type="text" class="form-control" placeholder="Your Name">
                                 </div>
                                 <div class="review-form">
-                                    <label>Down Payment ($)</label>
-                                    <input type="text" class="form-control" placeholder="1000000">
+                                    <input type="email" class="form-control" placeholder="Your Email">
                                 </div>
                                 <div class="review-form">
-                                    <label>Loan Terms (Years)</label>
-                                    <input type="text" class="form-control" placeholder="2">
+                                    <input type="text" class="form-control" placeholder="Your Phone Number">
                                 </div>
                                 <div class="review-form">
-                                    <label>Interest Rate (%)</label>
-                                    <input type="text" class="form-control" placeholder="15">
+                                    <textarea rows="5" placeholder="Yes, I'm Interested"></textarea>
                                 </div>
                                 <div class="review-form submit-btn">
                                     <button type="submit" class="btn-primary">Send Email</button>
                                 </div>
-                                <div class="reset-btn">
-                                    <a href="javascript:void(0);">Reset Form</a>
+                                <ul class="connect-us">
+                                    <li><a href="tel:{{ $property->agent->number }}"><i class="feather-phone"></i>Call
+                                            Us</a></li>
+                                    <li><a href="https://wa.me/{{ $property->agent->number }}?text=I'm%20interest%20about%20the%20{{ $property->propertyCategory->en_name }}%20listing%20property%20code%20is%20RH{{ $property->property_code }}"
+                                            target="_blank"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div class="sidebar-card">
+                                <div class="sidebar-card-title">
+                                    <h5>Agent Details</h5>
                                 </div>
+                                <div class="user-active bg-white p-0">
+                                    <div class="user-img">
+                                        <a href="javascript:void(0);"><img class="avatar"
+                                                src="{{ asset('storage/' . $property->agent->avatar) }}"
+                                                alt="Image"></a>
+                                    </div>
+                                    <div class="user-name">
+                                        <h4><a>{{ $property->agent->name }}</a></h4>
+                                        <p>Rush 2 Homes property agent</p>
+                                    </div>
+                                </div>
+                                <ul class="list-details">
+                                    <li>No of Listings <span>05</span></li>
+                                    <li>Email address<span>{{ $property->agent->email }}</span></li>
+                                    <li>Memeber
+                                        on<span>{{ \Carbon\Carbon::parse($property->agent->created_at)->format('d-m-Y') }}</span>
+                                    </li>
+                                    <li>Verification<span>Verified</span></li>
+                                </ul>
                             </div>
 
 
@@ -641,7 +422,8 @@
                                         <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -659,7 +441,8 @@
                                         <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -677,7 +460,8 @@
                                         <div class="owl-item active" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -695,7 +479,8 @@
                                         <div class="owl-item" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -713,7 +498,8 @@
                                         <div class="owl-item" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -731,7 +517,8 @@
                                         <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -749,7 +536,8 @@
                                         <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
                                             <div class="slide-img-card">
                                                 <div class="slide-img">
-                                                    <img src="assets/img/sidebar-slide.jpg" alt="Image">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
                                                 </div>
                                                 <div class="property-name">
                                                     <h3>High-Rise Townhouse</h3>
@@ -1625,9 +1413,8 @@
                                 </div>
                             </div>
                             <div class="owl-nav disabled"><button type="button" role="presentation"
-                                    class="owl-prev"><span aria-label="Previous">‹</span></button><button
-                                    type="button" role="presentation" class="owl-next"><span
-                                        aria-label="Next">›</span></button>
+                                    class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button"
+                                    role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
                             </div>
                             <div class="owl-dots"><button role="button"
                                     class="owl-dot active"><span></span></button><button role="button"

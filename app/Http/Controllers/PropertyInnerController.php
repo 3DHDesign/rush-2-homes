@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\PropertyInformation;
 use Illuminate\Http\Request;
 
@@ -31,8 +32,21 @@ class PropertyInnerController extends Controller
             'bathrooms',
             'label',
             'gallery',
-            'garages'
-        )->with('propertyCategory')->first();
-        return view('frontend.pages.propertyInner', compact('property'));
+            'garages',
+            'city_id',
+            'district_id',
+            'property_code',
+            'currency',
+            'floors',
+            'aminities',
+            'agent_id',
+        )->with(['propertyCategory', 'city', 'district', 'agent'])->first();
+        $local = $this->current_locale;
+
+        // get Amenities from array
+        $list_aminities = Amenity::whereIn('id', $property->aminities)->select(
+            $this->current_locale . '_name as name',
+        )->get();
+        return view('frontend.pages.propertyInner', compact('property','local', 'list_aminities'));
     }
 }

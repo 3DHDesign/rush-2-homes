@@ -34,7 +34,8 @@ class SiteController extends Controller
             'gallery',
             'property_category_id',
             'bathrooms',
-            'label'
+            'label',
+            'slug'
         )->with('propertyCategory')->take(6)->get();
 
         $local = app()->getLocale();
@@ -76,7 +77,8 @@ class SiteController extends Controller
                 'bathrooms',
                 'label',
                 'currency',
-                'aminities'
+                'aminities',
+                'slug'
             ])
             ->with('propertyCategory');
 

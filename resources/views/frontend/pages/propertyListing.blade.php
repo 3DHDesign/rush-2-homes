@@ -60,7 +60,8 @@
                                     <div class="product-custom">
                                         <div class="profile-widget rent-list-view">
                                             <div class="doc-img">
-                                                <a href="buy-details.html" class="property-img">
+                                                <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
+                                                    class="property-img">
                                                     <img class="img-fluid" alt="Product image"
                                                         src="{{ asset('storage/' . $property->gallery[0]) }}">
                                                 </a>
@@ -105,10 +106,11 @@
                                                         {{-- <span class="me-1">Sample text here</span> --}}
                                                         <div class="product-name-price">
                                                             <h3 class="title">
-                                                                <a href="#" tabindex="-1">{{ $property->title }}</a>
+                                                                <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
+                                                                    tabindex="-1">{{ $property->title }}</a>
                                                             </h3>
                                                             <div class="product-amount">
-                                                                <h5>{{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}<span>{{ $property->price }}</span>/
+                                                                <h5>{{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}<span>{{ number_format($property->price, 0, ',', ' ') }}</span>/
                                                                     <span class="small-price-type">
                                                                         {{ $formattedPriceType = $priceTypeOptions[$property->price_type] ?? '' }}</span>
                                                                 </h5>

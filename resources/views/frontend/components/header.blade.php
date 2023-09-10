@@ -16,7 +16,7 @@
         <div class="main-menu-wrapper">
             <div class="menu-header">
                 <a href="#" class="menu-logo">
-                    <img src="assets/img/logo.png" style="height: 5vh;" class="img-fluid" alt="Logo">
+                    <img src="{{ asset('assets/img/logo.png') }}" style="height: 5vh;" class="img-fluid" alt="Logo">
                 </a>
                 <a id="menu_close" class="menu-close" href="javascript:void(0);">
                     <i class="fas fa-times"></i>
@@ -39,7 +39,7 @@
                 <li><a href="#">{{ __('homepage.header.contact_us') }}</a></li>
                 <li class="searchbar">
                     <a href="javascript:void(0);">
-                        <img src="assets/img/icons/search-icon.svg" alt="img">
+                        <img src="{{ asset('assets/img/icons/search-icon.svg') }}" alt="img">
                     </a>
                 </li>
                 <li class="login-link"><a href="#">Sign Up</a></li>
@@ -51,20 +51,13 @@
             </li>|&nbsp;
             <li class="login-link"><a href="{{ route('lang', ['locale' => 'si']) }}">Sinhala</a>
             </li>|&nbsp;
-            <li class="login-link"><a href="language/ta">Tamil</a>
+            <li class="login-link"><a href="{{ route('lang', ['locale' => 'ta']) }}">Tamil</a>
             </li>
             <li class="new-property-btn">
                 <a href="#">
                     <i class="bx bxs-plus-circle"></i> {{ __('homepage.header.add_new_property') }}
                 </a>
             </li>
-
-            <!-- <li>
-                <a href="#" class="btn btn-primary"><i class="feather-user-plus"></i>Sign Up</a>
-            </li>
-            <li>
-                <a href="#" class="btn sign-btn"><i class="feather-unlock"></i>Sign In</a>
-            </li> -->
         </ul>
     </nav>
 </header>

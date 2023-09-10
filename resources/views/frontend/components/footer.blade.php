@@ -65,11 +65,11 @@
                             <h4>Quick Links</h4>
                         </div>
                         <ul>
-                            <li><a href="about-us.html">About</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="terms-condition.html">Terms & Conditions</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Faq</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Gallery</a></li>
                         </ul>
                     </div>
                 </div>
