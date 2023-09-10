@@ -14,6 +14,16 @@
                     </span>
                 </li>
                 <li class="review-form">
+                    <label for="select-district">Select Category:</label>
+                    <select class="select-dropdown" wire:model.live="getCategory">
+                        <option value="">Select Category</option>
+                        @foreach ($categoties as $category)
+                            <option value="{{ $category->id }}" @if ($categoryName == $category->name) selected @endif>
+                                {{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </li>
+                <li class="review-form">
                     <label for="select-district">Select district:</label>
                     <select class="select-dropdown" wire:model.live="getDistrict">
                         <option value="">Select District</option>
@@ -42,12 +52,14 @@
                 </li>
                 <li class="review-form">
                     <div class="input-row">
-                        <input type="text" class="form-control" placeholder="Min price">
-                        <input type="text" class="form-control" placeholder="Max price">
+                        <input type="text" class="form-control" wire:model="getMinPrice" placeholder="Min price">
+                        <input type="text" class="form-control" wire:model="getMaxPrice" placeholder="Max price">
                     </div>
                 </li>
+                <li class="review-form">
+                    <button type="submit" class="btn btn-primary" wire:click.prevent="submitForm">Apply Filter</button>
+                </li>
             </ul>
-            <button type="submit" class="btn btn-primary" wire:click.prevent="submitForm">Apply Filter</button>
         </div>
     </div>
 

@@ -105,7 +105,7 @@ class SiteController extends Controller
             $query->where('price', '<=', $maxPrice);
         }
 
-        $properties = $query->get();
+        $properties = $query->paginate(4);
 
         // dd($query);
 

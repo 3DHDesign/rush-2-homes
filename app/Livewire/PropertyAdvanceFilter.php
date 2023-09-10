@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\PropertyCategory;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -26,6 +27,17 @@ class PropertyAdvanceFilter extends Component
 
     public $cities = [];
 
+    public $getCategory;
+
+    #[Url(as: 'propertyCategory')]
+    public $categoryName;
+
+    #[Url(as: 'minPrice')]
+    public $getMinPrice;
+
+    #[Url(as: 'maxPrice')]
+    public $getMaxPrice;
+
     public function __construct()
     {
         $this->current_locale = app()->getLocale();
@@ -44,7 +56,13 @@ class PropertyAdvanceFilter extends Component
             $this->getCity = $cityId->id;
         }
 
-        $this->cities = City::all();
+        if($this->categoryName)
+        {
+            $categoryId = PropertyCategory::where('en_name', $this->categoryName)->select('id')->first();
+            $this->getCategory = $categoryId->id;
+        }
+
+        $this->cities = City::select('id','name_en', 'name_si', 'name_ta')->get();
     }
 
     public function submitForm()
@@ -59,6 +77,18 @@ class PropertyAdvanceFilter extends Component
 
         if ($this->cityName) {
             $queryParams['city'] = $this->cityName;
+        }
+        
+        if ($this->categoryName) {
+            $queryParams['propertyCategory'] = $this->categoryName;
+        }
+
+        if ($this->getMinPrice) {
+            $queryParams['minPrice'] = $this->getMinPrice;
+        }
+
+        if ($this->getMaxPrice) {
+            $queryParams['maxPrice'] = $this->getMaxPrice;
         }
 
         return Redirect::route('sales.property.listing', $queryParams);
@@ -87,8 +117,19 @@ class PropertyAdvanceFilter extends Component
                 $this->cityName = $city->{'name_en'};
             }
         } else {
-            // Handle the case where no city is selected (optional).
             $this->cityName = null;
+        }
+    }
+
+    public function updatedGetCategory($value)
+    {
+        if($value)
+        {
+            $category = PropertyCategory::where('id', $value)->select('en_name')->first();
+            if($category)
+            {
+                $this->categoryName = $category->en_name;
+            }
         }
     }
 
@@ -96,6 +137,7 @@ class PropertyAdvanceFilter extends Component
     {
         return view('livewire.property-advance-filter', [
             'districts' => District::select('id', 'name_' . $this->current_locale . ' as name')->get(),
+            'categoties' => PropertyCategory::select('id', $this->current_locale.'_name as name')->get()
         ]);
     }
 }
