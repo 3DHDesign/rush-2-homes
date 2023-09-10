@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Amenity;
 use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
@@ -45,6 +46,7 @@ class PropertyAdvanceFilter extends Component
 
     public function mount()
     {
+
         if($this->districName){
             $districtId = District::where('name_en', $this->districName)->select('id')->first();
             $this->getDistrict = $districtId->id;
@@ -61,12 +63,12 @@ class PropertyAdvanceFilter extends Component
             $categoryId = PropertyCategory::where('en_name', $this->categoryName)->select('id')->first();
             $this->getCategory = $categoryId->id;
         }
-
         $this->cities = City::select('id','name_en', 'name_si', 'name_ta')->get();
     }
 
     public function submitForm()
     {
+
         $queryParams = [
             'keyword' => $this->keyword,
         ];
@@ -133,11 +135,16 @@ class PropertyAdvanceFilter extends Component
         }
     }
 
+    public function resetForm()
+    {
+        $this->reset(); 
+    }
+
     public function render()
     {
         return view('livewire.property-advance-filter', [
             'districts' => District::select('id', 'name_' . $this->current_locale . ' as name')->get(),
-            'categoties' => PropertyCategory::select('id', $this->current_locale.'_name as name')->get()
+            'categoties' => PropertyCategory::select('id', $this->current_locale.'_name as name')->get(),
         ]);
     }
 }

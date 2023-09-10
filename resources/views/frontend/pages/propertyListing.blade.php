@@ -54,7 +54,6 @@
                     </div>
                     <div class="col-xl-9">
                         <div class="row justify-content-center buy-list">
-
                             {{-- Property listing cards --}}
                             @foreach ($properties as $property)
                                 <div class="col-lg-12">

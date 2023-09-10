@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
@@ -75,6 +76,7 @@ class SiteController extends Controller
                 'bathrooms',
                 'label',
                 'currency',
+                'aminities'
             ])
             ->with('propertyCategory');
 
