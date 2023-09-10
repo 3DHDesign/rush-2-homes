@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
@@ -33,7 +34,8 @@ class SiteController extends Controller
             'gallery',
             'property_category_id',
             'bathrooms',
-            'label'
+            'label',
+            'slug'
         )->with('propertyCategory')->take(6)->get();
 
         $local = app()->getLocale();
@@ -61,7 +63,7 @@ class SiteController extends Controller
         $property_type_id = PropertyType::where('en_name', $propertyType)->select('id')->first();
         $property_category_id = PropertyCategory::where('en_name', $propertyCategory)->select('id')->first();
 
-        $query = PropertyInformation::where('status', 'Published')
+        $query = PropertyInformation::where('status', 'Published')->where('property_type_id', $property_type_id->id ?? 1)
             ->select([
                 $this->current_locale . '_title as title',
                 $this->current_locale . '_address as address',
@@ -75,13 +77,10 @@ class SiteController extends Controller
                 'bathrooms',
                 'label',
                 'currency',
+                'aminities',
+                'slug'
             ])
             ->with('propertyCategory');
-
-
-        if ($propertyType) {
-            $query->where('property_type_id', $property_type_id->id);
-        }
 
         if ($keyword) {
             $query->where(function ($q) use ($keyword) {
@@ -110,7 +109,7 @@ class SiteController extends Controller
             $query->where('price', '<=', $maxPrice);
         }
 
-        $properties = $query->get();
+        $properties = $query->paginate(4);
 
         // dd($query);
 

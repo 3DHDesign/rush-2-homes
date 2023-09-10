@@ -19,7 +19,8 @@
                             <div class="product-custom">
                                 <div class="profile-widget">
                                     <div class="doc-img">
-                                        <a href="#" class="property-img">
+                                        <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
+                                            class="property-img">
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ asset('storage/' . $property->gallery[0]) }}">
                                         </a>
@@ -71,36 +72,38 @@
                                     </div>
                                     <div class="pro-content">
                                         <h3 class="title">
-                                            <a href="#"
+                                            <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
                                                 title="{{ $property->title }}">{{ Str::limit($property->title, 60, '...') }}</a>
                                         </h3>
                                         <p><i class="feather-map-pin"></i> {{ $property->address }}
                                         </p>
-                                        <ul class="d-flex details">
-                                            @if ($property->bedrooms)
-                                                <li>
-                                                    <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
-                                                    {{ $property->bedrooms }} Beds
-                                                </li>
-                                            @endif
-                                            @if ($property->bathrooms)
-                                                <li>
-                                                    <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
-                                                    {{ $property->bathrooms }} Baths
-                                                </li>
-                                            @endif
-                                            @if ($property->land_size)
-                                                <li>
-                                                    <img src="assets/img/icons/building-icon.svg" alt="building-icon">
-                                                    {{ $property->land_size . ' ' . $property->size_type }}
-                                                </li>
-                                            @endif
-                                        </ul>
+                                        @if ($property->bedrooms || $property->bathrooms || $property->land_size)
+                                            <ul class="d-flex details">
+                                                @if ($property->bedrooms)
+                                                    <li>
+                                                        <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
+                                                        {{ $property->bedrooms }} Beds
+                                                    </li>
+                                                @endif
+                                                @if ($property->bathrooms)
+                                                    <li>
+                                                        <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
+                                                        {{ $property->bathrooms }} Baths
+                                                    </li>
+                                                @endif
+                                                @if ($property->land_size)
+                                                    <li>
+                                                        <img src="assets/img/icons/building-icon.svg" alt="building-icon">
+                                                        {{ $property->land_size . ' ' . $property->size_type }}
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        @endif
                                         <ul class="property-category d-flex justify-content-between">
                                             <li>
                                                 <span class="list">Listed on : </span>
                                                 <span
-                                                    class="date">{{ \Carbon\Carbon::parse($property->created_at)->format('d/m/Y') }}</span>
+                                                    class="date">{{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</span>
                                             </li>
                                             <li>
                                                 <span class="category list">Category : </span>

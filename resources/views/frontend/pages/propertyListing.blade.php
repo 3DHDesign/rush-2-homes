@@ -49,187 +49,19 @@
                 <div class="row">
                     <div class="col-xl-3 theiaStickySidebar">
                         <div class="left-sidebar-widget property-sidebar">
-                            <form>
-
-                                <div class="collapse-card">
-                                    <h4 class="card-title">
-                                        <a class="collapsed" data-bs-toggle="collapse" href="#advance-search"
-                                            aria-expanded="false">Advanced
-                                            Search</a>
-                                    </h4>
-                                    <div id="advance-search" class="card-collapse collapse show">
-                                        <ul class="show-list">
-                                            <li class="review-form form-wrap">
-                                                <input type="text" class="form-control" placeholder="Type Keywords"
-                                                    value="">
-                                                <span class="form-icon">
-                                                    <i class="bx bx-search-alt"></i>
-                                                </span>
-                                            </li>
-                                            <li class="review-form">
-                                                <label for="select-district">Select district:</label>
-                                                <select class="select-dropdown">
-                                                    {{-- @foreach ($districts as $district)
-                                                        <option value="{{ $district->id }}">{{ $district->name }}</option>
-                                                    @endforeach --}}
-                                                </select>
-                                            </li>
-                                            <li class="review-form">
-                                                <label for="select-district">Select city:</label>
-                                                <select class="select-dropdown">
-                                                    <option value="">Select City</option>
-                                                    {{-- @foreach ($cities as $city)
-                                                        <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                                    @endforeach --}}
-                                                </select>
-                                            </li>
-                                            <li class="review-form">
-                                                <div class="input-row">
-                                                    <input type="text" class="form-control" placeholder="Min price">
-                                                    <input type="text" class="form-control" placeholder="Max price">
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-                                <div class="collapse-card">
-                                    <h4 class="card-title">
-                                        <a class="collapsed" data-bs-toggle="collapse" href="#categiries"
-                                            aria-expanded="false">Categories</a>
-                                    </h4>
-                                    <div id="categiries" class="card-collapse collapse show">
-                                        <ul class="checkbox-list term-list">
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Apartments (45)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Condos (32)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Houses (24)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Industrial (41)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Land (15)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Offices (11)
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-                                <div class="collapse-card">
-                                    <h4 class="card-title">
-                                        <a class="collapsed" data-bs-toggle="collapse" href="#amenities"
-                                            aria-expanded="false">Amenities</a>
-                                    </h4>
-                                    <div id="amenities" class="card-collapse collapse show">
-                                        <ul class="checkbox-list amene-list">
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Back Yard (35)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Central Air (32)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Chair Accessible (24)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Elevator (41)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Fireplace (15)
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label class="custom_check">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Front Yard (11)
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-                                <div class="collapse-card">
-                                    <h4 class="card-title">
-                                        <a class="collapsed" data-bs-toggle="collapse" href="#pricing"
-                                            aria-expanded="false">Pricing</a>
-                                    </h4>
-                                    <div id="pricing" class="card-collapse collapse show">
-                                        <ul class="price-filter">
-                                            <li class="d-flex justify-content-between">
-                                                <div class="caption">
-                                                    <h5>Price Range : </h5>
-                                                    <span id="slider-range-value1"> </span> to
-                                                    <span id="slider-range-value2"> </span>
-                                                </div>
-                                            </li>
-                                            <li class="price-filter-inner">
-                                                <div id="slider-range" class="range-bottom"></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-                                <div class="apply-btn">
-                                    <button type="submit" class="btn btn-primary">Apply Filter</button>
-                                    <a href="javascript:void(0);" class="reset-btn">Reset Selection</a>
-                                </div>
-
-                            </form>
+                            <livewire:property-advance-filter>
                         </div>
                     </div>
                     <div class="col-xl-9">
                         <div class="row justify-content-center buy-list">
-
                             {{-- Property listing cards --}}
                             @foreach ($properties as $property)
                                 <div class="col-lg-12">
                                     <div class="product-custom">
                                         <div class="profile-widget rent-list-view">
                                             <div class="doc-img">
-                                                <a href="buy-details.html" class="property-img">
+                                                <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
+                                                    class="property-img">
                                                     <img class="img-fluid" alt="Product image"
                                                         src="{{ asset('storage/' . $property->gallery[0]) }}">
                                                 </a>
@@ -274,11 +106,11 @@
                                                         {{-- <span class="me-1">Sample text here</span> --}}
                                                         <div class="product-name-price">
                                                             <h3 class="title">
-                                                                <a href="#"
+                                                                <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
                                                                     tabindex="-1">{{ $property->title }}</a>
                                                             </h3>
                                                             <div class="product-amount">
-                                                                <h5>{{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}<span>{{ $property->price }}</span>/
+                                                                <h5>{{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}<span>{{ number_format($property->price, 0, ',', ' ') }}</span>/
                                                                     <span class="small-price-type">
                                                                         {{ $formattedPriceType = $priceTypeOptions[$property->price_type] ?? '' }}</span>
                                                                 </h5>
@@ -288,28 +120,39 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <ul class="d-flex details">
-                                                    <li>
-                                                        <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
-                                                        3 Beds
-                                                    </li>
-                                                    <li>
-                                                        <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
-                                                        1 Bath
-                                                    </li>
-                                                    <li>
-                                                        <img src="assets/img/icons/building-icon.svg" alt="building-icon">
-                                                        15000 Sqft
-                                                    </li>
-                                                </ul>
+                                                @if ($property->bedrooms || $property->bathrooms || $property->land_size)
+                                                    <ul class="d-flex details">
+                                                        @if ($property->bedrooms)
+                                                            <li>
+                                                                <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
+                                                                {{ $property->bedrooms }} Beds
+                                                            </li>
+                                                        @endif
+                                                        @if ($property->bathrooms)
+                                                            <li>
+                                                                <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
+                                                                {{ $property->bathrooms }} Bath
+                                                            </li>
+                                                        @endif
+                                                        @if ($property->land_size)
+                                                            <li>
+                                                                <img src="assets/img/icons/building-icon.svg"
+                                                                    alt="building-icon">
+                                                                {{ $property->land_size }} {{ $property->size_type }}
+                                                            </li>
+                                                        @endif
+                                                    </ul>
+                                                @endif
                                                 <ul class="property-category d-flex justify-content-between">
                                                     <li>
                                                         <span class="list">Listed on : </span>
-                                                        <span class="date">17 Jan 2023</span>
+                                                        <span
+                                                            class="date">{{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</span>
                                                     </li>
                                                     <li>
                                                         <span class="category list">Category : </span>
-                                                        <span class="category-value date">Condos</span>
+                                                        <span
+                                                            class="category-value date">{{ $property->propertyCategory->en_name }}</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -319,10 +162,10 @@
                             @endforeach
 
 
-                            {{-- Pagination --}}
-                            {{-- {{ $properties->links() }} --}}
 
                         </div>
+                        {{-- Pagination --}}
+                        {{ $properties->links('pagination::bootstrap-5') }}
                     </div>
 
                 </div>

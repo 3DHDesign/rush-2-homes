@@ -6,19 +6,19 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active" id="buy-property" data-bs-toggle="tab" href="#buy_property"
                             role="tab" aria-controls="buy_property" aria-selected="true">
-                            <img src="assets/img/icons/buy-icon.svg" alt="icon"> Buy a Property
+                            <img src="{{ asset('assets/img/icons/buy-icon.svg') }}" alt="icon"> Buy a Property
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="rent-property" data-bs-toggle="tab" href="#rent_property" role="tab"
                             aria-controls="rent_property" aria-selected="false">
-                            <img src="assets/img/icons/rent-icon.svg" alt="icon"> Rent a Property
+                            <img src="{{ asset('assets/img/icons/rent-icon.svg') }}" alt="icon"> Rent a Property
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="sell-property" data-bs-toggle="tab" href="#sell_property" role="tab"
                             aria-controls="sell_property" aria-selected="false">
-                            <img src="assets/img/icons/rent-icon.svg" alt="icon"> Sell a Property
+                            <img src="{{ asset('assets/img/icons/rent-icon.svg') }}" alt="icon"> Sell a Property
                         </a>
                     </li>
                 </ul>
