@@ -118,28 +118,39 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <ul class="d-flex details">
-                                                    <li>
-                                                        <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
-                                                        3 Beds
-                                                    </li>
-                                                    <li>
-                                                        <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
-                                                        1 Bath
-                                                    </li>
-                                                    <li>
-                                                        <img src="assets/img/icons/building-icon.svg" alt="building-icon">
-                                                        15000 Sqft
-                                                    </li>
-                                                </ul>
+                                                @if ($property->bedrooms || $property->bathrooms || $property->land_size)
+                                                    <ul class="d-flex details">
+                                                        @if ($property->bedrooms)
+                                                            <li>
+                                                                <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
+                                                                {{ $property->bedrooms }} Beds
+                                                            </li>
+                                                        @endif
+                                                        @if ($property->bathrooms)
+                                                            <li>
+                                                                <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
+                                                                {{ $property->bathrooms }} Bath
+                                                            </li>
+                                                        @endif
+                                                        @if ($property->land_size)
+                                                            <li>
+                                                                <img src="assets/img/icons/building-icon.svg"
+                                                                    alt="building-icon">
+                                                                {{ $property->land_size }} {{ $property->size_type }}
+                                                            </li>
+                                                        @endif
+                                                    </ul>
+                                                @endif
                                                 <ul class="property-category d-flex justify-content-between">
                                                     <li>
                                                         <span class="list">Listed on : </span>
-                                                        <span class="date">17 Jan 2023</span>
+                                                        <span
+                                                            class="date">{{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</span>
                                                     </li>
                                                     <li>
                                                         <span class="category list">Category : </span>
-                                                        <span class="category-value date">Condos</span>
+                                                        <span
+                                                            class="category-value date">{{ $property->propertyCategory->en_name }}</span>
                                                     </li>
                                                 </ul>
                                             </div>

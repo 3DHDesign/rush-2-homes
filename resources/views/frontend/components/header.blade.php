@@ -27,7 +27,7 @@
                     <a href="{{ route('home') }}">{{ __('homepage.header.home') }}</a>
                 </li>
                 <li class="">
-                    <a href="#">{{ __('homepage.header.sell') }}</a>
+                    <a href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }}</a>
                 </li>
                 <li class="">
                     <a href="#">{{ __('homepage.header.rent') }}</a>
