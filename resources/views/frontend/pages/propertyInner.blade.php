@@ -4,12 +4,13 @@
         <div class="container">
             <div class="bread-crumb-head">
                 <div class="breadcrumb-title">
-                    <h2>Buy Details - Single (Request Info)</h2>
+                    <h2>{{ $property->title }}</h2>
                 </div>
                 <div class="breadcrumb-list">
                     <ul>
-                        <li><a href="index.html">Home </a></li>
-                        <li>Buy Details - Single (Request Info)</li>
+                        <li><a href="{{ route('home') }}">Home </a></li>
+                        <li><a href="javascript:void(0)">Properties</a></li>
+                        <li>{{ $property->slug }}</li>
                     </ul>
                 </div>
             </div>
@@ -35,28 +36,28 @@
                                         <div class="product-img slick-slide" data-slick-index="0" aria-hidden="true"
                                             style="width: 576px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
                                             tabindex="-1">
-                                            <img src="assets/img/rent/rent-detail-01.jpg" alt="Slider">
+                                            <img src="{{ asset('assets/img/rent/rent-detail-01.jpg') }}" alt="Slider">
                                         </div>
                                         <div class="product-img slick-slide slick-current slick-active" data-slick-index="1"
                                             aria-hidden="false"
                                             style="width: 576px; position: relative; left: -596px; top: 0px; z-index: 999; opacity: 1;"
                                             tabindex="0">
-                                            <img src="assets/img/rent/rent-detail-02.jpg" alt="Slider">
+                                            <img src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}" alt="Slider">
                                         </div>
                                         <div class="product-img slick-slide" data-slick-index="2" aria-hidden="true"
                                             style="width: 576px; position: relative; left: -1192px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
                                             tabindex="-1">
-                                            <img src="assets/img/rent/rent-detail-03.jpg" alt="Slider">
+                                            <img src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}" alt="Slider">
                                         </div>
                                         <div class="product-img slick-slide" data-slick-index="3" aria-hidden="true"
                                             style="width: 576px; position: relative; left: -1788px; top: 0px; z-index: 998; opacity: 0;"
                                             tabindex="-1">
-                                            <img src="assets/img/rent/rent-detail-04.jpg" alt="Slider">
+                                            <img src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}" alt="Slider">
                                         </div>
                                         <div class="product-img slick-slide" data-slick-index="4" aria-hidden="true"
                                             style="width: 576px; position: relative; left: -2384px; top: 0px; z-index: 998; opacity: 0;"
                                             tabindex="-1">
-                                            <img src="assets/img/rent/rent-detail-05.jpg" alt="Slider">
+                                            <img src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}" alt="Slider">
                                         </div>
                                     </div>
                                 </div>
@@ -73,46 +74,60 @@
                                         style="opacity: 1; width: 2086px; transform: translate3d(-745px, 0px, 0px);">
                                         <div class="slick-slide slick-cloned" data-slick-index="-4" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-02.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}" alt="product image">
+                                        </div>
                                         <div class="slick-slide slick-cloned" data-slick-index="-3" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-03.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}" alt="product image">
+                                        </div>
                                         <div class="slick-slide slick-cloned" data-slick-index="-2" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-04.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-cloned" data-slick-index="-1" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-05.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide" data-slick-index="0" aria-hidden="true"
                                             style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-01.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-01.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-current slick-active" data-slick-index="1"
                                             aria-hidden="false" style="width: 129px;" tabindex="0"><img
-                                                src="assets/img/rent/rent-detail-02.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false"
                                             style="width: 129px;" tabindex="0"><img
-                                                src="assets/img/rent/rent-detail-03.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false"
                                             style="width: 129px;" tabindex="0"><img
-                                                src="assets/img/rent/rent-detail-04.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false"
                                             style="width: 129px;" tabindex="0"><img
-                                                src="assets/img/rent/rent-detail-05.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-cloned" data-slick-index="5" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-01.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-01.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-cloned" data-slick-index="6" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-02.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-cloned" data-slick-index="7" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-03.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-cloned" data-slick-index="8" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-04.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}"
+                                                alt="product image"></div>
                                         <div class="slick-slide slick-cloned" data-slick-index="9" id=""
                                             aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="assets/img/rent/rent-detail-05.jpg" alt="product image"></div>
+                                                src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}"
+                                                alt="product image"></div>
                                     </div>
                                 </div>
 
@@ -132,24 +147,25 @@
                         <div id="overview" class="card-collapse collapse show">
                             <ul class="property-overview  collapse-view">
                                 <li>
-                                    <img src="assets/img/icons/bed-icon.svg" alt="Image">
-                                    <p>4 Beds</p>
+                                    <img src="{{ asset('assets/img/icons/bed-icon.svg') }}" alt="Image">
+                                    <p>{{ isset($property->bedrooms) ? $property->bedrooms . ' Beds' : '- Beds' }}
+                                    </p>
                                 </li>
                                 <li>
-                                    <img src="assets/img/icons/bath-icon.svg" alt="Image">
-                                    <p>4 Baths</p>
+                                    <img src="{{ asset('assets/img/icons/bath-icon.svg') }}" alt="Image">
+                                    <p>{{ isset($property->bathrooms) ? $property->bathrooms . 'Baths' : '- Baths' }}</p>
                                 </li>
                                 <li>
-                                    <img src="assets/img/icons/building-icon.svg" alt="Image">
-                                    <p>35000 Sqft</p>
+                                    <img src="{{ asset('assets/img/icons/building-icon.svg') }}" alt="Image">
+                                    <p>{{ $property->land_size }} {{ $property->size_type }}</p>
                                 </li>
                                 <li>
-                                    <img src="assets/img/icons/garage-icon.svg" alt="Image">
-                                    <p>2 Garages</p>
+                                    <img src="{{ asset('assets/img/icons/garage-icon.svg') }}" alt="Image">
+                                    <p>{{ isset($property->garages) ? $property->garages . 'Garages' : '- Garages' }}</p>
                                 </li>
                                 <li>
-                                    <img src="assets/img/icons/calender-icon.svg" alt="Image">
-                                    <p>Year Built: 2005</p>
+                                    <img src="{{ asset('assets/img/icons/calender-icon.svg') }}" alt="Image">
+                                    <p>Listed at: {{ \Carbon\Carbon::parse($property->updated_at)->format('Y') }}</p>
                                 </li>
                             </ul>
                         </div>
@@ -163,18 +179,7 @@
                         </h4>
                         <div id="about" class="card-collapse collapse show">
                             <div class="about-agent collapse-view">
-                                <p> Good road frontage on a paved county road with utilities make it an amazing setting
-                                    for your dream country getaway! If you like views, you must see this property!, </p>
-                                <p>This property is mostly wooded and sits high on a hilltop overlooking the Mohawk
-                                    River Valley. Located right in the heart of Upstate NYs Amish farm Country, this
-                                    land is certified organic making it extremely rare! Good road frontage on a paved
-                                    county road with utilities make it an amazing setting for your dream country
-                                    getaway! If you like views, you must see this property!This property is mostly
-                                    wooded and sits high on a hilltop overlooking the Mohawk River Valley. Located right
-                                    in the heart of Upstate NYs Amish farm Country, this land is certified organic
-                                    making it extremely rare! Good road frontage on a paved county road with utilities
-                                    make it an amazing setting for your dream country getaway! If you like views, you
-                                    must see this property!</p>
+                                {!! $property->description !!}
                             </div>
                         </div>
                     </div>
@@ -183,7 +188,8 @@
                     <div class="collapse-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#address"
-                                aria-expanded="false">Property Address</a>
+                                aria-expanded="false">Property
+                                Address</a>
                         </h4>
                         <div id="address" class="card-collapse collapse show">
                             <ul class="property-address  collapse-view">
@@ -201,7 +207,8 @@
                     <div class="collapse-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#details"
-                                aria-expanded="false">Property Details</a>
+                                aria-expanded="false">Property
+                                Details</a>
                         </h4>
                         <div id="details" class="card-collapse collapse show  collapse-view">
                             <div class="row">
@@ -1620,7 +1627,8 @@
                             <div class="owl-nav disabled"><button type="button" role="presentation"
                                     class="owl-prev"><span aria-label="Previous">‹</span></button><button
                                     type="button" role="presentation" class="owl-next"><span
-                                        aria-label="Next">›</span></button></div>
+                                        aria-label="Next">›</span></button>
+                            </div>
                             <div class="owl-dots"><button role="button"
                                     class="owl-dot active"><span></span></button><button role="button"
                                     class="owl-dot"><span></span></button><button role="button"

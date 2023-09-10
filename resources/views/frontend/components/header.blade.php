@@ -47,9 +47,9 @@
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
-            <li class="login-link"><a href="language/en">English</a>
+            <li class="login-link"><a href="{{ route('lang', ['locale' => 'en']) }}">English</a>
             </li>|&nbsp;
-            <li class="login-link"><a href="language/si">Sinhala</a>
+            <li class="login-link"><a href="{{ route('lang', ['locale' => 'si']) }}">Sinhala</a>
             </li>|&nbsp;
             <li class="login-link"><a href="language/ta">Tamil</a>
             </li>
