@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('/sales', [SiteController::class, 'propertyList'])->name('sales.property.listing');
+Route::get('/properties/{slug}', [SiteController::class, 'propertyInner'])->name('property.inner');
 Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
 
 Route::get('language/{locale}', function ($locale) {
