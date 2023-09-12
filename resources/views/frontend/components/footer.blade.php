@@ -2,7 +2,7 @@
 
     <div class="footer-top">
         <div class="footer-border-img">
-            <img src="assets/img/bg/line-bg.png" alt="image">
+            <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="image">
         </div>
         <div class="container">
             <div class="row">

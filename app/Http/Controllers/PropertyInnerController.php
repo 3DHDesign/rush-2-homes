@@ -21,6 +21,7 @@ class PropertyInnerController extends Controller
             $this->current_locale . '_title as title',
             $this->current_locale . '_address as address',
             $this->current_locale . '_description as description',
+            'property_type_id',
             'slug',
             'price',
             'price_type',
@@ -45,8 +46,9 @@ class PropertyInnerController extends Controller
 
         // get Amenities from array
         $list_aminities = Amenity::whereIn('id', $property->aminities)->select(
+            'icon',
             $this->current_locale . '_name as name',
         )->get();
-        return view('frontend.pages.propertyInner', compact('property','local', 'list_aminities'));
+        return view('frontend.pages.propertyInner', compact('property', 'local', 'list_aminities'));
     }
 }

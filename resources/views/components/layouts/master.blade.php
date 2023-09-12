@@ -104,7 +104,7 @@
 <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/waypoints.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>'
+<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/slick/slick.js') }}"></script>
 
