@@ -24,115 +24,26 @@
     <section class="buy-detailview" style="transform: none;">
         <div class="container" style="transform: none;">
             <div class="row" style="transform: none;">
-                <div class="col-lg-8">
 
+
+
+
+                <div class="col-lg-8">
                     <div class="buy-details-col">
                         <div class="rental-card">
-                            <div class="slider rental-slider slick-initialized slick-slider"><button
-                                    class="slick-prev slick-arrow" aria-label="Previous" type="button"
-                                    style="">Previous</button>
-                                <div class="slick-list draggable">
-                                    <div class="slick-track" style="opacity: 1; width: 2980px;">
-                                        <div class="product-img slick-slide" data-slick-index="0" aria-hidden="true"
-                                            style="width: 576px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-                                            tabindex="-1">
-                                            <img src="{{ asset('assets/img/rent/rent-detail-01.jpg') }}" alt="Slider">
-                                        </div>
-                                        <div class="product-img slick-slide slick-current slick-active" data-slick-index="1"
-                                            aria-hidden="false"
-                                            style="width: 576px; position: relative; left: -596px; top: 0px; z-index: 999; opacity: 1;"
-                                            tabindex="0">
-                                            <img src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}" alt="Slider">
-                                        </div>
-                                        <div class="product-img slick-slide" data-slick-index="2" aria-hidden="true"
-                                            style="width: 576px; position: relative; left: -1192px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;"
-                                            tabindex="-1">
-                                            <img src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}" alt="Slider">
-                                        </div>
-                                        <div class="product-img slick-slide" data-slick-index="3" aria-hidden="true"
-                                            style="width: 576px; position: relative; left: -1788px; top: 0px; z-index: 998; opacity: 0;"
-                                            tabindex="-1">
-                                            <img src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}" alt="Slider">
-                                        </div>
-                                        <div class="product-img slick-slide" data-slick-index="4" aria-hidden="true"
-                                            style="width: 576px; position: relative; left: -2384px; top: 0px; z-index: 998; opacity: 0;"
-                                            tabindex="-1">
-                                            <img src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}" alt="Slider">
-                                        </div>
+                            <div class="slider rental-slider">
+                                @foreach ($property->gallery as $image)
+                                    <div class="product-img">
+                                        <img src="{{ asset('storage/' . $image) }}" alt="{{ $property->title }}">
                                     </div>
-                                </div>
+                                @endforeach
 
-
-
-
-                                <button class="slick-next slick-arrow" aria-label="Next" type="button"
-                                    style="">Next</button>
                             </div>
-                            <div class="slider slider-nav-thumbnails slick-initialized slick-slider">
-                                <div class="slick-list draggable">
-                                    <div class="slick-track"
-                                        style="opacity: 1; width: 2086px; transform: translate3d(-745px, 0px, 0px);">
-                                        <div class="slick-slide slick-cloned" data-slick-index="-4" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}" alt="product image">
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="-3" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}" alt="product image">
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="-2" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="-1" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide" data-slick-index="0" aria-hidden="true"
-                                            style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-01.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-current slick-active" data-slick-index="1"
-                                            aria-hidden="false" style="width: 129px;" tabindex="0"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false"
-                                            style="width: 129px;" tabindex="0"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false"
-                                            style="width: 129px;" tabindex="0"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false"
-                                            style="width: 129px;" tabindex="0"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="5" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-01.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="6" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-02.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="7" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-03.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="8" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-04.jpg') }}"
-                                                alt="product image"></div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="9" id=""
-                                            aria-hidden="true" style="width: 129px;" tabindex="-1"><img
-                                                src="{{ asset('assets/img/rent/rent-detail-05.jpg') }}"
-                                                alt="product image"></div>
+                            <div class="slider slider-nav-thumbnails">
+                                @foreach ($property->gallery as $image)
+                                    <div><img src="{{ asset('storage/' . $image) }}" alt="{{ $property->title }}">
                                     </div>
-                                </div>
-
-
-
+                                @endforeach
 
                             </div>
                         </div>
@@ -187,8 +98,7 @@
 
                     <div class="collapse-card">
                         <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#address"
-                                aria-expanded="false">Property
+                            <a class="collapsed" data-bs-toggle="collapse" href="#address" aria-expanded="false">Property
                                 Address</a>
                         </h4>
                         <div id="address" class="card-collapse collapse show">
@@ -229,8 +139,7 @@
 
                     <div class="collapse-card">
                         <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#details"
-                                aria-expanded="false">Property
+                            <a class="collapsed" data-bs-toggle="collapse" href="#details" aria-expanded="false">Property
                                 Details</a>
                         </h4>
                         <div id="details" class="card-collapse collapse show  collapse-view">

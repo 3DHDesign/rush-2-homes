@@ -21,6 +21,8 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -95,10 +97,16 @@
 
 <script src="{{ asset('assets/js/aos.js') }}"></script>
 
+<script src="{{ asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
+
+<script src="{{ asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
+
 <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/waypoints.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>'
+<script src="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/slick/slick.js') }}"></script>
 
 <script src="{{ asset('assets/js/script.js') }}"></script>
 @stack('script')
