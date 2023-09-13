@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRegisterRequest;
 use App\Models\Amenity;
 use App\Models\City;
 use App\Models\District;
 use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
 use App\Models\PropertyType;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class SiteController extends Controller
@@ -46,6 +49,20 @@ class SiteController extends Controller
     public function register()
     {
         return view('frontend.pages.register');
+    }
+
+    public function registerAccount(UserRegisterRequest $request)
+    {
+        $validated = $request->validated();
+        $registered = User::create($validated);
+
+        if ($registered) {
+            // login to filament
+            return Redirect::to('/admin');
+        } else {
+            // has an error
+            return redirect()->back();
+        }
     }
 
     public function about()

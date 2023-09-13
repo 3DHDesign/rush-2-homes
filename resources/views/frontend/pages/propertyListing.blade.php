@@ -26,7 +26,7 @@
     <div class="breadcrumb">
         <div class="container">
             <div class="bread-crumb-head">
-                <div class="breadcrumb-title">
+                {{-- <div class="breadcrumb-title">
                     <h2>Buy Property List with Sidebar</h2>
                 </div>
                 <div class="breadcrumb-list">
@@ -34,7 +34,7 @@
                         <li><a href="{{ route('home') }}">Home </a></li>
                         <li>Buy Property List with Sidebar</li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
             <div class="breadcrumb-border-img">
                 <img src="{{ asset('assets/img/bg/line-bg.png') }}" class="img-fluid" alt>

@@ -15,12 +15,6 @@
                             <img src="{{ asset('assets/img/icons/rent-icon.svg') }}" alt="icon"> Rent a Property
                         </a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="sell-property" data-bs-toggle="tab" href="#sell_property" role="tab"
-                            aria-controls="sell_property" aria-selected="false">
-                            <img src="{{ asset('assets/img/icons/rent-icon.svg') }}" alt="icon"> Sell a Property
-                        </a>
-                    </li>
                 </ul>
             </div>
             <div class="tab-content" id="bannerTabContent">
@@ -32,11 +26,6 @@
                 <div class="tab-pane fade" id="rent_property" role="tabpanel" aria-labelledby="rent-property">
                     <div class="banner-tab-property">
                         <livewire:rentPropertyFilter />
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="sell_property" role="tabpanel" aria-labelledby="sell-property">
-                    <div class="banner-tab-property">
-                        <livewire:sellPropertyFilter />
                     </div>
                 </div>
             </div>

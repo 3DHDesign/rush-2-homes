@@ -24,6 +24,7 @@ Route::get('/sales', [PropertyFilterController::class, 'propertyList'])->name('s
 Route::get('/rent', [PropertyFilterController::class, 'propertyList'])->name('rent.property.listing');
 Route::get('/properties/{slug}', [PropertyInnerController::class, 'propertyInner'])->name('property.inner');
 Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
+Route::post('admin/register', [SiteController::class, 'registerAccount'])->name('user.account.register');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
