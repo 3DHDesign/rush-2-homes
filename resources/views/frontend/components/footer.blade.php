@@ -62,12 +62,12 @@
                     <div class="social-links">
 
                         <ul>
-                            <li><a href="https://web.facebook.com/RushLankaGroup/" target="_black"><i
+                            <li><a href="https://web.facebook.com/profile.php?id=100063944532110" target="_black"><i
                                         class="fa-brands fa-facebook-f hi-icon"></i></a></li>
-                            <li><a href="https://www.instagram.com/rushlankagroup" target="_black"><i
+                            <li><a href="https://www.instagram.com/rush2homes/" target="_black"><i
                                         class="fa-brands fa-instagram hi-icon"></i></a>
                             </li>
-                            <li><a href="https://lk.linkedin.com/company/rush-lanka-group" target="_black"><i
+                            <li><a href="https://lk.linkedin.com/company/rush-2-homes" target="_black"><i
                                         class="fa-brands fa-linkedin hi-icon"></i></a>
                             </li>
                         </ul>
