@@ -8,6 +8,7 @@ return [
         'sell' => 'විකුණන්න',
         'rent' => 'කුලියට',
         'land' => 'ඉඩම්',
+        'about' => 'අපි ගැන',
         'contact_us' => 'අප අමතන්න',
         'add_new_property' => 'නව දේපලක්',
     ]

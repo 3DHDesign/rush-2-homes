@@ -30,20 +30,23 @@
                     <a href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }}</a>
                 </li>
                 <li class="">
-                    <a href="#">{{ __('homepage.header.rent') }}</a>
+                    <a
+                        href="{{ route('rent.property.listing', ['propertyType' => 'For Rental']) }}">{{ __('homepage.header.rent') }}</a>
                 </li>
                 <li class="">
-                    <a href="#">{{ __('homepage.header.land') }}</a>
+                    <a
+                        href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">{{ __('homepage.header.land') }}</a>
+                </li>
+                <li class="">
+                    <a href="{{ route('about') }}">{{ __('homepage.header.about') }}</a>
                 </li>
 
-                <li><a href="#">{{ __('homepage.header.contact_us') }}</a></li>
+                <li><a href="{{ route('contact') }}">{{ __('homepage.header.contact_us') }}</a></li>
                 <li class="searchbar">
                     <a href="javascript:void(0);">
                         <img src="{{ asset('assets/img/icons/search-icon.svg') }}" alt="img">
                     </a>
                 </li>
-                <li class="login-link"><a href="#">Sign Up</a></li>
-                <li class="login-link"><a href="#">Sign In</a></li>
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
@@ -54,7 +57,7 @@
             <li class="login-link"><a href="{{ route('lang', ['locale' => 'ta']) }}">Tamil</a>
             </li>
             <li class="new-property-btn">
-                <a href="#">
+                <a href="{{ route('user.register') }}">
                     <i class="bx bxs-plus-circle"></i> {{ __('homepage.header.add_new_property') }}
                 </a>
             </li>

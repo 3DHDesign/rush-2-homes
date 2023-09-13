@@ -16,8 +16,6 @@
                 <div class="col-lg-8">
                     <div class="banner-content" data-aos="fade-down">
                         <h1>Find Your Best Dream House for <span>Rental, Buy & Sell...</span></h1>
-                        <p>Properties for buy / rent in in your location. We have more than 3000+ listings for you
-                            to choose</p>
                     </div>
                 </div>
             </div>

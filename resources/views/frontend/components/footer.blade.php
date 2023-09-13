@@ -15,61 +15,61 @@
                                     exclusive sales and marketing partner of the leading property development
                                     company in Sri Lanka, Rush Lanka Group.</p>
                             </div>
-                            <br>
-                            <div class="social-links">
-
-                                <ul>
-                                    <li><a href="javascript:void(0);"><i
-                                                class="fa-brands fa-facebook-f hi-icon"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa-brands fa-instagram hi-icon"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0);"><i class="fa-brands fa-linkedin hi-icon"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
-                    <div class="footer-widget-list">
-                        <div class="footer-content-heading">
-                            <h4>Explore</h4>
-                        </div>
-                        <ul>
-                            <li><a href="rent-property-list.html">Listings</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="blog-grid.html">Blogs</a></li>
-                            <li><a href="agency-grid.html">Agency</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="col-lg-3 col-md-5 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
                             <h4>Property Types</h4>
                         </div>
                         <ul>
-                            <li><a href="javascript:void(0);">Apartments</a></li>
-                            <li><a href="javascript:void(0);">Home</a></li>
-                            <li><a href="javascript:void(0);">Office</a></li>
-                            <li><a href="javascript:void(0);">Villas</a></li>
-                            <li><a href="javascript:void(0);">Flat</a></li>
+                            <li><a
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Apartment']) }}">Apartments</a>
+                            </li>
+                            <li><a
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'House']) }}">Home</a>
+                            </li>
+                            <li><a
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">Land</a>
+                            </li>
+                            <li><a
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Commercial Buildings']) }}">Commercial
+                                    Buildings</a>
+                            </li>
+                            <li><a
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Bungalows']) }}">Bungalows</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-5 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
                             <h4>Quick Links</h4>
                         </div>
                         <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Faq</a></li>
+                            <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="#">Terms & Conditions</a></li>
                             <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Gallery</a></li>
+                            <li><a href="{{ route('user.register') }}">Sign-in</a></li>
+                            <li><a href="/admin">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-5 col-sm-4">
+                    <div class="social-links">
+
+                        <ul>
+                            <li><a href="https://web.facebook.com/profile.php?id=100063944532110" target="_black"><i
+                                        class="fa-brands fa-facebook-f hi-icon"></i></a></li>
+                            <li><a href="https://www.instagram.com/rush2homes/" target="_black"><i
+                                        class="fa-brands fa-instagram hi-icon"></i></a>
+                            </li>
+                            <li><a href="https://lk.linkedin.com/company/rush-2-homes" target="_black"><i
+                                        class="fa-brands fa-linkedin hi-icon"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
