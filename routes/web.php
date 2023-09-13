@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PropertyFilterController;
 use App\Http\Controllers\PropertyInnerController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,10 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-
 Route::get('/', [SiteController::class, 'home'])->name('home');
-Route::get('/sales', [SiteController::class, 'propertyList'])->name('sales.property.listing');
+Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
+Route::get('/sales', [PropertyFilterController::class, 'propertyList'])->name('sales.property.listing');
+Route::get('/rent', [PropertyFilterController::class, 'propertyList'])->name('rent.property.listing');
 Route::get('/properties/{slug}', [PropertyInnerController::class, 'propertyInner'])->name('property.inner');
 Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
 

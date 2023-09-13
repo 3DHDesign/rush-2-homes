@@ -3925,13 +3925,7 @@ label span {
     margin-right: 10px;
 }
 
-@media (max-width: 991.98px) {
-    .banner-search .banner-tab-property .banner-property-info .banner-property-grid {
-        width: 100%;
-        margin-bottom: 20px;
-        margin-right: 0;
-    }
-}
+
 
 .banner-search .banner-tab-property .banner-property-info .banner-property-grid:last-child {
     margin-right: 0;
@@ -3952,6 +3946,8 @@ label span {
     border: 1px solid #062ba7;
     font-size: 20px;
 }
+
+
 
 .banner-search .banner-tab-property .banner-property-info .banner-property-grid:last-child a:hover {
     color: #062ba7;
@@ -13444,6 +13440,10 @@ textarea {
 @media (max-width: 767.78px) {
     .gallery-property ul li {
         margin-right: 20px;
+    }
+
+    .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) input {
+        width: 100%;
     }
 }
 
