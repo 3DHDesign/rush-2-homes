@@ -48,6 +48,11 @@ class SiteController extends Controller
         return view('frontend.pages.register');
     }
 
+    public function about()
+    {
+        return view('frontend.pages.about');
+    }
+
     public function contact()
     {
         return view('frontend.pages.contact');

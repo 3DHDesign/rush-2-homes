@@ -50,11 +50,11 @@
                             <h4>Quick Links</h4>
                         </div>
                         <ul>
-                            <li><a href="#">About</a></li>
+                            <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="#">Terms & Conditions</a></li>
                             <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Sign-in</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{ route('user.register') }}">Sign-in</a></li>
+                            <li><a href="/admin">Login</a></li>
                         </ul>
                     </div>
                 </div>

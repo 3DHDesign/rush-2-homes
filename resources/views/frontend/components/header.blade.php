@@ -38,7 +38,7 @@
                         href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">{{ __('homepage.header.land') }}</a>
                 </li>
                 <li class="">
-                    <a href="#">{{ __('homepage.header.about') }}</a>
+                    <a href="{{ route('about') }}">{{ __('homepage.header.about') }}</a>
                 </li>
 
                 <li><a href="{{ route('contact') }}">{{ __('homepage.header.contact_us') }}</a></li>
