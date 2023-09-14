@@ -47,19 +47,26 @@
                         <img src="{{ asset('assets/img/icons/search-icon.svg') }}" alt="img">
                     </a>
                 </li>
+
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
+
             <li class="login-link"><a href="{{ route('lang', ['locale' => 'en']) }}">English</a>
             </li>|&nbsp;
             <li class="login-link"><a href="{{ route('lang', ['locale' => 'si']) }}">Sinhala</a>
             </li>|&nbsp;
             <li class="login-link"><a href="{{ route('lang', ['locale' => 'ta']) }}">Tamil</a>
             </li>
-            <li class="new-property-btn">
+
+            {{-- <li class="new-property-btn">
                 <a href="{{ route('user.register') }}">
                     <i class="bx bxs-plus-circle"></i> {{ __('homepage.header.add_new_property') }}
                 </a>
+            </li> --}}
+            <li style="margin-left: 20px;">
+                <a href="{{ route('user.register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
+                    Up</a>
             </li>
         </ul>
     </nav>

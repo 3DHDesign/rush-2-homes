@@ -155,6 +155,7 @@
                                                             class="category-value date">{{ $property->propertyCategory->en_name }}</span>
                                                     </li>
                                                 </ul>
+
                                             </div>
                                         </div>
                                     </div>

@@ -80,7 +80,7 @@ class PropertyFilterController extends Controller
             $query->where('price', '<=', $maxPrice);
         }
 
-        $properties = $query->paginate(4);
+        $properties = $query->paginate(10);
 
         // dd($query);
 

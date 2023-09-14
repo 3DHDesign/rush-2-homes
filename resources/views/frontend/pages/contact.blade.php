@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="breadcrumb-border-img">
-                <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="contact us">
+                <img src="{{ asset('assets/img/bg/breadcrumb-contact-bg.jpg') }}" alt="contact us">
             </div>
         </div>
     </div>
