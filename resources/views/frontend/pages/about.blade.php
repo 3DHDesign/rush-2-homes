@@ -44,6 +44,7 @@
                     marketing partner of the leading property development company in Sri Lanka, Rush Lanka Group. Our
                     deep-rooted expertise in the industry and strategic partnership with Rush Lanka Group, enable us to
                     offer unparalleled real estate solutions to our clients in Sri Lanka, Dubai, and beyond.</p>
+
                 <p class="about-para">Since our inception, Rush2Homes has been dedicated to providing top-quality services
                     to
                     our clients, consistently exceeding their expectations. We take pride in having helped a plethora of
@@ -68,6 +69,82 @@
                     project. Whether you are a local or international buyer, investor, developer, or tenant, Rush2Homes is
                     your trusted partner in real estate.
                 </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about-counter-sec">
+        <div class="container">
+
+            <div class="about-listing-img">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+                        <div class="about-listing">
+                            <img src="{{ asset('assets/img/about-us/about-us-01.jpg') }}" alt="aboutus-01">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+                        <div class="about-listing">
+                            <img src="{{ asset('assets/img/about-us/about-us-02.jpg') }}" alt="aboutus-02">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+                        <div class="about-listing">
+                            <img src="{{ asset('assets/img/about-us/about-us-03.jpg') }}" alt="aboutus-03">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="counter-sec" style="background-color: transparent">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                        <div class="counter-box flex-fill">
+                            <div class="counter-icon">
+                                <img src="{{ asset('assets/img/icons/counter-icon-1.svg') }}" alt="icon">
+                            </div>
+                            <div class="counter-value">
+                                <h3 class="dash-count" style="color: #0e0e46;"><span class="counter-up">50</span>K</h3>
+                                <h5 style="color: #0e0e46;">Listings Added </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                        <div class="counter-box flex-fill">
+                            <div class="counter-icon">
+                                <img src="{{ asset('assets/img/icons/counter-icon-2.svg') }}" alt="icon">
+                            </div>
+                            <div class="counter-value">
+                                <h3 class="dash-count" style="color: #0e0e46;"><span class="counter-up">3000</span>+</h3>
+                                <h5 style="color: #0e0e46;">Agents Listed</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                        <div class="counter-box active flex-fill">
+                            <div class="counter-icon">
+                                <img src="{{ asset('assets/img/icons/counter-icon-3.svg') }}" alt="icon">
+                            </div>
+                            <div class="counter-value">
+                                <h3 class="dash-count" style="color: #0e0e46;"><span class="counter-up">2000</span>+</h3>
+                                <h5 style="color: #0e0e46;">Sales Completed </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                        <div class="counter-box flex-fill">
+                            <div class="counter-icon">
+                                <img src="{{ asset('assets/img/icons/counter-icon-4.svg') }}" alt="icon">
+                            </div>
+                            <div class="counter-value">
+                                <h3 class="dash-count" style="color: #0e0e46;"><span class="counter-up">5000</span>+</h3>
+                                <h5 style="color: #0e0e46;">Users</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
