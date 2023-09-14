@@ -74,21 +74,21 @@
                     <div class="owl-item cloned" style="width: 416px; margin-right: 24px;">
                         <div class="slide-img-card">
                             <div class="slide-img">
-                                <img src="{{ asset('assets/images/ads/ad1.jpg') }}" alt="rush2homes ad 1">
+                                <img src="{{ asset('assets/img/ads/ad1.jpeg') }}" alt="rush2homes ad 1">
                             </div>
                         </div>
                     </div>
                     <div class="owl-item cloned" style="width: 416px; margin-right: 24px;">
                         <div class="slide-img-card">
                             <div class="slide-img">
-                                <img src="{{ asset('assets/images/ads/ad2.jpg') }}" alt="rush2homes ad 2">
+                                <img src="{{ asset('assets/img/ads/ad2.jpeg') }}" alt="rush2homes ad 2">
                             </div>
                         </div>
                     </div>
                     <div class="owl-item cloned" style="width: 416px; margin-right: 24px;">
                         <div class="slide-img-card">
                             <div class="slide-img">
-                                <img src="{{ asset('assets/images/ads/ad3.jpg') }}" alt="rush2homes ad 3">
+                                <img src="{{ asset('assets/img/ads/ad3.jpeg') }}" alt="rush2homes ad 3">
                             </div>
                         </div>
                     </div>
