@@ -64,6 +64,41 @@
                 </div>
             </ul>
         </div>
+        <div class="sidebar-img-slider owl-carousel owl-loaded owl-drag" style="margin-top: 5vh;">
+
+
+
+            <div class="owl-stage-outer">
+                <div class="owl-stage"
+                    style="transform: translate3d(-880px, 0px, 0px); transition: all 0s ease 0s; width: 3080px;">
+                    <div class="owl-item cloned" style="width: 416px; margin-right: 24px;">
+                        <div class="slide-img-card">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/images/ads/ad1.jpg') }}" alt="rush2homes ad 1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item cloned" style="width: 416px; margin-right: 24px;">
+                        <div class="slide-img-card">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/images/ads/ad2.jpg') }}" alt="rush2homes ad 2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-item cloned" style="width: 416px; margin-right: 24px;">
+                        <div class="slide-img-card">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/images/ads/ad3.jpg') }}" alt="rush2homes ad 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+                        class="fa-solid fa-arrow-left"></i></button><button type="button" role="presentation"
+                    class="owl-next"><i class="fa-solid fa-arrow-right"></i></button></div>
+            <div class="owl-dots disabled"></div>
+        </div>
     </div>
 
 
