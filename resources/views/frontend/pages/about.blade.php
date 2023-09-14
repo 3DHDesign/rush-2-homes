@@ -74,7 +74,7 @@
         </div>
     </section>
 
-    <section class="about-counter-sec">
+    <section class="about-counter-sec" style="margin-bottom: 20vh;">
         <div class="container">
 
             <div class="about-listing-img">
@@ -98,7 +98,7 @@
             </div>
 
 
-            <div class="counter-sec" style="background-color: transparent">
+            {{-- <div class="counter-sec" style="background-color: transparent">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
                         <div class="counter-box flex-fill">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </section>
