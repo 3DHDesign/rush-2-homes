@@ -7,7 +7,7 @@
                     @csrf
                     <div class="form-group">
                         <label class="form-label">Name <span>*</span></label>
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control"
+                        <input type="text" wire:model.live="name" value="{{ old('name') }}" class="form-control"
                             placeholder="Enter Name">
                         @error('name')
                             <p><small style="color: red;">{{ $message }}</small></p>
@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Email <span>*</span></label>
-                        <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                        <input type="email" wire:model.live="email" value="{{ old('email') }}" class="form-control"
                             placeholder="Enter Email">
                         @error('email')
                             <p><small style="color: red;">{{ $message }}</small></p>
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label class="form-label">Password <span>*</span></label>
                         <div class="pass-group">
-                            <input type="password" name="password" class="form-control pass-input"
+                            <input type="password" wire:model.live="password" class="form-control pass-input"
                                 placeholder="Enter Password">
                             <span class="fas fa-eye toggle-password"></span>
                         </div>
@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <label class="form-label">Confirm Password <span>*</span></label>
                         <div class="pass-group">
-                            <input type="password" name="password_confirmation" class="form-control"
+                            <input type="password" wire:model.live="password_confirmation" class="form-control"
                                 placeholder="Enter Confirm Password">
                         </div>
                         @error('password_confirmation')
@@ -48,8 +48,20 @@
                             <span class="checkmark"></span>
                         </label>
                     </div> --}}
-                    <button type="submit" class="btn btn-outline-light w-100 btn-size">Sign
-                        Up</button>
+                    <button wire:click.prevent="save"
+                        class="btn btn-outline-light w-100 btn-size submit-btn-registration">
+                        <div wire:loading wire:target="save" class="lds-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        Sign
+                        Up
+                    </button>
+                    <div wire:loading wire:target="save">
+                        Removing post...
+                    </div>
                     {{-- <div class="login-or">
                         <span class="span-or-log">Or, Sign up with your email</span>
                     </div> --}}
