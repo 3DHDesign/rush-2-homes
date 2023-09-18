@@ -13453,6 +13453,7 @@ textarea {
 
 .banner-property-input-grid-info {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
@@ -13462,6 +13463,7 @@ textarea {
 @media (max-width: 991.98px) {
     .banner-property-input-grid-info {
         flex-wrap: wrap;
+        flex-direction: column;
         width: 100%;
     }
 
