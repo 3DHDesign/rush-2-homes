@@ -23,13 +23,13 @@
                 </a>
             </div>
             <ul class="main-nav">
-                <li class="active">
+                <li class="{{ Route::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}">{{ __('homepage.header.home') }}</a>
                 </li>
-                <li class="">
+                <li class="{{ Route::is('sales.property.listing') ? 'active' : '' }}">
                     <a href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }}</a>
                 </li>
-                <li class="">
+                <li class="{{ Route::is('rent.property.listing', ['propertyType' => 'For Rental']) ? 'active' : '' }}">
                     <a
                         href="{{ route('rent.property.listing', ['propertyType' => 'For Rental']) }}">{{ __('homepage.header.rent') }}</a>
                 </li>
@@ -37,11 +37,12 @@
                     <a
                         href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">{{ __('homepage.header.land') }}</a>
                 </li>
-                <li class="">
+                <li class="{{ Route::is('about') ? 'active' : '' }}">
                     <a href="{{ route('about') }}">{{ __('homepage.header.about') }}</a>
                 </li>
 
-                <li><a href="{{ route('contact') }}">{{ __('homepage.header.contact_us') }}</a></li>
+                <li class="{{ Route::is('contact') ? 'active' : '' }}"><a
+                        href="{{ route('contact') }}">{{ __('homepage.header.contact_us') }}</a></li>
                 <li class="searchbar">
                     <a href="javascript:void(0);">
                         <img src="{{ asset('assets/img/icons/search-icon.svg') }}" alt="img">

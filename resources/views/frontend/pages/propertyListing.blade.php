@@ -26,15 +26,25 @@
     <div class="breadcrumb">
         <div class="container">
             <div class="bread-crumb-head">
-                {{-- <div class="breadcrumb-title">
-                    <h2>Buy Property List with Sidebar</h2>
+                <div class="breadcrumb-title">
+                    @if (Route::is('sales.property.listing'))
+                        <h2>Sales</h2>
+                        <div class="breadcrumb-list">
+                            <ul>
+                                <li><a href="{{ route('home') }}">Home </a></li>
+                                <li>sales</li>
+                            </ul>
+                        </div>
+                    @elseif(Route::is('rent.property.listing'))
+                        <h2>Rent</h2>
+                        <div class="breadcrumb-list">
+                            <ul>
+                                <li><a href="{{ route('home') }}">Home </a></li>
+                                <li>rent</li>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
-                <div class="breadcrumb-list">
-                    <ul>
-                        <li><a href="{{ route('home') }}">Home </a></li>
-                        <li>Buy Property List with Sidebar</li>
-                    </ul>
-                </div> --}}
             </div>
             <div class="breadcrumb-border-img">
                 <img src="{{ asset('assets/img/bg/line-bg.png') }}" class="img-fluid" alt>

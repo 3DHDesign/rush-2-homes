@@ -47,23 +47,21 @@ class PropertyAdvanceFilter extends Component
     public function mount()
     {
 
-        if($this->districName){
+        if ($this->districName) {
             $districtId = District::where('name_en', $this->districName)->select('id')->first();
             $this->getDistrict = $districtId->id;
         }
 
-        if($this->cityName)
-        {
+        if ($this->cityName) {
             $cityId = City::where('name_en', $this->cityName)->select('id')->first();
             $this->getCity = $cityId->id;
         }
 
-        if($this->categoryName)
-        {
+        if ($this->categoryName) {
             $categoryId = PropertyCategory::where('en_name', $this->categoryName)->select('id')->first();
             $this->getCategory = $categoryId->id;
         }
-        $this->cities = City::select('id','name_en', 'name_si', 'name_ta')->get();
+        $this->cities = City::select('id', 'name_en', 'name_si', 'name_ta')->get();
     }
 
     public function submitForm()
@@ -80,7 +78,7 @@ class PropertyAdvanceFilter extends Component
         if ($this->cityName) {
             $queryParams['city'] = $this->cityName;
         }
-        
+
         if ($this->categoryName) {
             $queryParams['propertyCategory'] = $this->categoryName;
         }
@@ -99,7 +97,7 @@ class PropertyAdvanceFilter extends Component
     public function updatedGetDistrict($value)
     {
         if ($value) {
-            $this->cities = City::where('district_id', $value)->select('id','name_en', 'name_si', 'name_ta')->get();
+            $this->cities = City::where('district_id', $value)->select('id', 'name_en', 'name_si', 'name_ta')->orderBy('name_en', 'ASC')->get();
 
             // update district name
             $district = District::where('id', $value)->select('name_en')->first();
@@ -125,11 +123,9 @@ class PropertyAdvanceFilter extends Component
 
     public function updatedGetCategory($value)
     {
-        if($value)
-        {
+        if ($value) {
             $category = PropertyCategory::where('id', $value)->select('en_name')->first();
-            if($category)
-            {
+            if ($category) {
                 $this->categoryName = $category->en_name;
             }
         }
@@ -137,14 +133,14 @@ class PropertyAdvanceFilter extends Component
 
     public function resetForm()
     {
-        $this->reset(); 
+        $this->reset();
     }
 
     public function render()
     {
         return view('livewire.property-advance-filter', [
-            'districts' => District::select('id', 'name_' . $this->current_locale . ' as name')->get(),
-            'categoties' => PropertyCategory::select('id', $this->current_locale.'_name as name')->get(),
+            'districts' => District::select('id', 'name_' . $this->current_locale . ' as name')->orderBy('name_en', 'ASC')->get(),
+            'categoties' => PropertyCategory::select('id', $this->current_locale . '_name as name')->get(),
         ]);
     }
 }

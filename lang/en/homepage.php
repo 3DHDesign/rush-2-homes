@@ -5,7 +5,7 @@
 return [
     'header' => [
         'home' => 'Home',
-        'sell' => 'Sell',
+        'sell' => 'Sales',
         'rent' => 'Rent',
         'land' => 'Land',
         'about' => 'About us',
