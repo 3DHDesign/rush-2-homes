@@ -7,86 +7,29 @@
     </style>
 @endpush
 @section('content')
-    <div class="container">
-
-        <div class="login-wrapper">
-            <div class="loginbox">
-                <div class="login-auth">
-                    <div class="login-auth-wrap">
-                        <h1>Signup! <span class="d-block"> New Account.</span></h1>
-                        <form action="{{ route('user.account.register') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label class="form-label">Name <span>*</span></label>
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                    placeholder="Enter Name">
-                                @error('name')
-                                    <p><small style="color: red;">{{ $message }}</small></p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Email <span>*</span></label>
-                                <input type="email" name="email" value="{{ old('email') }}" class="form-control"
-                                    placeholder="Enter Email">
-                                @error('email')
-                                    <p><small style="color: red;">{{ $message }}</small></p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Password <span>*</span></label>
-                                <div class="pass-group">
-                                    <input type="password" name="password" class="form-control pass-input"
-                                        placeholder="Enter Password">
-                                    <span class="fas fa-eye toggle-password"></span>
-                                </div>
-                                @error('password')
-                                    <p><small style="color: red;">{{ $message }}</small></p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Confirm Password <span>*</span></label>
-                                <div class="pass-group">
-                                    <input type="password" name="password_confirmation" class="form-control"
-                                        placeholder="Enter Confirm Password">
-                                </div>
-                                @error('password_confirmation')
-                                    <p><small style="color: red;">{{ $message }}</small></p>
-                                @enderror
-                            </div>
-                            {{-- <div class="form-group">
-                                <label class="custom_check mt-0 mb-0"><span>Remember me</span>
-                                    <input type="checkbox" name="remeber">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div> --}}
-                            <button type="submit" class="btn btn-outline-light w-100 btn-size">Sign Up</button>
-                            {{-- <div class="login-or">
-                                <span class="span-or-log">Or, Sign up with your email</span>
-                            </div> --}}
-                            {{-- 
-                            <div class="social-login">
-                                <a href="#"
-                                    class="d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
-                                            src="{{ asset('assets/img/icons/google.svg') }}" class="img-fluid"
-                                            alt="Google"></span>Sign
-                                    up with Google</a>
-                            </div>
-                            <div class="social-login">
-                                <a href="#"
-                                    class="mb-0 d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
-                                            src="{{ asset('assets/img/icons/facebook.svg') }}" class="img-fluid"
-                                            alt="Facebook"></span>Sign
-                                    up with Facebook</a>
-                            </div> --}}
-
-                            <div class="text-center dont-have" target="_black">Already have login ? <a
-                                    href="/admin
-                                ">Login</a>
-                            </div>
-                        </form>
-                    </div>
+    <section class="price-section section">
+        <div class="container">
+            <div class="pricing-tab align-items-center justify-content-center">
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                            type="button" role="tab" aria-controls="pills-home" aria-selected="true">User</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false" tabindex="-1">Agent</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <livewire:user-registration-form />
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <livewire:agent-registration-form />
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

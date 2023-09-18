@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
-class UserRegistration extends Component
+class AgentRegistrationForm extends Component
 {
     public $email;
     public $name;
@@ -33,6 +33,6 @@ class UserRegistration extends Component
 
     public function render()
     {
-        return view('livewire.user-registration');
+        return view('livewire.agent-registration-form');
     }
 }
