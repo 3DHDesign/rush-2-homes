@@ -31,7 +31,7 @@ class SellPropertyFilter extends Component
         $this->cities = City::where('district_id', $value)->select(
             'id',
             'name_' . $this->current_locale . ' as name',
-        )->get();
+        )->orderBy('name_en', 'ASC')->get();
     }
 
 
@@ -45,7 +45,7 @@ class SellPropertyFilter extends Component
             'districts' => District::select(
                 'id',
                 'name_' . $this->current_locale . ' as name',
-            )->get(),
+            )->orderBy('name_en', 'ASC')->get(),
         ]);
     }
 }

@@ -58,7 +58,7 @@ class BuyPropertyFilter extends Component
         $this->cities = City::where('district_id', $value)->select(
             'id',
             'name_' . $this->current_locale . ' as name',
-        )->get();
+        )->orderBy('name_en', 'ASC')->get();
     }
 
     public function searchFilter()
@@ -90,7 +90,7 @@ class BuyPropertyFilter extends Component
             'districts' => District::select(
                 'id',
                 'name_' . $this->current_locale . ' as name',
-            )->get(),
+            )->orderBy('name_en', 'ASC')->get(),
         ]);
     }
 }
