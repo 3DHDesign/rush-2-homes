@@ -4,26 +4,21 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class UserRegistrationForm extends Component
 {
-    #[Rule('required|email|unique:users')] 
     public $email;
-
-    #[Rule('required|string')] 
     public $name;
-
-    #[Rule('required|min:6')] 
     public $password;
-
-    #[Rule('required_with:password|same:password')] 
-    public $password_confirmation;
 
     public function save()
     {
-        $this->validate();
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
         
         User::create([
             'name' => $this->name,
@@ -33,7 +28,7 @@ class UserRegistrationForm extends Component
 
         // Optional: You can add a notification or redirect here
 
-        $this->reset(['name','email', 'password', 'password_confirmation']);
+        $this->reset(['name','email', 'password', 'confirmPassword']);
     }
 
     public function render()
