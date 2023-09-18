@@ -1186,6 +1186,12 @@ h6 {
     font-weight: 400;
 }
 
+@media (max-width: 991.98px) {
+    .banner-search .banner-tab-property .banner-property-info .districts {
+        width: 100%;
+    }
+}
+
 .form-control::-ms-input-placeholder {
     font-size: 14px;
     color: #8a909a;
@@ -3965,9 +3971,10 @@ label span {
     }
 }
 
-.banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) input {
-    width: 300px;
+.banner-search .banner-tab-property .banner-property-info .banner-property-grid .districts {
+    width: 25%;
 }
+
 
 @media (max-width: 1399.98px) {
     .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) input {
@@ -3978,12 +3985,6 @@ label span {
 @media (max-width: 1199.98px) {
     .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) input {
         width: auto;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) input {
-        width: 100%;
     }
 }
 
@@ -4001,18 +4002,10 @@ label span {
     width: 120px;
 }
 
-@media (max-width: 991.98px) {
-    .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(5) input {
-        width: 100%;
-    }
-}
+
 
 .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(2) {
     width: 30%;
-}
-
-.banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) {
-    width: 25%;
 }
 
 .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(4) {
@@ -13441,10 +13434,6 @@ textarea {
     .gallery-property ul li {
         margin-right: 20px;
     }
-
-    .banner-search .banner-tab-property .banner-property-info .banner-property-grid:nth-child(3) input {
-        width: 100%;
-    }
 }
 
 .google-maps iframe {
@@ -13461,3 +13450,35 @@ textarea {
 .add-more:hover {
     color: #267cbe;
 }
+
+.banner-property-input-grid-info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 991.98px) {
+    .banner-property-input-grid-info {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .property-input-grid {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .property-input-grid button {
+        width: 100%;
+    }
+}
+
+/* .banner-property-info .property-input-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+} */
