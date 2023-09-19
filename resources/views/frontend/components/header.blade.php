@@ -60,15 +60,7 @@
             <li class="login-link"><a href="{{ route('lang', ['locale' => 'ta']) }}">Tamil</a>
             </li>
 
-            {{-- <li class="new-property-btn">
-                <a href="{{ route('user.register') }}">
-                    <i class="bx bxs-plus-circle"></i> {{ __('homepage.header.add_new_property') }}
-                </a>
-            </li> --}}
-            <li style="margin-left: 20px;">
-                <a href="{{ route('user.register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
-                    Up</a>
-            </li>
+            <livewire:login-buttons />
         </ul>
     </nav>
 </header>

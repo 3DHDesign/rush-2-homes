@@ -122,7 +122,7 @@ class PropertyInformationResource extends Resource
 
                                                 Select::make('size_type')
                                                     ->default('perches')
-                                                    ->options(['perches' => 'Perches', 'acres' => 'Acres'])
+                                                    ->options(['perches' => 'Perches', 'acres' => 'Acres', 'sqft' => 'sqft'])
                                                     ->searchable(),
                                                 TextInput::make('bedrooms')
                                                     ->label('Bedrooms')
