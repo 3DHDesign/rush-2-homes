@@ -1,4 +1,5 @@
 @extends('components.layouts.master')
+
 @section('content')
     <div class="listing-section">
         <div class="container">

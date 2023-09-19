@@ -37,8 +37,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            <p wire:loading wire:target="store"><i class="bx bx-check-double"></i>Your profile is updating...</p>
             <div class="property-submit">
-                <button wire:click="store" class="btn btn-primary">Update changes</button>
+                <button wire:click="store" class="btn btn-primary">
+                    Update changes
+                </button>
             </div>
         </div>
     </div>
