@@ -12,6 +12,8 @@ class LoginButtons extends Component
         \Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        return redirect()->route('home');
     }
 
     public function render()
