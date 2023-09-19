@@ -54,10 +54,10 @@
                         Sign
                         Up
                     </button>
-                    {{-- <div class="login-or">
+                    <div class="login-or">
                         <span class="span-or-log">Or, Sign up with your email</span>
-                    </div> --}}
-                    {{-- 
+                    </div>
+
                     <div class="social-login">
                         <a href="#"
                             class="d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
@@ -71,7 +71,7 @@
                                     src="{{ asset('assets/img/icons/facebook.svg') }}" class="img-fluid"
                                     alt="Facebook"></span>Sign
                             up with Facebook</a>
-                    </div> --}}
+                    </div>
 
                     <div class="text-center dont-have">Already have login ? <a target="_black"
                             href="/admin

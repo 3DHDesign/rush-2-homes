@@ -3,6 +3,7 @@
 use App\Http\Controllers\PropertyFilterController;
 use App\Http\Controllers\PropertyInnerController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserDashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -25,6 +26,13 @@ Route::get('/rent', [PropertyFilterController::class, 'propertyList'])->name('re
 Route::get('/properties/{slug}', [PropertyInnerController::class, 'propertyInner'])->name('property.inner');
 Route::get('user/register', [SiteController::class, 'register'])->name('user.register');
 Route::get('user/login', [SiteController::class, 'loginAccount'])->name('user.account.login');
+
+
+// Client dashboard routes
+Route::prefix('/user/dashboard')->group(function () {
+    Route::get('home', [DashboardController::class, 'home'])->name('user.dashboard.home');
+    Route::get('favorites', [DashboardController::class, 'favorites'])->name('user.dashboard.favorites');
+});
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);

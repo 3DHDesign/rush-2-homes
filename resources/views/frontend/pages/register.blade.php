@@ -2,7 +2,7 @@
 @push('style')
     <style>
         .login-wrapper {
-            margin-bottom: 20vh;
+            margin-bottom: 28vh;
         }
 
         .submit-btn-registration {
