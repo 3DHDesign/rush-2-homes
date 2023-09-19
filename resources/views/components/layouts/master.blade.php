@@ -27,6 +27,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     @livewireStyles
+
     @stack('style')
 </head>
 
@@ -85,31 +86,48 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
         </svg>
     </div>
+    <script src="{{ asset('assets/js/jquery-3.6.4.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/aos.js') }}"></script>
+
+    <script src="{{ asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
+
+    <script src="{{ asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
+
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/waypoints.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/slick/slick.js') }}"></script>
+
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    @stack('script')
+
+    <script>
+        window.addEventListener('toastr:info', event => {
+            toastr.info(event.detail.message);
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        window.addEventListener('Swal:modal', event => {
+            console.log(event.params)
+            Swal.fire({
+                icon: event.detail.icon,
+                title: event.detail.title,
+                text: event.detail.text,
+            })
+        })
+    </script>
     @livewireScripts
-</body>
-<script src="{{ asset('assets/js/jquery-3.6.4.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/feather.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/aos.js') }}"></script>
-
-<script src="{{ asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
-
-<script src="{{ asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
-
-<script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/waypoints.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/slick/slick.js') }}"></script>
-
-<script src="{{ asset('assets/js/script.js') }}"></script>
-@stack('script')
 </body>
 
 </html>

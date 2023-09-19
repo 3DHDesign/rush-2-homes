@@ -25,13 +25,29 @@ class UserRegistrationForm extends Component
     {
         $this->validate();
 
-        Client::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-            'status' => 1,
-            'avatar' => null,
-        ]);
+        try {
+            Client::create([
+                'name' => $this->name,
+                'email' => $this->email,
+                'password' => Hash::make($this->password),
+                'status' => 1,
+                'avatar' => null,
+            ]);
+
+            $this->dispatch(
+                'Swal:modal',
+                icon: 'success',
+                title: $this->name . '!' . ' you have registered successfully!',
+                text: 'Your Key to Property Success',
+            );
+        } catch (\Exception $e) {
+            $this->dispatch(
+                'Swal:modal',
+                icon: 'error',
+                title: 'Registration Error',
+                text: 'An error occurred while registering. Please try again later.'
+            );
+        }
 
         // Optional: You can add a notification or redirect here
 
