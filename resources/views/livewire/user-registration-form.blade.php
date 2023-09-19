@@ -1,6 +1,7 @@
 <div class="login-wrapper">
     <div class="loginbox">
         <div class="login-auth">
+
             <div class="login-auth-wrap">
                 <h1>Signup! <span class="d-block"> New User Account.</span></h1>
                 <form action="{{ route('user.account.register') }}" method="POST">
@@ -50,18 +51,17 @@
                     </div> --}}
                     <button wire:click.prevent="save"
                         class="btn btn-outline-light w-100 btn-size submit-btn-registration">
-                        <div wire:loading wire:target="save" class="lds-ring">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                        <div wire:loading wire:target="save">
+                            <div class="lds-ring">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
                         </div>
                         Sign
                         Up
                     </button>
-                    <div wire:loading wire:target="save">
-                        Removing post...
-                    </div>
                     {{-- <div class="login-or">
                         <span class="span-or-log">Or, Sign up with your email</span>
                     </div> --}}

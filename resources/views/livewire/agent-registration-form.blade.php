@@ -50,18 +50,17 @@
                     </div> --}}
                     <button wire:click.prevent="save"
                         class="btn btn-outline-light w-100 btn-size submit-btn-registration">
-                        <div wire:loading wire:target="save" class="lds-ring">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                        <div wire:loading wire:target="save">
+                            <div class="lds-ring">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
                         </div>
                         Sign
                         Up
                     </button>
-                    <div wire:loading wire:target="save">
-                        Removing post...
-                    </div>
                     {{-- <div class="login-or">
                         <span class="span-or-log">Or, Sign up with your email</span>
                     </div> --}}

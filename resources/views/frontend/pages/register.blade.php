@@ -44,7 +44,7 @@
             animation-delay: -0.15s;
         }
 
-        .submit-btn-registration:hover>.lds-ring div {
+        .submit-btn-registration:hover>div .lds-ring div {
             border: 3px solid #267cbe !important;
             border-color: #267cbe transparent transparent transparent !important;
         }
@@ -58,6 +58,11 @@
                 transform: rotate(360deg);
             }
         }
+
+        .btn-size {
+            padding: 6px 10px !important;
+            height: 45px !important;
+        }
     </style>
 @endpush
 @section('content')
@@ -67,12 +72,13 @@
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                            type="button" role="tab" aria-controls="pills-home" aria-selected="true">User</button>
+                            type="button" role="tab" aria-controls="pills-home" aria-selected="true">Register for
+                            User</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                            aria-selected="false" tabindex="-1">Agent</button>
+                            aria-selected="false" tabindex="-1">Register for Agent</button>
                     </li>
                 </ul>
             </div>
