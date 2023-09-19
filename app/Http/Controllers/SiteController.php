@@ -51,18 +51,9 @@ class SiteController extends Controller
         return view('frontend.pages.register');
     }
 
-    public function registerAccount(UserRegisterRequest $request)
+    public function loginAccount()
     {
-        $validated = $request->validated();
-        $registered = User::create($validated);
-
-        if ($registered) {
-            // login to filament
-            return Redirect::to('/admin');
-        } else {
-            // has an error
-            return redirect()->back();
-        }
+        return view('frontend.pages.login_client');
     }
 
     public function about()

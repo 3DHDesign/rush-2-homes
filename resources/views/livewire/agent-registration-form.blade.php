@@ -3,8 +3,7 @@
         <div class="login-auth">
             <div class="login-auth-wrap">
                 <h1>Signup! <span class="d-block"> New Agent Account.</span></h1>
-                <form action="{{ route('user.account.register') }}" method="POST">
-                    @csrf
+                <form>
                     <div class="form-group">
                         <label class="form-label">Name <span>*</span></label>
                         <input type="text" wire:model.live="name" value="{{ old('name') }}" class="form-control"
@@ -42,12 +41,6 @@
                             <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
-                    {{-- <div class="form-group">
-                        <label class="custom_check mt-0 mb-0"><span>Remember me</span>
-                            <input type="checkbox" name="remeber">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div> --}}
                     <button wire:click.prevent="save"
                         class="btn btn-outline-light w-100 btn-size submit-btn-registration">
                         <div wire:loading wire:target="save">
@@ -80,7 +73,7 @@
                             up with Facebook</a>
                     </div> --}}
 
-                    <div class="text-center dont-have" target="_black">Already have login ? <a
+                    <div class="text-center dont-have">Already have login ? <a target="_black"
                             href="/admin
                         ">Login</a>
                     </div>

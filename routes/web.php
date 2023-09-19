@@ -23,8 +23,8 @@ Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 Route::get('/sales', [PropertyFilterController::class, 'propertyList'])->name('sales.property.listing');
 Route::get('/rent', [PropertyFilterController::class, 'propertyList'])->name('rent.property.listing');
 Route::get('/properties/{slug}', [PropertyInnerController::class, 'propertyInner'])->name('property.inner');
-Route::get('admin/register', [SiteController::class, 'register'])->name('user.register');
-Route::post('admin/register', [SiteController::class, 'registerAccount'])->name('user.account.register');
+Route::get('user/register', [SiteController::class, 'register'])->name('user.register');
+Route::get('user/login', [SiteController::class, 'loginAccount'])->name('user.account.login');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
