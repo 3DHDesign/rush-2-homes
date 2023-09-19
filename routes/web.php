@@ -29,7 +29,7 @@ Route::get('user/login', [SiteController::class, 'loginAccount'])->name('user.ac
 
 
 // Client dashboard routes
-Route::prefix('/user/dashboard')->group(function () {
+Route::prefix('/user/dashboard')->middleware(['client.auth'])->group(function () {
     Route::get('home', [DashboardController::class, 'home'])->name('user.dashboard.home');
     Route::get('favorites', [DashboardController::class, 'favorites'])->name('user.dashboard.favorites');
 });

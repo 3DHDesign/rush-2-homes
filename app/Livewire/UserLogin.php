@@ -17,7 +17,7 @@ class UserLogin extends Component
     public function userLogin()
     {
         if (\Auth::guard('client')->attempt(['email' => $this->email, 'password' => $this->password, 'status' => '1'])) {
-            return redirect()->route('home');
+            return redirect()->route('user.dashboard.home');
         } else {
             $this->dispatch(
                 'Swal:modal',
