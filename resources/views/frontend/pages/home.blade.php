@@ -69,6 +69,7 @@
                                                 </div>
                                             @endif
                                         @endforeach
+                                        <livewire:add-favorite :property='$property->id' />
                                     </div>
                                     <div class="pro-content">
                                         <h3 class="title">

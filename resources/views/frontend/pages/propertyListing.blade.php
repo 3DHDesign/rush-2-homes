@@ -93,7 +93,7 @@
                                                         </div>
                                                     @endif
                                                 @endforeach
-
+                                                <livewire:add-favorite :property='$property->id' />
                                             </div>
                                             @php
                                                 $currencyType = [
@@ -128,6 +128,7 @@
                                                         </div>
                                                         <p><i class="feather-map-pin"></i>{{ $property->address }}
                                                         </p>
+
                                                     </div>
                                                 </div>
                                                 @if ($property->bedrooms || $property->bathrooms || $property->land_size)
