@@ -1,5 +1,5 @@
 <div>
-    @if (auth()->guard('client')->user() || auth()->user())
+    @if (auth()->guard('client')->user())
         <ul class="nav header-navbar-rht">
             <li style="margin-left: 20px;">
                 <a wire:click="logout" class="btn btn-primary"><i class="feather-user-minus"></i>Logout</a>
