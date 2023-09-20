@@ -5,6 +5,7 @@ use App\Http\Controllers\PropertyInnerController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserDashboard\DashboardController;
 use App\Livewire\AddFavorite;
+use App\Livewire\LoginButtons;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -27,6 +28,7 @@ Route::get('/rent', [PropertyFilterController::class, 'propertyList'])->name('re
 Route::get('/properties/{slug}', [PropertyInnerController::class, 'propertyInner'])->name('property.inner');
 Route::get('user/register', [SiteController::class, 'register'])->name('user.register');
 Route::get('user/login', [SiteController::class, 'loginAccount'])->name('user.account.login');
+// Route::post('user/logout', [LoginButtons::class, 'logout'])->name('user.account.logout');
 
 
 // Client dashboard routes
