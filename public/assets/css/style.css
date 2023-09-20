@@ -7178,7 +7178,7 @@ body.search-visible {
 
 .buy-btn a.appartment,
 .buy-btn span.appartment {
-    background: #fcaf3d;
+    background: #ff3164;
 }
 
 .page-title h3 {
@@ -8026,6 +8026,17 @@ textarea {
 
 .social-links ul.sidebar-social-links li a.twitter-icon {
     background: #35b6ff;
+    border: 1px solid #35b6ff;
+    color: #fff;
+}
+
+.social-links ul.sidebar-social-links li a.whatsapp-icon:hover {
+    background: #fff;
+    color: #35b6ff;
+}
+
+.social-links ul.sidebar-social-links li a.whatsapp-icon {
+    background: #0dca95;
     border: 1px solid #35b6ff;
     color: #fff;
 }
