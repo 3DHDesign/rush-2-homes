@@ -18,6 +18,7 @@ class PropertyInnerController extends Controller
     public function propertyInner($slug)
     {
         $property = PropertyInformation::where('slug', $slug)->select(
+            'id',
             $this->current_locale . '_title as title',
             $this->current_locale . '_address as address',
             $this->current_locale . '_description as description',

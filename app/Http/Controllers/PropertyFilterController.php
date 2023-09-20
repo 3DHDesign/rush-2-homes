@@ -36,6 +36,7 @@ class PropertyFilterController extends Controller
 
         $query = PropertyInformation::where('status', 'Published')->where('property_type_id', $property_type_id->id ?? 1)
             ->select([
+                'id',
                 $this->current_locale . '_title as title',
                 $this->current_locale . '_address as address',
                 'price',

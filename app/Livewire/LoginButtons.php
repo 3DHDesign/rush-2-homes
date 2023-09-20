@@ -13,7 +13,7 @@ class LoginButtons extends Component
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->refresh();
     }
 
     public function render()

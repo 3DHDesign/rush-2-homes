@@ -4,6 +4,7 @@ use App\Http\Controllers\PropertyFilterController;
 use App\Http\Controllers\PropertyInnerController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserDashboard\DashboardController;
+use App\Livewire\AddFavorite;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -43,6 +44,10 @@ Route::get('language/{locale}', function ($locale) {
 
 Route::get('/link', function () {
     Artisan::call('storage:link');
+});
+
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
 });
 
 Route::get('/cls', function () {

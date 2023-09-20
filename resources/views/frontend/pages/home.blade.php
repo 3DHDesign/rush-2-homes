@@ -69,6 +69,11 @@
                                                 </div>
                                             @endif
                                         @endforeach
+                                        <a href="javascript:void(0)">
+                                            <div class="favourite">
+                                                <span><i class="fa-regular fa-heart"></i></span>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="pro-content">
                                         <h3 class="title">
