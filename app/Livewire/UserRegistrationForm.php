@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class UserRegistrationForm extends Component
 {
-    #[Rule('required|email|unique:users')]
+    #[Rule('required|email|unique:clients')]
     public $email;
 
     #[Rule('required|string')]
