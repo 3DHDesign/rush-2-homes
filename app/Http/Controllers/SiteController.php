@@ -27,6 +27,7 @@ class SiteController extends Controller
     public function home()
     {
         $featureProperties = PropertyInformation::where('status', 'Published')->select(
+            'id',
             $this->current_locale . '_title as title',
             $this->current_locale . '_address as address',
             'price',
