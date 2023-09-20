@@ -48,8 +48,9 @@
                         <p> {{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}
                             {{ number_format($property->price, 0, ',', ' ') }}</p>
                         <ul class="other-pages">
+                            <li><a href="{{ route('sales.property.listing') }}"><i class="feather-back"></i>Go to back</a>
+                            </li>
                             <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
-                            <li><a href="javascript:void(0);"><i class="feather-heart"></i>Wishlist</a></li>
                         </ul>
                     </div>
                 </div>
