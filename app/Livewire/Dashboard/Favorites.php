@@ -23,15 +23,17 @@ class Favorites extends Component
 
     public function mount()
     {
-        $this->fav_properties = PropertyInformation::whereIn('id', json_decode($this->user->favorite, true))
-            ->select([
-                'id',
-                $this->current_locale . '_title as title',
-                $this->current_locale . '_address as address',
-                'slug',
-                'gallery'
-            ])
-            ->get();
+        if ($this->user->favorite) {
+            $this->fav_properties = PropertyInformation::whereIn('id', json_decode($this->user->favorite, true))
+                ->select([
+                    'id',
+                    $this->current_locale . '_title as title',
+                    $this->current_locale . '_address as address',
+                    'slug',
+                    'gallery'
+                ])
+                ->get();
+        }
     }
 
     public function removeFav($id)
