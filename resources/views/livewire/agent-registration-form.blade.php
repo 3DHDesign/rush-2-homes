@@ -2,29 +2,31 @@
     <div class="loginbox">
         <div class="login-auth">
             <div class="login-auth-wrap">
-                <h1>Signup! <span class="d-block"> New Agent Account.</span></h1>
+                <h1>{{ __('registration.agent_register.sign_up') }} <span
+                        class="d-block">{{ __('registration.agent_register.agent_account') }}</span></h1>
                 <form>
                     <div class="form-group">
-                        <label class="form-label">Name <span>*</span></label>
+                        <label class="form-label">{{ __('registration.agent_register.name') }} <span>*</span></label>
                         <input type="text" wire:model.live="name" value="{{ old('name') }}" class="form-control"
-                            placeholder="Enter Name">
+                            placeholder="{{ __('registration.agent_register.name') }}">
                         @error('name')
                             <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Email <span>*</span></label>
+                        <label class="form-label">{{ __('registration.agent_register.email') }} <span>*</span></label>
                         <input type="email" wire:model.live="email" value="{{ old('email') }}" class="form-control"
-                            placeholder="Enter Email">
+                            placeholder="{{ __('registration.agent_register.email') }}">
                         @error('email')
                             <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Password <span>*</span></label>
+                        <label class="form-label">{{ __('registration.agent_register.password') }}
+                            <span>*</span></label>
                         <div class="pass-group">
                             <input type="password" wire:model.live="password" class="form-control pass-input"
-                                placeholder="Enter Password">
+                                placeholder="{{ __('registration.agent_register.password') }}">
                             <span class="fas fa-eye toggle-password"></span>
                         </div>
                         @error('password')
@@ -32,10 +34,11 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Confirm Password <span>*</span></label>
+                        <label class="form-label">{{ __('registration.agent_register.confirm_password') }}
+                            <span>*</span></label>
                         <div class="pass-group">
                             <input type="password" wire:model.live="password_confirmation" class="form-control"
-                                placeholder="Enter Confirm Password">
+                                placeholder="{{ __('registration.agent_register.confirm_password') }}">
                         </div>
                         @error('password_confirmation')
                             <p><small style="color: red;">{{ $message }}</small></p>
@@ -51,31 +54,27 @@
                                 <div></div>
                             </div>
                         </div>
-                        Sign
-                        Up
+                        {{ __('registration.agent_register.sign_up_button') }}
                     </button>
                     <div class="login-or">
-                        <span class="span-or-log">Or, Sign up with your email</span>
+                        <span class="span-or-log">{{ __('registration.agent_register.or') }}</span>
                     </div>
 
                     <div class="social-login">
                         <a href="#"
                             class="d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
                                     src="{{ asset('assets/img/icons/google.svg') }}" class="img-fluid"
-                                    alt="Google"></span>Sign
-                            up with Google</a>
+                                    alt="Google"></span>{{ __('registration.agent_register.sign_up_with_google') }}</a>
                     </div>
                     <div class="social-login">
                         <a href="#"
                             class="mb-0 d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
                                     src="{{ asset('assets/img/icons/facebook.svg') }}" class="img-fluid"
-                                    alt="Facebook"></span>Sign
-                            up with Facebook</a>
+                                    alt="Facebook"></span>{{ __('registration.agent_register.sign_up_with_facebook') }}</a>
                     </div>
 
-                    <div class="text-center dont-have">Already have login ? <a target="_black"
-                            href="/admin
-                        ">Login</a>
+                    <div class="text-center dont-have">{{ __('registration.agent_register.already_have_login') }} <a
+                            target="_blank" href="/admin">{{ __('registration.agent_register.login_link') }}</a>
                     </div>
                 </form>
             </div>

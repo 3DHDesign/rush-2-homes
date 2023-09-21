@@ -36,7 +36,8 @@
                     <div class="product-custom">
                         <div class="profile-widget">
                             <div class="doc-img">
-                                <a href="#" class="property-img">
+                                <a href="{{ route('property.inner', ['slug' => $similar_property->slug]) }}"
+                                    class="property-img">
                                     <img class="img-fluid" alt="{{ $similar_property->title }}"
                                         src="{{ asset('storage/' . $similar_property->gallery[0]) }}">
                                 </a>
@@ -68,7 +69,8 @@
                             </div>
                             <div class="pro-content">
                                 <h3 class="title">
-                                    <a href="#">{{ $similar_property->title }}</a>
+                                    <a
+                                        href="{{ route('property.inner', ['slug' => $similar_property->slug]) }}">{{ $similar_property->title }}</a>
                                 </h3>
                                 <p><i class="feather-map-pin"></i> {{ $similar_property->address }}
                                 </p>

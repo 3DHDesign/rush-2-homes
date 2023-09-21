@@ -1,19 +1,19 @@
 @extends('components.layouts.master')
 @section('content')
     @include('frontend.components.slider')
+
     <section class="feature-property-sec">
         <div class="container">
             <div class="section-heading text-center">
-                <h2>Featured Properties for Sales</h2>
+                <h2>{{ __('homepage.page.featured_properties') }}</h2>
                 <div class="sec-line">
                     <span class="sec-line1"></span>
                     <span class="sec-line2"></span>
                 </div>
-                <p>Hand-Picked selection of quality places</p>
+                <p>{{ __('homepage.page.handpicked_selection') }}</p>
             </div>
             <div class="feature-property-sec for-rent for-rent p-0 bg-transparent">
                 <div class="row">
-
                     @foreach ($featureProperties as $property)
                         <div class="col-lg-4 col-md-6">
                             <div class="product-custom">
@@ -21,7 +21,7 @@
                                     <div class="doc-img">
                                         <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
                                             class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
+                                            <img class="img-fluid" alt="{{ $property->title }}"
                                                 src="{{ asset('storage/' . $property->gallery[0]) }}">
                                         </a>
                                         @php
@@ -69,27 +69,26 @@
                                                 </div>
                                             @endif
                                         @endforeach
-                                        <livewire:add-favorite :property='$property->id' />
+                                        <livewire:add-favorite :property="$property->id" />
                                     </div>
                                     <div class="pro-content">
                                         <h3 class="title">
                                             <a href="{{ route('property.inner', ['slug' => $property->slug]) }}"
                                                 title="{{ $property->title }}">{{ Str::limit($property->title, 60, '...') }}</a>
                                         </h3>
-                                        <p><i class="feather-map-pin"></i> {{ $property->address }}
-                                        </p>
+                                        <p><i class="feather-map-pin"></i> {{ $property->address }}</p>
                                         @if ($property->bedrooms || $property->bathrooms || $property->land_size)
                                             <ul class="d-flex details">
                                                 @if ($property->bedrooms)
                                                     <li>
                                                         <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
-                                                        {{ $property->bedrooms }} Beds
+                                                        {{ $property->bedrooms }} {{ __('homepage.page.beds') }}
                                                     </li>
                                                 @endif
                                                 @if ($property->bathrooms)
                                                     <li>
                                                         <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
-                                                        {{ $property->bathrooms }} Baths
+                                                        {{ $property->bathrooms }} {{ __('homepage.page.baths') }}
                                                     </li>
                                                 @endif
                                                 @if ($property->land_size)
@@ -102,12 +101,12 @@
                                         @endif
                                         <ul class="property-category d-flex justify-content-between">
                                             <li>
-                                                <span class="list">Listed on : </span>
+                                                <span class="list">{{ __('homepage.page.list_on') }} :</span>
                                                 <span
                                                     class="date">{{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</span>
                                             </li>
                                             <li>
-                                                <span class="category list">Category : </span>
+                                                <span class="category list">{{ __('homepage.page.category') }} :</span>
                                                 <span
                                                     class="category-value date">{{ $property->propertyCategory->en_name }}</span>
                                             </li>
@@ -117,7 +116,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
         </div>
