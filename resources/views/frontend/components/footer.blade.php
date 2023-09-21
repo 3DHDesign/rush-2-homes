@@ -1,8 +1,7 @@
 <footer class="footer">
-
     <div class="footer-top">
         <div class="footer-border-img">
-            <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="image">
+            <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="{{ __('homepage.footer.about.title') }}">
         </div>
         <div class="container">
             <div class="row">
@@ -10,10 +9,8 @@
                     <div class="footer-widget footer-about">
                         <div class="footer-app-content">
                             <div class="footer-content-heading">
-                                <h4>Rush 2 Homes</h4>
-                                <p>Rush2Homes is a premier real estate company, established as a subsidiary and
-                                    exclusive sales and marketing partner of the leading property development
-                                    company in Sri Lanka, Rush Lanka Group.</p>
+                                <h4>{{ __('homepage.footer.about.title') }}</h4>
+                                <p>{{ __('homepage.footer.about.description') }}</p>
                             </div>
                         </div>
                     </div>
@@ -21,46 +18,45 @@
                 <div class="col-lg-3 col-md-5 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
-                            <h4>Property Types</h4>
+                            <h4>{{ __('homepage.footer.property_types.title') }}</h4>
                         </div>
                         <ul>
                             <li><a
-                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Apartment']) }}">Apartments</a>
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Apartment']) }}">{{ __('homepage.footer.property_types.apartments') }}</a>
                             </li>
                             <li><a
-                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'House']) }}">Home</a>
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'House']) }}">{{ __('homepage.footer.property_types.homes') }}</a>
                             </li>
                             <li><a
-                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">Land</a>
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">{{ __('homepage.footer.property_types.land') }}</a>
                             </li>
                             <li><a
-                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Commercial Buildings']) }}">Commercial
-                                    Buildings</a>
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Commercial Buildings']) }}">{{ __('homepage.footer.property_types.commercial_buildings') }}</a>
                             </li>
                             <li><a
-                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Bungalows']) }}">Bungalows</a>
+                                    href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Bungalows']) }}">{{ __('homepage.footer.property_types.bungalows') }}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-lg-3 col-md-5 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
-                            <h4>Quick Links</h4>
+                            <h4>{{ __('homepage.footer.quick_links.title') }}</h4>
                         </div>
                         <ul>
-                            <li><a href="{{ route('about') }}">About</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="{{ route('user.register') }}">Sign-in</a></li>
-                            <li><a href="/admin">Login</a></li>
+                            <li><a href="{{ route('about') }}">{{ __('homepage.footer.quick_links.about') }}</a></li>
+                            <li><a href="#">{{ __('homepage.footer.quick_links.terms_conditions') }}</a></li>
+                            <li><a href="#">{{ __('homepage.footer.quick_links.privacy_policy') }}</a></li>
+                            <li><a
+                                    href="{{ route('user.register') }}">{{ __('homepage.footer.quick_links.sign_in') }}</a>
+                            </li>
+                            <li><a href="/admin">{{ __('homepage.footer.quick_links.login') }}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-5 col-sm-4">
                     <div class="social-links">
-
                         <ul>
                             <li><a href="https://web.facebook.com/profile.php?id=100063944532110" target="_black"><i
                                         class="fa-brands fa-facebook-f hi-icon"></i></a></li>
@@ -76,16 +72,13 @@
             </div>
         </div>
     </div>
-
-
     <div class="footer-bottom">
         <div class="container">
             <div class="footer-bottom-content">
                 <div class="copyright">
-                    <p>Copyright 2023 - All right reserved 3DH Design</p>
+                    <p>{{ __('homepage.footer.copyright') }}</p>
                 </div>
             </div>
         </div>
     </div>
-
 </footer>

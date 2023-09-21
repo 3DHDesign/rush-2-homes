@@ -15,7 +15,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="banner-content" data-aos="fade-down">
-                        <h1>Find Your Best Dream House for <span>Rental, Buy & Sell...</span></h1>
+                        <h1>{{ __('homepage.slider.main_title') }}<span>{{ __('homepage.slider.main_title_second') }}</span>
+                        </h1>
                     </div>
                 </div>
             </div>

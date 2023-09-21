@@ -1,27 +1,28 @@
 <div class="login-wrapper">
     <div class="loginbox">
         <div class="login-auth">
-
             <div class="login-auth-wrap">
-                <h1>Login! <span class="d-block"> to your user account.</span></h1>
+                <h1>{{ __('login.user_login.login_title') }} <span
+                        class="d-block">{{ __('login.user_login.login_subtitle') }}</span>
+                </h1>
                 <form>
                     <div class="form-group">
-                        <label class="form-label">Email <span>*</span></label>
+                        <label class="form-label">{{ __('login.user_login.email_label') }} <span>*</span></label>
                         <input type="email" wire:model.live="email" value="{{ old('email') }}" class="form-control"
-                            placeholder="Enter Email">
+                            placeholder="{{ __('login.user_login.email_placeholder') }}">
                         @error('email')
-                            <p><small style="color: red;">{{ $message }}</small></p>
+                            <p><small style="{{ __('login.user_login.error_color') }}">{{ $message }}</small></p>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Password <span>*</span></label>
+                        <label class="form-label">{{ __('login.user_login.password_label') }} <span>*</span></label>
                         <div class="pass-group">
                             <input type="password" wire:model.live="password" class="form-control pass-input"
-                                placeholder="Enter Password">
+                                placeholder="{{ __('login.user_login.password_placeholder') }}">
                             <span class="fas fa-eye toggle-password"></span>
                         </div>
                         @error('password')
-                            <p><small style="color: red;">{{ $message }}</small></p>
+                            <p><small style="{{ __('login.user_login.error_color') }}">{{ $message }}</small></p>
                         @enderror
                     </div>
                     <button wire:click.prevent="userLogin"
@@ -34,12 +35,10 @@
                                 <div></div>
                             </div>
                         </div>
-                        Login
+                        {{ __('login.user_login.login_button') }}
                     </button>
-
-                    <div class="text-center dont-have">You don't have an account ? <a
-                            href="{{ route('user.register') }}">Register</a>
-                    </div>
+                    <div class="text-center dont-have">{{ __('login.user_login.no_account') }} <a
+                            href="{{ route('user.register') }}">{{ __('login.user_login.register_link') }}</a></div>
                 </form>
             </div>
         </div>
