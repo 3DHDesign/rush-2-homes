@@ -7,7 +7,7 @@
             'uae' => 'UAE',
         ];
     @endphp
-    <div class="breadcrumb">
+    <div class="breadcrumb" style="background-color: #01016d;">
         <div class="container">
             <div class="bread-crumb-head">
                 <div class="breadcrumb-title">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="breadcrumb-border-img">
-                <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="Line Image">
+                <img src="assets/img/bg/line-bg.png" alt="Line Image">
             </div>
         </div>
     </div>
@@ -30,31 +30,6 @@
 
     <section class="buy-detailview" style="transform: none;">
         <div class="container" style="transform: none;">
-            <div class="row align-items-center page-head">
-                <div class="col-lg-8">
-                    <div class="buy-btn">
-                        <span class="buy">{{ $property->propertyType->en_name }}</span>
-                        <span class="appartment">{{ $property->propertyCategory->en_name }}</span>
-                    </div>
-                    <div class="page-title">
-                        <h3>{{ $property->title }}<span><img src="{{ asset('assets/img/icons/location-icon.svg') }}"
-                                    alt="Image"></span></h3>
-                        <p><i class="feather-map-pin"></i> {{ $property->address ?? ' N/A' }}</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="latest-update">
-                        <h5>Last Updated on : {{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</h5>
-                        <p> {{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}
-                            {{ number_format($property->price, 0, ',', ' ') }}</p>
-                        <ul class="other-pages">
-                            <li><a href="{{ route('sales.property.listing') }}"><i class="feather-back"></i>Go to back</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="row" style="transform: none;">
 
 
@@ -175,7 +150,13 @@
                                 Details</a>
                         </h4>
                         <div id="details" class="card-collapse collapse show  collapse-view">
-
+                            @php
+                                $currencyType = [
+                                    'lkr' => 'Rs',
+                                    'usd' => 'USD',
+                                    'uae' => 'UAE',
+                                ];
+                            @endphp
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul class="property-details">
@@ -267,21 +248,18 @@
                                 </div>
                                 <div class="social-links">
                                     <ul class="sidebar-social-links">
-                                        <li><a href="https://www.facebook.com/sharer/sharer.php?&p[url]=http://rush2homes.3dhdesign.com/{{ Request::path() }}"target="_blank"
-                                                class="fb-icon"><i class="fa-brands fa-facebook-f hi-icon"></i></a></li>
-                                        <li><a href="https://www.instagram.com/sharer/sharer.php?&p[url]=http://rush2homes.3dhdesign.com/{{ Request::path() }}"
-                                                target="_blank" class="ins-icon"><i
+                                        <li><a href="javascript:void(0);" class="fb-icon"><i
+                                                    class="fa-brands fa-facebook-f hi-icon"></i></a></li>
+                                        <li><a href="javascript:void(0);" class="ins-icon"><i
                                                     class="fa-brands fa-instagram hi-icon"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=http://rush2homes.3dhdesign.com/{{ Request::path() }}"
-                                                target="_blank"><i class="fa-brands fa-linkedin hi-icon"></i></a>
+                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-behance hi-icon"></i></a>
                                         </li>
-                                        <li><a href="https://twitter.com/intent/tweet?&url=http://rush2homes.3dhdesign.com/{{ Request::path() }}"
-                                                target="_blank" class="twitter-icon"><i
+                                        <li><a href="javascript:void(0);" class="twitter-icon"><i
                                                     class="fa-brands fa-twitter hi-icon"></i></a></li>
-                                        <li><a href="https://wa.me?text=Awesome%20Property!%5Cn%20http://rush2homes.3dhdesign.com/{{ Request::path() }}"
-                                                target="_blank" class="whatsapp-icon"><i
-                                                    class="fa-brands fa-whatsapp hi-icon"></i></a>
-                                        </li>
+                                        <li><a href="javascript:void(0);" class="ins-icon"><i
+                                                    class="fa-brands fa-pinterest-p hi-icon"></i></a></li>
+                                        <li><a href="javascript:void(0);"><i
+                                                    class="fa-brands fa-linkedin hi-icon"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -349,6 +327,155 @@
                                 </ul>
                             </div>
 
+
+                            {{-- <div class="sidebar-img-slider owl-carousel owl-loaded owl-drag">
+
+
+
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage"
+                                        style="transform: translate3d(-640px, 0px, 0px); transition: all 0s ease 0s; width: 2240px;">
+                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
+                                            <div class="slide-img-card">
+                                                <div class="slide-img">
+                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
+                                                        alt="Image">
+                                                </div>
+                                                <div class="property-name">
+                                                    <h3>High-Rise Townhouse</h3>
+                                                    <span><i class="feather-map-pin"></i>Chicago</span>
+                                                    <div class="star-rate">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+                                            class="fa-solid fa-arrow-left"></i></button><button type="button"
+                                        role="presentation" class="owl-next"><i
+                                            class="fa-solid fa-arrow-right"></i></button></div>
+                                <div class="owl-dots disabled"></div>
+                            </div> --}}
 
                         </div>
                         <div class="resize-sensor"
