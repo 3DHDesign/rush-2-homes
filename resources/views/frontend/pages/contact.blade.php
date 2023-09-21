@@ -1,7 +1,7 @@
 @extends('components.layouts.master')
 
 @section('content')
-    <div class="breadcrumb">
+    <div class="breadcrumb" style="background-image: url({{ asset('assets/img/bg/contact-bg.jpg') }});">
         <div class="container">
             <div class="bread-crumb-head">
                 <div class="breadcrumb-title">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="breadcrumb-border-img">
-                <img src="{{ asset('assets/img/bg/breadcrumb-contact-bg.jpg') }}" alt="{{ __('contact.contact_us') }}">
+                <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="Line Image">
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@
     </style>
 @endpush
 @section('content')
-    <div class="breadcrumb">
+    <div class="breadcrumb" style="background-image: url({{ asset('assets/img/bg/about-bg.jpg') }});">
         <div class="container">
             <div class="bread-crumb-head">
                 <div class="breadcrumb-title">
