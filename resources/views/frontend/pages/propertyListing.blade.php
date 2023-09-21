@@ -31,16 +31,16 @@
                         <h2>Sales</h2>
                         <div class="breadcrumb-list">
                             <ul>
-                                <li><a href="{{ route('home') }}">Home </a></li>
-                                <li>sales</li>
+                                <li><a href="{{ route('home') }}">{{ __('property_listing.page.home') }}</a></li>
+                                <li>{{ __('property_listing.page.sales') }}</li>
                             </ul>
                         </div>
                     @elseif(Route::is('rent.property.listing'))
-                        <h2>Rent</h2>
+                        <h2>{{ __('property_listing.page.rent') }}</h2>
                         <div class="breadcrumb-list">
                             <ul>
-                                <li><a href="{{ route('home') }}">Home </a></li>
-                                <li>rent</li>
+                                <li><a href="{{ route('home') }}">{{ __('property_listing.page.home') }}</a></li>
+                                <li>{{ __('property_listing.page.rent') }}</li>
                             </ul>
                         </div>
                     @endif
@@ -136,13 +136,15 @@
                                                         @if ($property->bedrooms)
                                                             <li>
                                                                 <img src="assets/img/icons/bed-icon.svg" alt="bed-icon">
-                                                                {{ $property->bedrooms }} Beds
+                                                                {{ $property->bedrooms }}
+                                                                {{ __('property_listing.page.beds') }}
                                                             </li>
                                                         @endif
                                                         @if ($property->bathrooms)
                                                             <li>
                                                                 <img src="assets/img/icons/bath-icon.svg" alt="bath-icon">
-                                                                {{ $property->bathrooms }} Bath
+                                                                {{ $property->bathrooms }}
+                                                                {{ __('property_listing.page.bath') }}
                                                             </li>
                                                         @endif
                                                         @if ($property->land_size)
@@ -156,12 +158,14 @@
                                                 @endif
                                                 <ul class="property-category d-flex justify-content-between">
                                                     <li>
-                                                        <span class="list">Listed on : </span>
+                                                        <span class="list">{{ __('property_listing.page.listed_on') }}
+                                                        </span>
                                                         <span
                                                             class="date">{{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</span>
                                                     </li>
                                                     <li>
-                                                        <span class="category list">Category : </span>
+                                                        <span
+                                                            class="category list">{{ __('property_listing.page.category') }}</span>
                                                         <span
                                                             class="category-value date">{{ $property->propertyCategory->en_name }}</span>
                                                     </li>
