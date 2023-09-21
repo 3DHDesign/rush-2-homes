@@ -11,7 +11,7 @@
                         <input type="email" wire:model.live="email" value="{{ old('email') }}" class="form-control"
                             placeholder="{{ __('login.user_login.email_placeholder') }}">
                         @error('email')
-                            <p><small style="{{ __('login.user_login.error_color') }}">{{ $message }}</small></p>
+                            <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -22,7 +22,7 @@
                             <span class="fas fa-eye toggle-password"></span>
                         </div>
                         @error('password')
-                            <p><small style="{{ __('login.user_login.error_color') }}">{{ $message }}</small></p>
+                            <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
                     <button wire:click.prevent="userLogin"
