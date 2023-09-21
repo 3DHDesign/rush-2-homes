@@ -99,8 +99,19 @@
                                 <div class="contact-info-details d-flex align-items-center">
                                     <span><img src="assets/img/icons/map-pin.svg" alt="Image"></span>
                                     <div>
-                                        <h4>Location</h4>
+                                        <h4>Location - Sri Lanka</h4>
                                         <p>No. 31, Melbourne Avenue, Colombo 04, Sri Lanka</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 d-flex">
+                            <div class="flex-fill">
+                                <div class="contact-info-details d-flex align-items-center">
+                                    <span><img src="assets/img/icons/map-pin.svg" alt="Image"></span>
+                                    <div>
+                                        <h4>Location - UAE</h4>
+                                        <p>13th Floor, Al Saqr Business Tower, Sheikh Zayed Road, Dubai.</p>
                                     </div>
                                 </div>
                             </div>
