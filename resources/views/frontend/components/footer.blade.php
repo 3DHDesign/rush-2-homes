@@ -68,6 +68,19 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="footer-widget footer-about">
+                        <div class="footer-app-content" style="margin-top: 20px">
+                            <div class="footer-content-heading">
+                                <strong>Sri Lanka</strong>
+                                <p>No. 31, Melbourne Avenue, Colombo 04, Sri Lanka</p>
+                            </div>
+                            <div class="footer-content-heading">
+                                <strong>UAE</strong>
+                                <p>13th Floor, Al Saqr Business Tower, Sheikh Zayed Road, Dubai.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
