@@ -7,20 +7,20 @@ use Exception;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
-class GoogleAuthController extends Controller
+class FacebookAuthController extends Controller
 {
-    public function signInwithGoogle()
+    public function redirectToFacebook()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
-    public function callbackToGoogle()
+    public function handleFacebookCallback()
     {
         try {
 
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('facebook')->user();
 
-            $finduser = Client::where('gauth_id', $user->id)->first();
+            $finduser = Client::where('facebook_id', $user->id)->first();
 
             if ($finduser) {
 
@@ -28,11 +28,9 @@ class GoogleAuthController extends Controller
 
                 return redirect()->route('user.dashboard.home');
             } else {
-                $newUser = Client::create([
+                $newUser = Client::updateOrCreate(['email' => $user->email], [
                     'name' => $user->name,
-                    'email' => $user->email,
-                    'gauth_id' => $user->id,
-                    'gauth_type' => 'google',
+                    'facebook_id' => $user->id,
                     'password' => encrypt('admin@123')
                 ]);
 
@@ -48,6 +46,7 @@ class GoogleAuthController extends Controller
                 title: 'Login Error',
                 text: 'Your login credentials are wrong! try again!'
             );
+
             return redirect()->route('user.account.login');
         }
     }

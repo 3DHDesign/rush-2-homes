@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacebookAuthController;
 use App\Http\Controllers\PropertyFilterController;
 use App\Http\Controllers\PropertyInnerController;
 use App\Http\Controllers\SiteController;
@@ -33,6 +34,10 @@ Route::get('user/login', [SiteController::class, 'loginAccount'])->name('user.ac
 //Google login
 Route::get('auth/google', [GoogleAuthController::class, 'signInwithGoogle'])->name('auth.google.login');
 Route::get('auth/google/callback', [GoogleAuthController::class, 'callbackToGoogle']);
+
+//Facebook login
+Route::get('auth/facebook', [FacebookAuthController::class,  'redirectToFacebook'])->name('auth.facebook.login');
+Route::get('auth/facebook/callback', [FacebookAuthController::class,  'handleFacebookCallback']);
 
 // Client dashboard routes
 Route::prefix('/user/dashboard')->middleware(['client.auth'])->group(function () {

@@ -19,7 +19,8 @@ class Client extends Authenticatable
         'address',
         'favorite',
         'gauth_id',
-        'gauth_type'
+        'gauth_type',
+        'facebook_id'
     ];
 
     protected $hidden = [
