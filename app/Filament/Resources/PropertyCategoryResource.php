@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PropertyCategoryResource\Pages;
 use App\Filament\Resources\PropertyCategoryResource\RelationManagers;
 use App\Models\PropertyCategory;
+use App\Models\PropertyType;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
@@ -44,6 +45,14 @@ class PropertyCategoryResource extends Resource
                                 Section::make('Add property category')
                                     ->description('Make a new property category')
                                     ->schema([
+                                        Select::make('property_property_type_id')
+                                            ->label('Select property type')
+                                            ->searchable()
+                                            ->required()
+                                            ->multiple()
+                                            ->placeholder('Select category')
+                                            ->options(PropertyType::pluck('en_name', 'id')),
+
                                         TextInput::make('en_name')
                                             ->rules(['max:255', 'string'])
                                             ->required()

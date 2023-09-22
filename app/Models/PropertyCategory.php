@@ -11,7 +11,7 @@ class PropertyCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'en_name', 'si_name', 'ta_name'];
+    protected $fillable = ['id', 'property_property_type_id', 'en_name', 'si_name', 'ta_name'];
 
     protected $table = 'property_categories';
 
@@ -19,4 +19,8 @@ class PropertyCategory extends Model
     {
         return $this->belongsTo(PropertyInformation::class);
     }
+
+    protected $casts = [
+        'property_property_type_id' => 'array',
+    ];
 }
