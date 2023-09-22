@@ -18,5 +18,11 @@ class Client extends Authenticatable
         'avatar',
         'address',
         'favorite',
+        'gauth_id',
+        'gauth_type'
+    ];
+
+    protected $hidden = [
+        'password',
     ];
 }

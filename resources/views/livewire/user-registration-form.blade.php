@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="social-login">
-                        <a href="#"
+                        <a href="{{ route('auth.google.login') }}"
                             class="d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
                                     src="{{ asset('assets/img/icons/google.svg') }}" class="img-fluid"
                                     alt="Google"></span>{{ __('registration.user_register.sign_up_with_google') }}</a>

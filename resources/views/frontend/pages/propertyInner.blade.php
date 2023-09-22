@@ -30,6 +30,31 @@
 
     <section class="buy-detailview" style="transform: none;">
         <div class="container" style="transform: none;">
+            <div class="row align-items-center page-head">
+                <div class="col-lg-8">
+                    <div class="buy-btn">
+                        <span class="buy">{{ $property->propertyType->en_name }}</span>
+                        <span class="appartment">{{ $property->propertyCategory->en_name }}</span>
+                    </div>
+                    <div class="page-title">
+                        <h3>{{ $property->title }}<span><img src="{{ asset('assets/img/icons/location-icon.svg') }}"
+                                    alt="Image"></span></h3>
+                        <p><i class="feather-map-pin"></i> {{ $property->address ?? ' N/A' }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="latest-update">
+                        <h5>Last Updated on : {{ \Carbon\Carbon::parse($property->updated_at)->format('d/m/Y') }}</h5>
+                        <p> {{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}
+                            {{ number_format($property->price, 0, ',', ' ') }}</p>
+                        <ul class="other-pages">
+                            <li><a href="{{ route('sales.property.listing') }}"><i class="feather-back"></i>Go to back</a>
+                            </li>
+                            <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="row" style="transform: none;">
 
 
