@@ -15,7 +15,7 @@
             <a class="main-nav-list-item" href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }}
                 <i class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
-                @foreach ($categories as $category)
+                @foreach ($sale_categories as $category)
                     <li><a
                             href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => $category->en_name]) }}">{{ $category->name }}</a>
                     </li>
@@ -29,7 +29,7 @@
                 href="{{ route('rent.property.listing', ['propertyType' => 'For Rental']) }}">{{ __('homepage.header.rent') }}<i
                     class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
-                @foreach ($categories as $category)
+                @foreach ($rent_categories as $category)
                     <li><a
                             href="{{ route('rent.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => $category->en_name]) }}">{{ $category->name }}</a>
                     </li>
@@ -41,7 +41,7 @@
                 href="{{ route('land.property.listing', ['propertyType' => 'Land']) }}">{{ __('homepage.header.land') }}<i
                     class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
-                @foreach ($sub_categories as $sub_category)
+                @foreach ($land_sub_categories as $sub_category)
                     <li><a
                             href="{{ route('land.property.listing', ['propertyType' => 'Land', 'propertySubCategory' => $sub_category->en_name]) }}">{{ $sub_category->name }}</a>
                     </li>
