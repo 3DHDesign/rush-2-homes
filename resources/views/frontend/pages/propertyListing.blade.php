@@ -43,6 +43,14 @@
                                 <li>rent</li>
                             </ul>
                         </div>
+                    @elseif(Route::is('land.property.listing'))
+                        <h2>Land</h2>
+                        <div class="breadcrumb-list">
+                            <ul>
+                                <li><a href="{{ route('home') }}">Home </a></li>
+                                <li>land</li>
+                            </ul>
+                        </div>
                     @endif
                 </div>
             </div>

@@ -12,8 +12,12 @@ class SubPropertyCategory extends Model
 
     protected $fillable = ['id', 'property_category_id', 'en_name', 'si_name', 'ta_name'];
 
+    // public function PropertySubCategory(): BelongsTo
+    // {
+    //     return $this->belongsTo(PropertyCategory::class, 'property_category_id');
+    // }
     public function propertyCategory(): BelongsTo
     {
-        return $this->belongsTo(PropertyCategory::class);
+        return $this->belongsTo(PropertyCategory::class, 'property_category_id');
     }
 }

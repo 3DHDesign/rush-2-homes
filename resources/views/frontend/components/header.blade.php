@@ -1,5 +1,23 @@
 <header class="header header-fix">
 
+    <style>
+        .main-nav-list-item:before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            height: 2px;
+            width: 100%;
+            background: #267cbe;
+            border-radius: 50px;
+            transform: scaleX(0);
+            transition: transform 0.2s linear;
+        }
+
+        .main-nav-list-item:hover:before {
+            transform: scaleX(1)
+        }
+    </style>
+
     <nav class="navbar navbar-expand-lg header-nav">
         <div class="navbar-header">
             <a id="mobile_btn" href="javascript:void(0);">

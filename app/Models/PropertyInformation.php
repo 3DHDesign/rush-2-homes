@@ -51,6 +51,7 @@ class PropertyInformation extends Model
         'land_size',
         'size_type',
         'price_type',
+        'sub_property_category_id',
     ];
 
     protected $casts = [
