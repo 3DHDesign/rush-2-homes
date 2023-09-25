@@ -44,6 +44,8 @@
                             <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
+                    {!! NoCaptcha::renderJs() !!}
+                    {!! NoCaptcha::display() !!}
                     <button wire:click.prevent="save"
                         class="btn btn-outline-light w-100 btn-size submit-btn-registration">
                         <div wire:loading wire:target="save">
