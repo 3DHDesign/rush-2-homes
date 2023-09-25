@@ -39,6 +39,9 @@ class PropertyAdvanceFilter extends Component
     #[Url(as: 'maxPrice')]
     public $getMaxPrice;
 
+    #[Url(as: 'propertySubCategory')]
+    public $propertySubCategory;
+
     public function __construct()
     {
         $this->current_locale = app()->getLocale();
@@ -81,6 +84,10 @@ class PropertyAdvanceFilter extends Component
 
         if ($this->categoryName) {
             $queryParams['propertyCategory'] = $this->categoryName;
+        }
+
+        if ($this->propertySubCategory) {
+            $queryParams['propertyCategory'] = $this->propertySubCategory;
         }
 
         if ($this->getMinPrice) {

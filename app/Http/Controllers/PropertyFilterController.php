@@ -7,6 +7,7 @@ use App\Models\District;
 use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
 use App\Models\PropertyType;
+use App\Models\SubPropertyCategory;
 use Illuminate\Http\Request;
 
 class PropertyFilterController extends Controller
@@ -28,11 +29,13 @@ class PropertyFilterController extends Controller
         $city = $request->input('city');
         $minPrice = $request->input('minPrice');
         $maxPrice = $request->input('maxPrice');
+        $propertySubCategory = $request->input('propertySubCategory');
 
         $district_id = District::where('name_en', $district)->select('id')->first();
         $city_id = City::where('name_en', $city)->select('id')->first();
         $property_type_id = PropertyType::where('en_name', $propertyType)->select('id')->first();
         $property_category_id = PropertyCategory::where('en_name', $propertyCategory)->select('id')->first();
+        $propertySubCategoryId = SubPropertyCategory::where('en_name', $propertySubCategory)->select('id')->first();
 
         $query = PropertyInformation::where('status', 'Published')->where('property_type_id', $property_type_id->id ?? 1)
             ->select([
@@ -65,6 +68,10 @@ class PropertyFilterController extends Controller
             $query->where('property_category_id', $property_category_id->id);
         }
 
+        if ($propertySubCategory) {
+            $query->where('sub_property_category_id', $propertySubCategoryId->id);
+        }
+
         if ($district) {
             $query->where('district_id', $district_id->id);
         }
@@ -82,8 +89,6 @@ class PropertyFilterController extends Controller
         }
 
         $properties = $query->paginate(10);
-
-        // dd($query);
 
         $local = app()->getLocale();
 

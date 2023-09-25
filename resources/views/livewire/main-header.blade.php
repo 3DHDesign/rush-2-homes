@@ -9,11 +9,11 @@
     </div>
     <ul class="main-nav">
         <li class="{{ Route::is('home') ? 'active' : '' }}">
-            <a href="{{ route('home') }}">{{ __('homepage.header.home') }}</a>
+            <a class="main-nav-list-item" href="{{ route('home') }}">{{ __('homepage.header.home') }}</a>
         </li>
         <li class="has-submenu {{ Route::is('sales.property.listing') ? 'active' : '' }}">
-            <a href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }} <i
-                    class="fas fa-chevron-down"></i></a>
+            <a class="main-nav-list-item" href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }}
+                <i class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
                 @foreach ($categories as $category)
                     <li><a
@@ -25,7 +25,8 @@
 
         <li
             class="has-submenu {{ Route::is('rent.property.listing', ['propertyType' => 'For Rental']) ? 'active' : '' }}">
-            <a href="{{ route('rent.property.listing', ['propertyType' => 'For Rental']) }}">{{ __('homepage.header.rent') }}<i
+            <a class="main-nav-list-item"
+                href="{{ route('rent.property.listing', ['propertyType' => 'For Rental']) }}">{{ __('homepage.header.rent') }}<i
                     class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
                 @foreach ($categories as $category)
@@ -35,15 +36,23 @@
                 @endforeach
             </ul>
         </li>
-        <li>
-            <a
-                href="{{ route('sales.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => 'Land']) }}">{{ __('homepage.header.land') }}</a>
+        <li class="has-submenu">
+            <a class="main-nav-list-item"
+                href="{{ route('land.property.listing', ['propertyType' => 'Land']) }}">{{ __('homepage.header.land') }}<i
+                    class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                @foreach ($sub_categories as $sub_category)
+                    <li><a
+                            href="{{ route('land.property.listing', ['propertyType' => 'Land', 'propertySubCategory' => $sub_category->en_name]) }}">{{ $sub_category->name }}</a>
+                    </li>
+                @endforeach
+            </ul>
         </li>
-        <li class="{{ Route::is('about') ? 'active' : '' }}">
+        <li class="main-nav-list-item" class="{{ Route::is('about') ? 'active' : '' }}">
             <a href="{{ route('about') }}">{{ __('homepage.header.about') }}</a>
         </li>
 
-        <li class="{{ Route::is('contact') ? 'active' : '' }}"><a
+        <li class="main-nav-list-item" class="{{ Route::is('contact') ? 'active' : '' }}"><a
                 href="{{ route('contact') }}">{{ __('homepage.header.contact_us') }}</a></li>
     </ul>
 </div>

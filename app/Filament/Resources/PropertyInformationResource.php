@@ -12,6 +12,7 @@ use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
 use App\Models\PropertyType;
 use App\Models\Province;
+use App\Models\SubPropertyCategory;
 use App\Models\User;
 use Closure;
 use Filament\Forms\Set;
@@ -212,10 +213,22 @@ class PropertyInformationResource extends Resource
                                             ])
                                             ->disableOptionWhen(fn (string $value): bool => $value === 'Published'),
                                         Select::make('property_category_id')
-                                            ->options(PropertyCategory::pluck('en_name', 'id'))
+                                            ->options(PropertyCategory::pluck('en_name', 'id')->toArray())
                                             ->searchable()
                                             ->label('Select Category')
                                             ->required()
+                                            ->preload()
+                                            ->afterStateUpdated(fn (callable $set) => $set('sub_property_category_id', null)),
+                                        Select::make('sub_property_category_id')
+                                            ->options(function (callable $get) {
+                                                $propertyCategory = PropertyCategory::find($get('property_category_id'));
+                                                if ($propertyCategory == null) {
+                                                    return [];
+                                                }
+                                                return $propertyCategory->subPropertyCategories->pluck('en_name', 'id');
+                                            })
+                                            ->searchable()
+                                            ->label('Select Sub Property Category')
                                             ->preload(),
                                         Select::make('label')
                                             ->options(Label::pluck('en_name', 'id'))
