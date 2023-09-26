@@ -36,7 +36,7 @@
                 @endforeach
             </ul>
         </li>
-        <li class="has-submenu">
+        <li class="has-submenu {{ Route::is('land.property.listing', ['propertyType' => 'Land']) ? 'active' : '' }}">
             <a class="main-nav-list-item"
                 href="{{ route('land.property.listing', ['propertyType' => 'Land']) }}">{{ __('homepage.header.land') }}<i
                     class="fas fa-chevron-down"></i></a>
@@ -48,11 +48,11 @@
                 @endforeach
             </ul>
         </li>
-        <li class="main-nav-list-item" class="{{ Route::is('about') ? 'active' : '' }}">
+        <li class="main-nav-list-item {{ Route::is('about') ? 'active' : '' }}">
             <a href="{{ route('about') }}">{{ __('homepage.header.about') }}</a>
         </li>
 
-        <li class="main-nav-list-item" class="{{ Route::is('contact') ? 'active' : '' }}"><a
+        <li class="main-nav-list-item {{ Route::is('contact') ? 'active' : '' }}"><a
                 href="{{ route('contact') }}">{{ __('homepage.header.contact_us') }}</a></li>
     </ul>
 </div>

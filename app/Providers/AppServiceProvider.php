@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\GeneralDetails;
 use Filament\Notifications\Livewire\DatabaseNotifications;
 use Illuminate\Support\ServiceProvider;
 

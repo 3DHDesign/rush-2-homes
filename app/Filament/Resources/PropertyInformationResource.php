@@ -252,7 +252,7 @@ class PropertyInformationResource extends Resource
                                                 Select::make('currency')
                                                     ->placeholder('Currency')
                                                     ->default('lkr')
-                                                    ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
+                                                    ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'AED'])
                                                     ->required()
                                                     ->searchable(),
                                                 TextInput::make('price')
@@ -359,6 +359,10 @@ class PropertyInformationResource extends Resource
                         'Reviewing' => 'Reviewing',
                         'Published' => 'Published',
                     ]),
+                SelectFilter::make('property_category_id')
+                    ->label('Select Property Category')
+                    ->searchable()
+                    ->options(PropertyCategory::pluck('en_name', 'id')->toArray()),
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('created_from'),

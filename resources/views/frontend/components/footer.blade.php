@@ -10,7 +10,7 @@
                         <div class="footer-app-content">
                             <div class="footer-content-heading">
                                 <h4>{{ __('homepage.footer.about.title') }}</h4>
-                                <p>{{ __('homepage.footer.about.description') }}</p>
+                                <p>{{ $details->short_about }}</p>
                             </div>
                         </div>
                     </div>
@@ -70,14 +70,18 @@
                     </div>
                     <div class="footer-widget footer-about">
                         <div class="footer-app-content" style="margin-top: 20px">
-                            <div class="footer-content-heading">
-                                <strong>Sri Lanka</strong>
-                                <p>No. 31, Melbourne Avenue, Colombo 04, Sri Lanka</p>
-                            </div>
-                            <div class="footer-content-heading">
-                                <strong>UAE</strong>
-                                <p>13th Floor, Al Saqr Business Tower, Sheikh Zayed Road, Dubai.</p>
-                            </div>
+                            @if ($details->address_lk)
+                                <div class="footer-content-heading">
+                                    <strong>Sri Lanka</strong>
+                                    <p>{{ $details->address_lk }}</p>
+                                </div>
+                            @endif
+                            @if ($details->address_uae)
+                                <div class="footer-content-heading">
+                                    <strong>UAE</strong>
+                                    <p>{{ $details->address_uae }}</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
 

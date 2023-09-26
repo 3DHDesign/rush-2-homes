@@ -4,7 +4,7 @@
         $currencyType = [
             'lkr' => 'Rs',
             'usd' => 'USD',
-            'uae' => 'UAE',
+            'uae' => 'AED',
         ];
     @endphp
     <div class="breadcrumb" style="background-color: #01016d;">

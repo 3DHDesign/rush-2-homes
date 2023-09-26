@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Amenity;
+use App\Models\GeneralDetails;
 use App\Models\PropertyInformation;
 use Illuminate\Http\Request;
 
@@ -45,11 +46,18 @@ class PropertyInnerController extends Controller
         )->with(['propertyCategory', 'city', 'district', 'agent'])->first();
         $local = $this->current_locale;
 
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
         // get Amenities from array
         $list_aminities = Amenity::whereIn('id', $property->aminities)->select(
             'icon',
             $this->current_locale . '_name as name',
         )->get();
-        return view('frontend.pages.propertyInner', compact('property', 'local', 'list_aminities'));
+        return view('frontend.pages.propertyInner', compact('property', 'local', 'list_aminities', 'details'));
     }
 }

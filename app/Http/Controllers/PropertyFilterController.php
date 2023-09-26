@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\GeneralDetails;
 use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
 use App\Models\PropertyType;
@@ -92,6 +93,14 @@ class PropertyFilterController extends Controller
 
         $local = app()->getLocale();
 
-        return view('frontend.pages.propertyListing', compact('properties', 'local'));
+
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.propertyListing', compact('properties', 'local', 'details'));
     }
 }
