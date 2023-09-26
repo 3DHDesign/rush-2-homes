@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class GeneralDetails extends Model
+class GeneralDetails extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, HasRoles;
     protected $table = 'general_details';
 
     protected $fillable = [

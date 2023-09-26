@@ -7,11 +7,14 @@ use App\Filament\Resources\GeneralDetailsResource\RelationManagers;
 use App\Models\GeneralDetails;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -20,7 +23,11 @@ class GeneralDetailsResource extends Resource
 {
     protected static ?string $model = GeneralDetails::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-cog';
+
+    protected static ?string $navigationGroup = 'User Settings';
+    protected static ?int $navigationSort = 4;
+
 
     public static function form(Form $form): Form
     {
@@ -69,7 +76,7 @@ class GeneralDetailsResource extends Resource
                                     ->nullable(),
                             ]),
                     ]),
-                
+
                 // Second Row
                 Grid::make()
                     ->columns(2)
@@ -113,20 +120,23 @@ class GeneralDetailsResource extends Resource
                     ->schema([
                         Grid::make()
                             ->schema([
-                                TextInput::make('en_short_about')
+                                Textarea::make('en_short_about')
                                     ->label('Short About (English)')
+                                    ->rows(6)
                                     ->nullable(),
 
-                                TextInput::make('si_short_about')
+                                Textarea::make('si_short_about')
                                     ->label('Short About (Sinhala)')
+                                    ->rows(6)
                                     ->nullable(),
 
-                                TextInput::make('ta_short_about')
+                                Textarea::make('ta_short_about')
                                     ->label('Short About (Tamil)')
+                                    ->rows(6)
                                     ->nullable(),
                             ]),
                     ]),
-                
+
                 // Fourth Row
                 Grid::make()
                     ->columns(1)
@@ -142,7 +152,10 @@ class GeneralDetailsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('email_lk'),
+                TextColumn::make('contact_number_lk'),
+                TextColumn::make('en_address_lk'),
+                ToggleColumn::make('maintain_mode'),
             ])
             ->filters([
                 //
@@ -159,14 +172,14 @@ class GeneralDetailsResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -174,5 +187,5 @@ class GeneralDetailsResource extends Resource
             'create' => Pages\CreateGeneralDetails::route('/create'),
             'edit' => Pages\EditGeneralDetails::route('/{record}/edit'),
         ];
-    }    
+    }
 }
