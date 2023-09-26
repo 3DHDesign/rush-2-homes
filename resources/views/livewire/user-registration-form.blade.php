@@ -44,16 +44,6 @@
                             <p><small style="color: red;">{{ $message }}</small></p>
                         @enderror
                     </div>
-                    <div class="form-group">
-
-                        <div class="pass-group">
-                            {!! RecaptchaV3::field('register') !!}
-                        </div>
-                        @error('g-recaptcha-response')
-                            <p><small style="color: red;">{{ $message }}</small></p>
-                        @enderror
-                    </div>
-
                     <button wire:click.prevent="save"
                         class="btn btn-outline-light w-100 btn-size submit-btn-registration">
                         <div wire:loading wire:target="save">
