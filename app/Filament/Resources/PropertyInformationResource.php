@@ -359,6 +359,10 @@ class PropertyInformationResource extends Resource
                         'Reviewing' => 'Reviewing',
                         'Published' => 'Published',
                     ]),
+                SelectFilter::make('property_category_id')
+                    ->label('Select Property Category')
+                    ->searchable()
+                    ->options(PropertyCategory::pluck('en_name', 'id')->toArray()),
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('created_from'),
