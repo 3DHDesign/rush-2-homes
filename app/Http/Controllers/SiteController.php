@@ -6,6 +6,7 @@ use App\Http\Requests\UserRegisterRequest;
 use App\Models\Amenity;
 use App\Models\City;
 use App\Models\District;
+use App\Models\GeneralDetails;
 use App\Models\PropertyCategory;
 use App\Models\PropertyInformation;
 use App\Models\PropertyType;
@@ -44,26 +45,66 @@ class SiteController extends Controller
 
         $local = app()->getLocale();
 
-        return view('frontend.pages.home', compact('featureProperties', 'local'));
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.home', compact('featureProperties', 'local', 'details'));
     }
 
     public function register()
     {
-        return view('frontend.pages.register');
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.register', compact('details'));
     }
 
     public function loginAccount()
     {
-        return view('frontend.pages.login_client');
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.login_client', compact('details'));
     }
 
     public function about()
     {
-        return view('frontend.pages.about');
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.about', compact('details'));
     }
 
     public function contact()
     {
-        return view('frontend.pages.contact');
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            'contact_number_lk',
+            'contact_number_uae',
+            'email_uae',
+            'email_lk',
+            $this->current_locale . '_short_about as short_about',
+            'maintain_mode'
+        ])
+            ->first();
+
+        return view('frontend.pages.contact', compact('details'));
     }
 }

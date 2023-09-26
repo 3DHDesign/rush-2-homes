@@ -76,50 +76,66 @@
                 <div class="col-lg-6">
                     <h3>{{ __('contact.contact_details') }}</h3>
                     <div class="row">
-                        <div class="col-lg-12 d-flex">
-                            <div class="flex-fill">
-                                <div class="contact-info-details d-flex align-items-center">
-                                    <span><img src="{{ asset('assets/img/icons/phone.svg') }}" alt="Image"></span>
-                                    <div>
-                                        <h4>{{ __('contact.call_us_at') }}</h4>
-                                        <a href="tel:+94777707874">(+94) 77770 7874</a>
+                        @if ($details->contact_number_lk || $details->contact_number_uae)
+                            <div class="col-lg-12 d-flex">
+                                <div class="flex-fill">
+                                    <div class="contact-info-details d-flex align-items-center">
+                                        <span><img src="{{ asset('assets/img/icons/phone.svg') }}" alt="Image"></span>
+                                        <div>
+                                            <h4>{{ __('contact.call_us_at') }}</h4>
+                                            <a href="tel:{{ $details->contact_number_lk }}">{{ $details->contact_number_lk }}
+                                                - Sri Lanka</a>
+                                            @if ($details->contact_number_uae)
+                                                <a href="tel:{{ $details->contact_number_uae }}">{{ $details->contact_number_uae }}
+                                                    - UAE</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 d-flex">
-                            <div class="flex-fill">
-                                <div class="contact-info-details d-flex align-items-center">
-                                    <span><img src="{{ asset('assets/img/icons/mail.svg') }}" alt="Image"></span>
-                                    <div>
-                                        <h4>{{ __('contact.email_us') }}</h4>
-                                        <a href="mailto:support@rushlankagroup.com">support@rushlankagroup.com</a>
+                        @endif
+                        @if ($details->email_lk || $details->email_uae)
+                            <div class="col-lg-12 d-flex">
+                                <div class="flex-fill">
+                                    <div class="contact-info-details d-flex align-items-center">
+                                        <span><img src="{{ asset('assets/img/icons/mail.svg') }}" alt="Image"></span>
+                                        <div>
+                                            <h4>{{ __('contact.email_us') }}</h4>
+                                            <a href="mailto:{{ $details->email_lk }}">{{ $details->email_lk }}</a><br>
+                                            @if ($details->email_uae)
+                                                <a href="mailto:{{ $details->email_uae }}">{{ $details->email_uae }}</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 d-flex">
-                            <div class="flex-fill">
-                                <div class="contact-info-details d-flex align-items-center">
-                                    <span><img src="{{ asset('assets/img/icons/map-pin.svg') }}" alt="Image"></span>
-                                    <div>
-                                        <h4>{{ __('contact.location_sri_lanka') }}</h4>
-                                        <p>No. 31, Melbourne Avenue, Colombo 04, Sri Lanka</p>
+                        @endif
+                        @if ($details->address_lk)
+                            <div class="col-lg-12 d-flex">
+                                <div class="flex-fill">
+                                    <div class="contact-info-details d-flex align-items-center">
+                                        <span><img src="{{ asset('assets/img/icons/map-pin.svg') }}" alt="Image"></span>
+                                        <div>
+                                            <h4>{{ __('contact.location_sri_lanka') }}</h4>
+                                            <p>{{ $details->address_lk }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 d-flex">
-                            <div class="flex-fill">
-                                <div class="contact-info-details d-flex align-items-center">
-                                    <span><img src="{{ asset('assets/img/icons/map-pin.svg') }}" alt="Image"></span>
-                                    <div>
-                                        <h4>{{ __('contact.location_uae') }}</h4>
-                                        <p>13th Floor, Al Saqr Business Tower, Sheikh Zayed Road, Dubai.</p>
+                        @endif
+                        @if ($details->address_uae)
+                            <div class="col-lg-12 d-flex">
+                                <div class="flex-fill">
+                                    <div class="contact-info-details d-flex align-items-center">
+                                        <span><img src="{{ asset('assets/img/icons/map-pin.svg') }}" alt="Image"></span>
+                                        <div>
+                                            <h4>{{ __('contact.location_uae') }}</h4>
+                                            <p>{{ $details->address_uae }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <div class="map-location">
                         <h3>{{ __('contact.find_us_on') }}</h3>
