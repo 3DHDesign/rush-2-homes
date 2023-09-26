@@ -220,10 +220,22 @@ class PropertyApprovelResource extends Resource
                                                 'Published' => 'Published',
                                             ]),
                                         Select::make('property_category_id')
-                                            ->options(PropertyCategory::pluck('en_name', 'id'))
+                                            ->options(PropertyCategory::pluck('en_name', 'id')->toArray())
                                             ->searchable()
                                             ->label('Select Category')
                                             ->required()
+                                            ->preload()
+                                            ->afterStateUpdated(fn (callable $set) => $set('sub_property_category_id', null)),
+                                        Select::make('sub_property_category_id')
+                                            ->options(function (callable $get) {
+                                                $propertyCategory = PropertyCategory::find($get('property_category_id'));
+                                                if ($propertyCategory == null) {
+                                                    return [];
+                                                }
+                                                return $propertyCategory->subPropertyCategories->pluck('en_name', 'id');
+                                            })
+                                            ->searchable()
+                                            ->label('Select Sub Property Category')
                                             ->preload(),
                                         Select::make('label')
                                             ->options(Label::pluck('en_name', 'id'))
@@ -247,7 +259,7 @@ class PropertyApprovelResource extends Resource
                                                 Select::make('currency')
                                                     ->placeholder('Currency')
                                                     ->default('lkr')
-                                                    ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
+                                                    ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'AED'])
                                                     ->required()
                                                     ->searchable(),
                                                 TextInput::make('price')

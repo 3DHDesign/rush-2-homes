@@ -107,7 +107,7 @@
                                                 $currencyType = [
                                                     'lkr' => 'Rs',
                                                     'usd' => 'USD',
-                                                    'uae' => 'UAE',
+                                                    'uae' => 'AED',
                                                 ];
                                                 
                                                 $priceTypeOptions = [

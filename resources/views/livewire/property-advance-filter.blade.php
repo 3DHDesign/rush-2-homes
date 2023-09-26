@@ -13,16 +13,18 @@
                         <i class="bx bx-search-alt"></i>
                     </span>
                 </li>
-                <li class="review-form">
-                    <label for="select-district">{{ __('property_listing.main_filter.select_category') }} :</label>
-                    <select class="select-dropdown" wire:model.live="getCategory">
-                        <option value="">{{ __('property_listing.main_filter.select_category') }}</option>
-                        @foreach ($categoties as $category)
-                            <option value="{{ $category->id }}" @if ($categoryName == $category->name) selected @endif>
-                                {{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </li>
+                @if (!Route::is('land.property.listing', ['propertyType' => 'Land']))
+                    <li class="review-form">
+                        <label for="select-district">{{ __('property_listing.main_filter.select_category') }} :</label>
+                        <select class="select-dropdown" wire:model.live="getCategory">
+                            <option value="">{{ __('property_listing.main_filter.select_category') }}</option>
+                            @foreach ($categoties as $category)
+                                <option value="{{ $category->id }}" @if ($categoryName == $category->name) selected @endif>
+                                    {{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </li>
+                @endif
                 <li class="review-form">
                     <label for="select-district">{{ __('property_listing.main_filter.select_district') }} :</label>
                     <select class="select-dropdown" wire:model.live="getDistrict">

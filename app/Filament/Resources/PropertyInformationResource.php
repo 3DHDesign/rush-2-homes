@@ -252,7 +252,7 @@ class PropertyInformationResource extends Resource
                                                 Select::make('currency')
                                                     ->placeholder('Currency')
                                                     ->default('lkr')
-                                                    ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'UAE'])
+                                                    ->options(['lkr' => 'Rs', 'usd' => 'USD', 'uae' => 'AED'])
                                                     ->required()
                                                     ->searchable(),
                                                 TextInput::make('price')
