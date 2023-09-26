@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'setLocal' => \App\Http\Middleware\SetLocale::class,
         'client.auth' => \App\Http\Middleware\ClientAuthCheck::class,
+        'maintenance.mode' => \App\Http\Middleware\MaintenanceMode::class,
     ];
 }

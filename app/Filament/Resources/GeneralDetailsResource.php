@@ -142,7 +142,7 @@ class GeneralDetailsResource extends Resource
                     ->columns(1)
                     ->schema([
                         Toggle::make('maintain_mode')
-                            ->label('Maintain Mode!')
+                            ->label('Maintenance Mode!')
                             ->onIcon('heroicon-m-bolt'),
                     ]),
             ]);

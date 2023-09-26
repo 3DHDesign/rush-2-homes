@@ -107,4 +107,16 @@ class SiteController extends Controller
 
         return view('frontend.pages.contact', compact('details'));
     }
+
+    public function maintenanceMode()
+    {
+        $mode = GeneralDetails::find(1)->select('maintain_mode')->first();
+        if ($mode->maintain_mode == 1) {
+            return view('components.layouts.maintenanceMode');
+        } else {
+            return redirect()->route('home');
+        }
+
+        return view('components.layouts.maintenanceMode');
+    }
 }
