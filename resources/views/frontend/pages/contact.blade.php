@@ -1,6 +1,62 @@
 @extends('components.layouts.master')
 
 @section('content')
+    <style>
+        .submit-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 42px;
+            margin-right: 7px;
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            margin: 8px;
+            border: 3px solid #267cbe !important;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #267cbe transparent transparent transparent !important;
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-size {
+            padding: 6px 10px !important;
+            height: 45px !important;
+        }
+    </style>
     <div class="breadcrumb" style="background-image: url({{ asset('assets/img/bg/contact-bg.jpg') }});">
         <div class="container">
             <div class="bread-crumb-head">
@@ -23,56 +79,7 @@
     <section class="section contact-info-sec">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <form action="#">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>{{ __('contact.get_in_touch') }}</h3>
-                                <p style="margin-top: 20px;">{{ __('contact.tell_us_about_your_property') }}</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-12 col-12">
-                                        <div class="form-group">
-                                            <label>{{ __('contact.your_name') }}</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="{{ __('contact.your_name') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group">
-                                            <label>{{ __('contact.phone_number') }}</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="{{ __('contact.enter_number') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group">
-                                            <label>{{ __('contact.email_address') }}</label>
-                                            <input type="email" class="form-control"
-                                                placeholder="{{ __('contact.enter_email') }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label>{{ __('contact.subject') }}</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="{{ __('contact.enter_subject') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>{{ __('contact.description') }}</label>
-                                            <textarea class="form-control" rows="14" placeholder="{{ __('contact.description') }}"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn-primary">{{ __('contact.submit_enquiry') }}</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <livewire:contact-form />
                 <div class="col-lg-6">
                     <h3>{{ __('contact.contact_details') }}</h3>
                     <div class="row">
