@@ -1,6 +1,62 @@
 @extends('components.layouts.master')
 
 @section('content')
+    <style>
+        .submit-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 42px;
+            margin-right: 7px;
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            margin: 8px;
+            border: 3px solid #267cbe !important;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #267cbe transparent transparent transparent !important;
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-size {
+            padding: 6px 10px !important;
+            height: 45px !important;
+        }
+    </style>
     <div class="breadcrumb" style="background-image: url({{ asset('assets/img/bg/contact-bg.jpg') }});">
         <div class="container">
             <div class="bread-crumb-head">

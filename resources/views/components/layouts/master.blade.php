@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {!! RecaptchaV3::initJs() !!}
     @livewireStyles
 
     @stack('style')
