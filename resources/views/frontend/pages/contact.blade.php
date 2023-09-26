@@ -84,7 +84,7 @@
                                         <div>
                                             <h4>{{ __('contact.call_us_at') }}</h4>
                                             <a href="tel:{{ $details->contact_number_lk }}">{{ $details->contact_number_lk }}
-                                                - Sri Lanka</a>
+                                                - Sri Lanka</a><br>
                                             @if ($details->contact_number_uae)
                                                 <a href="tel:{{ $details->contact_number_uae }}">{{ $details->contact_number_uae }}
                                                     - UAE</a>

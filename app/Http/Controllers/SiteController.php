@@ -91,6 +91,30 @@ class SiteController extends Controller
         return view('frontend.pages.about', compact('details'));
     }
 
+    public function privacyPolicy()
+    {
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.privacy_policy', compact('details'));
+    }
+
+    public function terms()
+    {
+        $details = GeneralDetails::find(1)->select([
+            $this->current_locale . '_address_lk as address_lk',
+            $this->current_locale . '_address_uae as address_uae',
+            $this->current_locale . '_short_about as short_about',
+        ])
+            ->first();
+
+        return view('frontend.pages.terms', compact('details'));
+    }
+
     public function contact()
     {
         $details = GeneralDetails::find(1)->select([

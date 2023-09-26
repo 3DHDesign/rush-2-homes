@@ -46,8 +46,12 @@
                         </div>
                         <ul>
                             <li><a href="{{ route('about') }}">{{ __('homepage.footer.quick_links.about') }}</a></li>
-                            <li><a href="#">{{ __('homepage.footer.quick_links.terms_conditions') }}</a></li>
-                            <li><a href="#">{{ __('homepage.footer.quick_links.privacy_policy') }}</a></li>
+                            <li><a
+                                    href="{{ route('terms') }}">{{ __('homepage.footer.quick_links.terms_conditions') }}</a>
+                            </li>
+                            <li><a
+                                    href="{{ route('privacy') }}">{{ __('homepage.footer.quick_links.privacy_policy') }}</a>
+                            </li>
                             <li><a
                                     href="{{ route('user.register') }}">{{ __('homepage.footer.quick_links.sign_in') }}</a>
                             </li>

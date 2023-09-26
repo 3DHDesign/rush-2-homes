@@ -32,6 +32,8 @@ Route::middleware((['maintenance.mode']))->group(function () {
     Route::get('/properties/{slug}', [PropertyInnerController::class, 'propertyInner'])->name('property.inner');
     Route::get('user/register', [SiteController::class, 'register'])->name('user.register');
     Route::get('user/login', [SiteController::class, 'loginAccount'])->name('user.account.login');
+    Route::get('/privacy-policy', [SiteController::class, 'privacyPolicy'])->name('privacy');
+    Route::get('/terms-and-conditions', [SiteController::class, 'terms'])->name('terms');
 
     //Google login
     Route::get('auth/google', [GoogleAuthController::class, 'signInwithGoogle'])->name('auth.google.login');
