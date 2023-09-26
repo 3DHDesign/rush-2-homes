@@ -93,7 +93,8 @@
         <div class="container">
             <div class="footer-bottom-content">
                 <div class="copyright">
-                    <p>{{ __('homepage.footer.copyright') }}</p>
+                    <p>Copyright 2023 - All rights reserved <a href="www.3dhdesign.com" target="_blank">3DH Design</a>
+                    </p>
                 </div>
             </div>
         </div>

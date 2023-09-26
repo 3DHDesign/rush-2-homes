@@ -83,7 +83,7 @@ class BuyPropertyFilter extends Component
     public function render()
     {
         return view('livewire.buy-property-filter', [
-            'propertyCategory' => PropertyCategory::select(
+            'propertyCategory' => PropertyCategory::whereJsonContains('property_property_type_id', '1')->select(
                 'id',
                 $this->current_locale . '_name as name',
             )->get(),
