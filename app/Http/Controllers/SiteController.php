@@ -42,6 +42,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('Home - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('Home - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');
@@ -88,6 +89,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('Register - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('Register - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');
@@ -116,6 +118,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('Login - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('Login - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');
@@ -144,6 +147,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('About us - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('About us - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');
@@ -172,6 +176,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('Privacy Policy - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('Privacy Policy - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');
@@ -200,6 +205,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('Terms and Conditions - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('Terms and Conditions - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');
@@ -228,6 +234,7 @@ class SiteController extends Controller
         OpenGraph::setTitle('Contact us - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
         TwitterCard::setTitle('Contact us - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');

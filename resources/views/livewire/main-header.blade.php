@@ -11,8 +11,10 @@
         <li class="{{ Route::is('home') ? 'active' : '' }}">
             <a class="main-nav-list-item" href="{{ route('home') }}">{{ __('homepage.header.home') }}</a>
         </li>
-        <li class="has-submenu {{ Route::is('sales.property.listing') ? 'active' : '' }}">
-            <a class="main-nav-list-item" href="{{ route('sales.property.listing') }}">{{ __('homepage.header.sell') }}
+        <li
+            class="has-submenu {{ Route::is('sales.property.listing', ['propertyType' => 'For Sales']) ? 'active' : '' }}">
+            <a class="main-nav-list-item"
+                href="{{ route('sales.property.listing', ['propertyType' => 'For Sales']) }}">{{ __('homepage.header.sell') }}
                 <i class="fas fa-chevron-down"></i></a>
             <ul class="submenu">
                 @foreach ($sale_categories as $category)
@@ -31,7 +33,7 @@
             <ul class="submenu">
                 @foreach ($rent_categories as $category)
                     <li><a
-                            href="{{ route('rent.property.listing', ['propertyType' => 'For Sales', 'propertyCategory' => $category->en_name]) }}">{{ $category->name }}</a>
+                            href="{{ route('rent.property.listing', ['propertyType' => 'For Rental', 'propertyCategory' => $category->en_name]) }}">{{ $category->name }}</a>
                     </li>
                 @endforeach
             </ul>

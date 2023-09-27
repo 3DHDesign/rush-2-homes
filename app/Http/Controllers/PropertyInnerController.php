@@ -76,6 +76,7 @@ class PropertyInnerController extends Controller
         OpenGraph::setTitle($property->en_title . ' - Rush 2 Homes');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('storage/' . $property->gallery[0]));
 
         TwitterCard::setTitle($property->en_title . ' - Rush 2 Homes');
         TwitterCard::setSite('@rush2homes');

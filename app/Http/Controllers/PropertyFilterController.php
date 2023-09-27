@@ -119,6 +119,7 @@ class PropertyFilterController extends Controller
             OpenGraph::setTitle('For sale  - Rush 2 Homes');
             OpenGraph::setUrl(url()->full());
             OpenGraph::addProperty('type', 'website');
+            OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
             TwitterCard::setTitle('For sale  - Rush 2 Homes');
             TwitterCard::setSite('@rush2homes');
@@ -136,6 +137,7 @@ class PropertyFilterController extends Controller
             OpenGraph::setTitle('For rent  - Rush 2 Homes');
             OpenGraph::setUrl(url()->full());
             OpenGraph::addProperty('type', 'website');
+            OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
             TwitterCard::setTitle('For rent  - Rush 2 Homes');
             TwitterCard::setSite('@rush2homes');
@@ -153,6 +155,7 @@ class PropertyFilterController extends Controller
             OpenGraph::setTitle('For land  - Rush 2 Homes');
             OpenGraph::setUrl(url()->full());
             OpenGraph::addProperty('type', 'website');
+            OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
             TwitterCard::setTitle('For land  - Rush 2 Homes');
             TwitterCard::setSite('@rush2homes');
@@ -169,6 +172,7 @@ class PropertyFilterController extends Controller
             OpenGraph::setTitle('For sale  - Rush 2 Homes');
             OpenGraph::setUrl(url()->full());
             OpenGraph::addProperty('type', 'website');
+            OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
             TwitterCard::setTitle('For sale  - Rush 2 Homes');
             TwitterCard::setSite('@rush2homes');
