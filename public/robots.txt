@@ -1,2 +1,3 @@
 User-agent: *
-Disallow:
+Disallow: '/admin/'
+Sitemap: https://colombo.rush2homes.com/sitemap.xml

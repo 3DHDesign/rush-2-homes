@@ -7,6 +7,13 @@ use App\Models\GeneralDetails;
 use App\Models\PropertyInformation;
 use Illuminate\Http\Request;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+
 class PropertyInnerController extends Controller
 {
     public $current_locale;
@@ -18,11 +25,13 @@ class PropertyInnerController extends Controller
 
     public function propertyInner($slug)
     {
+
         $property = PropertyInformation::where('slug', $slug)->select(
             'id',
             $this->current_locale . '_title as title',
             $this->current_locale . '_address as address',
             $this->current_locale . '_description as description',
+            'en_title',
             'property_type_id',
             'slug',
             'price',
@@ -58,6 +67,24 @@ class PropertyInnerController extends Controller
             'icon',
             $this->current_locale . '_name as name',
         )->get();
+
+        SEOMeta::setTitle($property->en_title . ' - Rush 2 Homes');
+        SEOMeta::setDescription($property->en_title . '. ' . 'Invest in Your Future Today.');
+        SEOMeta::setCanonical(url()->full());
+
+        OpenGraph::setDescription($property->en_title . '. ' . 'Invest in Your Future Today.');
+        OpenGraph::setTitle($property->en_title . ' - Rush 2 Homes');
+        OpenGraph::setUrl(url()->full());
+        OpenGraph::addProperty('type', 'website');
+        OpenGraph::addImage(asset('storage/' . $property->gallery[0]));
+
+        TwitterCard::setTitle($property->en_title . ' - Rush 2 Homes');
+        TwitterCard::setSite('@rush2homes');
+
+        JsonLd::setTitle($property->en_title . ' - Rush 2 Homes');
+        JsonLd::setDescription($property->en_title . '. ' . 'Invest in Your Future Today.');
+        JsonLd::addImage(asset('storage/' . $property->gallery[0]));
+
         return view('frontend.pages.propertyInner', compact('property', 'local', 'list_aminities', 'details'));
     }
 }
