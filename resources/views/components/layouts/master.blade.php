@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <title>Rush 2 Homes</title>
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
+
+    {!! JsonLdMulti::generate() !!}
 
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
