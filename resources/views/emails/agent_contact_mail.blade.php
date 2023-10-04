@@ -6,7 +6,7 @@
     Mobile Number: {{ $data['number'] }}
     Description: {{ $data['description'] }}
 
-    <b>Property Details</b>
+    Property Details
 
     Property Code: R2H{{ $data['property_code'] }}
     Property Title: {{ $data['property_title'] }}
