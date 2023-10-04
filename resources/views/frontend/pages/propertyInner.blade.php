@@ -273,18 +273,20 @@
                                 </div>
                                 <div class="social-links">
                                     <ul class="sidebar-social-links">
-                                        <li><a href="javascript:void(0);" class="fb-icon"><i
-                                                    class="fa-brands fa-facebook-f hi-icon"></i></a></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}"
+                                                class="fb-icon"><i class="fa-brands fa-facebook-f hi-icon"></i></a></li>
                                         <li><a href="javascript:void(0);" class="ins-icon"><i
                                                     class="fa-brands fa-instagram hi-icon"></i></a></li>
-                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-behance hi-icon"></i></a>
-                                        </li>
-                                        <li><a href="javascript:void(0);" class="twitter-icon"><i
-                                                    class="fa-brands fa-twitter hi-icon"></i></a></li>
-                                        <li><a href="javascript:void(0);" class="ins-icon"><i
-                                                    class="fa-brands fa-pinterest-p hi-icon"></i></a></li>
-                                        <li><a href="javascript:void(0);"><i
+                                        <li><a
+                                                href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->full() }}&title={{ $property->title }}"><i
                                                     class="fa-brands fa-linkedin hi-icon"></i></a></li>
+                                        <li><a class="ins-icon"
+                                                href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->full() }}&title={{ $property->title }}"><i
+                                                    class="fa-brands fa-pinterest ins-icon"></i></a></li>
+                                        <li><a class="twitter-icon"
+                                                href="https://twitter.com/intent/tweet?url={{ url()->full() }}&text={{ $property->title }}"><i
+                                                    class="fa-brands fa-twitter twitter-icon"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
