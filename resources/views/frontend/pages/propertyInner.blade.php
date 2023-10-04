@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="breadcrumb-border-img">
-                <img src="assets/img/bg/line-bg.png" alt="Line Image">
+                <img src="{{ asset('assets/img/bg/line-bg.png') }}" alt="Rush 2 homes">
             </div>
         </div>
     </div>
@@ -48,7 +48,8 @@
                         <p> {{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}
                             {{ number_format($property->price, 0, ',', ' ') }}</p>
                         <ul class="other-pages">
-                            <li><a href="{{ route('sales.property.listing') }}"><i class="feather-back"></i>Go to back</a>
+                            <li><a href="{{ route('sales.property.listing', ['propertyType' => 'For Sales']) }}"><i
+                                        class="feather-back"></i>Go to back</a>
                             </li>
                             <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
                         </ul>
@@ -239,25 +240,61 @@
                     </div>
 
 
-                    {{-- <div class="collapse-card">
-                        <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#Documents"
-                                aria-expanded="false">Documents</a>
-                        </h4>
-                        <div id="Documents" class="card-collapse collapse show ">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="amenities-list document collapse-view">
-                                        <li><img src="{{ asset('assets/img/icons/pdf-icon.svg') }}" alt="Image">Ferris
-                                            Park.jpg
-                                        </li>
-                                        <li><img src="{{ asset('assets/img/icons/pdf-icon.svg') }}"
-                                                alt="Image">Energetic-Certificate-PDF6</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                    <style>
+                        .submit-btn-registration {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .lds-ring {
+                            display: inline-block;
+                            position: relative;
+                            width: 30px;
+                            height: 34px;
+                            margin-right: 7px;
+                        }
+
+                        .lds-ring div {
+                            box-sizing: border-box;
+                            display: block;
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            margin: 8px;
+                            border: 3px solid #fff;
+                            border-radius: 50%;
+                            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                            border-color: #fff transparent transparent transparent;
+                        }
+
+                        .lds-ring div:nth-child(1) {
+                            animation-delay: -0.45s;
+                        }
+
+                        .lds-ring div:nth-child(2) {
+                            animation-delay: -0.3s;
+                        }
+
+                        .lds-ring div:nth-child(3) {
+                            animation-delay: -0.15s;
+                        }
+
+                        .submit-btn-registration:hover>div .lds-ring div {
+                            border: 3px solid #267cbe !important;
+                            border-color: #267cbe transparent transparent transparent !important;
+                        }
+
+                        @keyframes lds-ring {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+                    </style>
 
                 </div>
 
@@ -274,23 +311,22 @@
                                 <div class="social-links">
                                     <ul class="sidebar-social-links">
                                         <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}"
-                                                class="fb-icon"><i class="fa-brands fa-facebook-f hi-icon"></i></a></li>
+                                                target="_blank" class="fb-icon"><i
+                                                    class="fa-brands fa-facebook-f hi-icon"></i></a></li>
                                         <li><a href="javascript:void(0);" class="ins-icon"><i
                                                     class="fa-brands fa-instagram hi-icon"></i></a></li>
-                                        <li><a
-                                                href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->full() }}&title={{ $property->title }}"><i
-                                                    class="fa-brands fa-linkedin hi-icon"></i></a></li>
+                                        <li><a href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->full() }}&title={{ $property->title }}"
+                                                target="_blank"><i class="fa-brands fa-linkedin hi-icon"></i></a></li>
                                         <li><a class="ins-icon"
-                                                href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->full() }}&title={{ $property->title }}"><i
-                                                    class="fa-brands fa-pinterest ins-icon"></i></a></li>
+                                                href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->full() }}&title={{ $property->title }}"
+                                                target="_blank"><i class="fa-brands fa-pinterest ins-icon"></i></a></li>
                                         <li><a class="twitter-icon"
-                                                href="https://twitter.com/intent/tweet?url={{ url()->full() }}&text={{ $property->title }}"><i
-                                                    class="fa-brands fa-twitter twitter-icon"></i></a>
+                                                href="https://twitter.com/intent/tweet?url={{ url()->full() }}&text={{ $property->title }}"
+                                                target="_blank"><i class="fa-brands fa-twitter twitter-icon"></i></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="sidebar-card">
                                 <div class="user-active">
                                     <div class="user-img">
@@ -304,21 +340,7 @@
                                         <p> Rush 2 homes agent</p>
                                     </div>
                                 </div>
-                                <div class="review-form">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                                <div class="review-form">
-                                    <input type="email" class="form-control" placeholder="Your Email">
-                                </div>
-                                <div class="review-form">
-                                    <input type="text" class="form-control" placeholder="Your Phone Number">
-                                </div>
-                                <div class="review-form">
-                                    <textarea rows="5" placeholder="Yes, I'm Interested"></textarea>
-                                </div>
-                                <div class="review-form submit-btn">
-                                    <button type="submit" class="btn-primary">Send Email</button>
-                                </div>
+                                <livewire:agent-contact :property='$property' />
                                 <ul class="connect-us">
                                     <li><a href="tel:{{ $property->agent->number }}"><i class="feather-phone"></i>Call
                                             Us</a></li>
@@ -327,7 +349,6 @@
                                     </li>
                                 </ul>
                             </div>
-
 
                             <div class="sidebar-card">
                                 <div class="sidebar-card-title">
@@ -345,7 +366,6 @@
                                     </div>
                                 </div>
                                 <ul class="list-details">
-                                    <li>No of Listings <span>05</span></li>
                                     <li>Email address<span>{{ $property->agent->email }}</span></li>
                                     <li>Memeber
                                         on<span>{{ \Carbon\Carbon::parse($property->agent->created_at)->format('d-m-Y') }}</span>
@@ -354,155 +374,6 @@
                                 </ul>
                             </div>
 
-
-                            {{-- <div class="sidebar-img-slider owl-carousel owl-loaded owl-drag">
-
-
-
-                                <div class="owl-stage-outer">
-                                    <div class="owl-stage"
-                                        style="transform: translate3d(-640px, 0px, 0px); transition: all 0s ease 0s; width: 2240px;">
-                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item active" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item cloned" style="width: 296px; margin-right: 24px;">
-                                            <div class="slide-img-card">
-                                                <div class="slide-img">
-                                                    <img src="{{ asset('assets/img/sidebar-slide.jpg') }}"
-                                                        alt="Image">
-                                                </div>
-                                                <div class="property-name">
-                                                    <h3>High-Rise Townhouse</h3>
-                                                    <span><i class="feather-map-pin"></i>Chicago</span>
-                                                    <div class="star-rate">
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
-                                            class="fa-solid fa-arrow-left"></i></button><button type="button"
-                                        role="presentation" class="owl-next"><i
-                                            class="fa-solid fa-arrow-right"></i></button></div>
-                                <div class="owl-dots disabled"></div>
-                            </div> --}}
 
                         </div>
                         <div class="resize-sensor"

@@ -2,42 +2,44 @@
 
 namespace App\Livewire;
 
-use App\Mail\ContactMail;
+use App\Mail\AgentContactMail;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
-class ContactForm extends Component
+class AgentContact extends Component
 {
+
+    public $property;
+
     #[Rule('required|string|min:3')]
     public $name;
 
-    #[Rule('numeric|digits:10')]
-    public $number;
-
-    #[Rule('required|email|min:5')]
+    #[Rule('required|string|min:5|email')]
     public $email;
 
-    #[Rule('required|string|min:3')]
-    public $subject;
+    #[Rule('required|numeric|digits:10')]
+    public $number;
 
     #[Rule('required|string|min:3')]
     public $description;
 
-    public function sendMail()
+    public function submitForm()
     {
         $this->validate();
         $data = [
             'name' => $this->name,
-            'number' => $this->number,
             'email' => $this->email,
-            'subject' => $this->subject,
+            'number' => $this->number,
             'description' => $this->description,
+            'property_code' => $this->property->property_code,
+            'property_title' => $this->property->title,
         ];
 
         try {
-            Mail::to('info@rush2homes.com')->send(new ContactMail($data));
-        } catch (\Exception $e) {
+            Mail::to($this->property->agent->email)->send(new AgentContactMail($data));
+        } catch (Exception $e) {
+            dd($e);
             $this->dispatch(
                 'Swal:modal',
                 icon: 'error',
@@ -57,6 +59,6 @@ class ContactForm extends Component
 
     public function render()
     {
-        return view('livewire.contact-form');
+        return view('livewire.agent-contact');
     }
 }

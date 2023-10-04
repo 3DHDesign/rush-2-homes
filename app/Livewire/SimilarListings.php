@@ -27,10 +27,9 @@ class SimilarListings extends Component
     public function mount()
     {
         $this->properties = PropertyInformation::where('status', 'Published')
-            ->orWhere('district_id', $this->district_id)
-            ->orWhere('city_id', $this->city_id)
-            ->orWhere('property_category_id', $this->propertyCategory)
-            ->orWhere('property_type_id', $this->propertyType)
+            ->where(function ($query) {
+                $query->where('property_type_id', $this->propertyType);
+            })
             ->select([
                 $this->current_locale . '_title as title',
                 $this->current_locale . '_address as address',
