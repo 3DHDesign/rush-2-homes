@@ -35,7 +35,7 @@ return [
         'defaults' => [
             'title'       => "Rush 2 Homes",
             'description' => 'Your Premier Real Estate Partner in Sri Lanka',
-            'url'         => url()->full(),
+            'url'         => null,
             'type'        => 'website',
             'site_name'   => "Rush 2 Homes",
             'images'      => [],
@@ -57,7 +57,7 @@ return [
         'defaults' => [
             'title'       => 'Rush 2 Homes - Your Premier Real Estate Partner in Sri Lanka',
             'description' =>  'Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.',
-            'url'         => url()->full(), // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
+            'url'         => null, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'website',
             'images'      => [],
         ],

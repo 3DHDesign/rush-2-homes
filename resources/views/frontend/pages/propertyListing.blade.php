@@ -181,10 +181,9 @@
                             @endforeach
 
 
-
                         </div>
                         {{-- Pagination --}}
-                        {{ $properties->links('pagination::bootstrap-5') }}
+                        {{ $properties->withQueryString()->links('pagination::bootstrap-5') }}
                     </div>
 
                 </div>
