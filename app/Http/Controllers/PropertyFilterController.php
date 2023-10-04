@@ -101,14 +101,6 @@ class PropertyFilterController extends Controller
 
         $local = app()->getLocale();
 
-
-        $details = GeneralDetails::find(1)->select([
-            $this->current_locale . '_address_lk as address_lk',
-            $this->current_locale . '_address_uae as address_uae',
-            $this->current_locale . '_short_about as short_about',
-        ])
-            ->first();
-
         if ($property_type_id->id == 1) {
             // For Sale
             SEOMeta::setTitle('For sale - Rush 2 Homes');
@@ -183,6 +175,6 @@ class PropertyFilterController extends Controller
         }
 
 
-        return view('frontend.pages.propertyListing', compact('properties', 'local', 'details'));
+        return view('frontend.pages.propertyListing', compact('properties', 'local'));
     }
 }

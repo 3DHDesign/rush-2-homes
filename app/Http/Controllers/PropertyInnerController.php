@@ -55,13 +55,6 @@ class PropertyInnerController extends Controller
         )->with(['propertyCategory', 'city', 'district', 'agent'])->first();
         $local = $this->current_locale;
 
-        $details = GeneralDetails::find(1)->select([
-            $this->current_locale . '_address_lk as address_lk',
-            $this->current_locale . '_address_uae as address_uae',
-            $this->current_locale . '_short_about as short_about',
-        ])
-            ->first();
-
         // get Amenities from array
         $list_aminities = Amenity::whereIn('id', $property->aminities)->select(
             'icon',
@@ -85,6 +78,6 @@ class PropertyInnerController extends Controller
         JsonLd::setDescription($property->en_title . '. ' . 'Invest in Your Future Today.');
         JsonLd::addImage(asset('storage/' . $property->gallery[0]));
 
-        return view('frontend.pages.propertyInner', compact('property', 'local', 'list_aminities', 'details'));
+        return view('frontend.pages.propertyInner', compact('property', 'local', 'list_aminities'));
     }
 }

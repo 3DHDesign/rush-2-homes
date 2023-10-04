@@ -21,15 +21,14 @@ class FooterServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('*', function ($view) {
+        View::composer('frontend.components.footer', function ($view) {
             $currentLocale = app()->getLocale();
             $details = GeneralDetails::find(1)->select([
                 $currentLocale . '_address_lk as address_lk',
                 $currentLocale . '_address_uae as address_uae',
                 $currentLocale . '_short_about as short_about',
             ])->first();
-
-            $view->with('footerDetails', $details);
+            $view->with('details', $details);
         });
     }
 }
