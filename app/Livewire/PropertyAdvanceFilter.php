@@ -33,6 +33,9 @@ class PropertyAdvanceFilter extends Component
     #[Url(as: 'propertyCategory')]
     public $categoryName;
 
+    #[Url(as: 'propertyType')]
+    public $propertyType;
+
     #[Url(as: 'minPrice')]
     public $getMinPrice;
 
@@ -74,31 +77,41 @@ class PropertyAdvanceFilter extends Component
             'keyword' => $this->keyword,
         ];
 
-        if ($this->districName) {
+        if($this->propertyType != null){
+            $queryParams['propertyType'] = $this->propertyType;
+        }
+
+        if ($this->districName != null) {
             $queryParams['district'] = $this->districName;
         }
 
-        if ($this->cityName) {
+        if ($this->cityName != null) {
             $queryParams['city'] = $this->cityName;
         }
 
-        if ($this->categoryName) {
+        if ($this->categoryName != null) {
             $queryParams['propertyCategory'] = $this->categoryName;
         }
 
-        if ($this->propertySubCategory) {
+        if ($this->propertySubCategory != null) {
             $queryParams['propertyCategory'] = $this->propertySubCategory;
         }
 
-        if ($this->getMinPrice) {
+        if ($this->getMinPrice != null) {
             $queryParams['minPrice'] = $this->getMinPrice;
         }
 
-        if ($this->getMaxPrice) {
+        if ($this->getMaxPrice != null) {
             $queryParams['maxPrice'] = $this->getMaxPrice;
         }
 
-        return Redirect::route('sales.property.listing', $queryParams);
+        if($this->propertyType == 'For Sales'){
+            return Redirect::route('sales.property.listing', $queryParams);
+        }elseif($this->propertyType == 'For Rental'){
+            return Redirect::route('rent.property.listing', $queryParams);
+        }else{
+            return Redirect::route('land.property.listing', $queryParams);
+        }
     }
 
     public function updatedGetDistrict($value)
@@ -140,7 +153,12 @@ class PropertyAdvanceFilter extends Component
 
     public function resetForm()
     {
-        $this->reset();
+        $this->cityName = null;
+        $this->getCategory = null;
+        $this->propertySubCategory = null;
+        $this->propertySubCategory = null;
+        $this->categoryName = null;
+        $this->districName = null;
     }
 
     public function render()
