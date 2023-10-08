@@ -39,17 +39,24 @@ class SiteController extends Controller
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('Home - Rush 2 Homes');
+        OpenGraph::setTitle('Home');
         OpenGraph::setUrl(url()->full());
-        OpenGraph::addProperty('type', 'website');
+        OpenGraph::addProperty('type', 'Website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('Home - Rush 2 Homes');
+        TwitterCard::setTitle('Home');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('Home - Rush 2 Homes');
-        JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
+        JsonLdMulti::setTitle('Home');
+        JsonLdMulti::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
+        JsonLdMulti::setType('Website');
+        JsonLdMulti::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
+        if(! JsonLdMulti::isEmpty()) {
+            JsonLdMulti::newJsonLd();
+            JsonLdMulti::setType('WebPage');
+            JsonLdMulti::setTitle('Home');
+        }
+
 
         $featureProperties = PropertyInformation::where('status', 'Published')->select(
             'id',
@@ -73,42 +80,48 @@ class SiteController extends Controller
 
     public function register()
     {
-        SEOMeta::setTitle('Register - Rush 2 Homes');
+        SEOMeta::setTitle('Register');
         SEOMeta::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('Register - Rush 2 Homes');
+        OpenGraph::setTitle('Register');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('Register - Rush 2 Homes');
+        TwitterCard::setTitle('Register');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('Register - Rush 2 Homes');
-        JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
+        JsonLdMulti::setTitle('Register');
+        JsonLdMulti::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
+        JsonLdMulti::setType('Website');
+        JsonLdMulti::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
+        if(! JsonLdMulti::isEmpty()) {
+            JsonLdMulti::newJsonLd();
+            JsonLdMulti::setType('WebPage');
+            JsonLdMulti::setTitle('Home');
+        }
 
         return view('frontend.pages.register');
     }
 
     public function loginAccount()
     {
-        SEOMeta::setTitle('Login - Rush 2 Homes');
+        SEOMeta::setTitle('Login');
         SEOMeta::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('Login - Rush 2 Homes');
+        OpenGraph::setTitle('Login');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('Login - Rush 2 Homes');
+        TwitterCard::setTitle('Login');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('Login - Rush 2 Homes');
+        JsonLd::setTitle('Login');
         JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
@@ -117,42 +130,43 @@ class SiteController extends Controller
 
     public function about()
     {
-        SEOMeta::setTitle('About us - Rush 2 Homes');
+        SEOMeta::setTitle('About us');
         SEOMeta::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('About us - Rush 2 Homes');
+        OpenGraph::setTitle('About us');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('About us - Rush 2 Homes');
+        TwitterCard::setTitle('About us');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('About us - Rush 2 Homes');
+        JsonLd::setTitle('About us');
         JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
+        
 
         return view('frontend.pages.about');
     }
 
     public function privacyPolicy()
     {
-        SEOMeta::setTitle('Privacy Policy - Rush 2 Homes');
+        SEOMeta::setTitle('Privacy Policy');
         SEOMeta::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('Privacy Policy - Rush 2 Homes');
+        OpenGraph::setTitle('Privacy Policy');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('Privacy Policy - Rush 2 Homes');
+        TwitterCard::setTitle('Privacy Policy');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('Privacy Policy - Rush 2 Homes');
+        JsonLd::setTitle('Privacy Policy ');
         JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
@@ -161,20 +175,20 @@ class SiteController extends Controller
 
     public function terms()
     {
-        SEOMeta::setTitle('Terms and Conditions - Rush 2 Homes');
+        SEOMeta::setTitle('Terms and Conditions');
         SEOMeta::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('Terms and Conditions - Rush 2 Homes');
+        OpenGraph::setTitle('Terms and Conditions');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('Terms and Conditions - Rush 2 Homes');
+        TwitterCard::setTitle('Terms and Conditions');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('Terms and Conditions - Rush 2 Homes');
+        JsonLd::setTitle('Terms and Conditions');
         JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
@@ -183,20 +197,20 @@ class SiteController extends Controller
 
     public function contact()
     {
-        SEOMeta::setTitle('Contact us - Rush 2 Homes');
+        SEOMeta::setTitle('Contact us');
         SEOMeta::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         SEOMeta::setCanonical(url()->full());
 
         OpenGraph::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
-        OpenGraph::setTitle('Contact us - Rush 2 Homes');
+        OpenGraph::setTitle('Contact us');
         OpenGraph::setUrl(url()->full());
         OpenGraph::addProperty('type', 'website');
         OpenGraph::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
-        TwitterCard::setTitle('Contact us - Rush 2 Homes');
+        TwitterCard::setTitle('Contact us');
         TwitterCard::setSite('@rush2homes');
 
-        JsonLd::setTitle('Contact us - Rush 2 Homes');
+        JsonLd::setTitle('Contact us');
         JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
 
