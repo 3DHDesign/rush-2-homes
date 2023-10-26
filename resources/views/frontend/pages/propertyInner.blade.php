@@ -285,6 +285,10 @@
                             border-color: #267cbe transparent transparent transparent !important;
                         }
 
+                        .amenities-list>li>img {
+                            width: 19px;
+                        }
+
                         @keyframes lds-ring {
                             0% {
                                 transform: rotate(0deg);
