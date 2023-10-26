@@ -59,14 +59,14 @@ Route::middleware((['maintenance.mode']))->group(function () {
 Route::get('/maintenance-mode', [SiteController::class, 'maintenanceMode'])->name('maintenanceMode');
 
 
-Route::get('/link', function () {
-    Artisan::call('storage:link');
-});
+// Route::get('/link', function () {
+//     Artisan::call('storage:link');
+// });
 
-Route::get('/migrate', function () {
-    Artisan::call('migrate');
-});
+// Route::get('/migrate', function () {
+//     Artisan::call('migrate');
+// });
 
-Route::get('/cls', function () {
-    Artisan::call('optimize:clear');
-});
+// Route::get('/cls', function () {
+//     Artisan::call('optimize:clear');
+// });

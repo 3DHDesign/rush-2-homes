@@ -77,31 +77,31 @@ class PropertyAdvanceFilter extends Component
             'keyword' => $this->keyword,
         ];
 
-        if($this->propertyType != null){
+        if($this->propertyType){
             $queryParams['propertyType'] = $this->propertyType;
         }
 
-        if ($this->districName != null) {
+        if ($this->districName) {
             $queryParams['district'] = $this->districName;
         }
 
-        if ($this->cityName != null) {
+        if ($this->cityName) {
             $queryParams['city'] = $this->cityName;
         }
 
-        if ($this->categoryName != null) {
+        if ($this->categoryName) {
             $queryParams['propertyCategory'] = $this->categoryName;
         }
 
-        if ($this->propertySubCategory != null) {
+        if ($this->propertySubCategory) {
             $queryParams['propertyCategory'] = $this->propertySubCategory;
         }
 
-        if ($this->getMinPrice != null) {
+        if ($this->getMinPrice) {
             $queryParams['minPrice'] = $this->getMinPrice;
         }
 
-        if ($this->getMaxPrice != null) {
+        if ($this->getMaxPrice) {
             $queryParams['maxPrice'] = $this->getMaxPrice;
         }
 

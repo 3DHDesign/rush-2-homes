@@ -267,6 +267,10 @@
                             animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
                             border-color: #fff transparent transparent transparent;
                         }
+                        
+                        .amenities-list>li>img {
+                            width: 19px;
+                        }
 
                         .lds-ring div:nth-child(1) {
                             animation-delay: -0.45s;
@@ -283,10 +287,6 @@
                         .submit-btn-registration:hover>div .lds-ring div {
                             border: 3px solid #267cbe !important;
                             border-color: #267cbe transparent transparent transparent !important;
-                        }
-
-                        .amenities-list>li>img {
-                            width: 19px;
                         }
 
                         @keyframes lds-ring {

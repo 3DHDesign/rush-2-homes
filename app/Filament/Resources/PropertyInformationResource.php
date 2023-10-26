@@ -242,6 +242,7 @@ class PropertyInformationResource extends Resource
                                             ->directory('properties')
                                             ->preserveFilenames()
                                             ->multiple()
+                                            ->required()
                                             ->enableReordering()
                                             ->imageEditor()
                                             ->imageEditorAspectRatios([
