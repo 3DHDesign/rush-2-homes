@@ -80,12 +80,12 @@
                                     <p>{{ $details->address_lk }}</p>
                                 </div>
                             @endif
-                            @if ($details->address_uae)
+                            {{-- @if ($details->address_uae)
                                 <div class="footer-content-heading">
                                     <strong>UAE</strong>
                                     <p>{{ $details->address_uae }}</p>
                                 </div>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
 

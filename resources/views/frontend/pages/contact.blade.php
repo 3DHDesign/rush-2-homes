@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if ($details->address_uae)
+                        {{-- @if ($details->address_uae)
                             <div class="col-lg-12 d-flex">
                                 <div class="flex-fill">
                                     <div class="contact-info-details d-flex align-items-center">
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        @endif --}}
                     </div>
                     <div class="map-location">
                         <h3>{{ __('contact.find_us_on') }}</h3>
