@@ -42,6 +42,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Illuminate\Support\HtmlString;
 
 class PropertyInformationResource extends Resource
 {
@@ -237,17 +238,19 @@ class PropertyInformationResource extends Resource
                                             ->label('Select lable')
                                             ->required()
                                             ->preload(),
+
                                         FileUpload::make('gallery')
                                             ->label('Add a property images')
                                             ->directory('properties')
                                             ->preserveFilenames()
                                             ->multiple()
                                             ->required()
+                                            ->panelAspectRatio('1:1')
+                                            ->imageResizeMode('cover')
+                                            ->helperText(new HtmlString("Make sure to upload <strong style='color:red'> minimum 1080x1080 resolution</strong>"))
                                             ->enableReordering()
-                                            ->imageEditor()
-                                            ->imageEditorAspectRatios([
-                                                '16:9',
-                                            ]),
+                                            ->imageEditor(),
+
                                         Fieldset::make('Property price')
                                             ->schema([
                                                 Select::make('currency')
