@@ -245,8 +245,6 @@ class PropertyInformationResource extends Resource
                                             ->preserveFilenames()
                                             ->multiple()
                                             ->required()
-                                            ->panelAspectRatio('1:1')
-                                            ->imageResizeMode('cover')
                                             ->helperText(new HtmlString("Make sure to upload <strong style='color:red'> minimum 1080x1080 resolution</strong>"))
                                             ->enableReordering()
                                             ->imageEditor(),
