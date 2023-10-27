@@ -180,13 +180,13 @@
                                 $currencyType = [
                                     'lkr' => 'Rs',
                                     'usd' => 'USD',
-                                    'uae' => 'UAE',
+                                    'uae' => 'AED',
                                 ];
                             @endphp
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Property Id : <span> {{ 'RH' . $property->property_code }}</span></li>
+                                        <li>Property Id : <span> {{ 'R2H' . $property->property_code }}</span></li>
                                         <li>Price : <span>
                                                 {{ $currencyFormat = $currencyType[$property->currency] . ' ' ?? '' }}
                                                 {{ number_format($property->price, 0, ',', ' ') }} </span></li>
@@ -267,7 +267,7 @@
                             animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
                             border-color: #fff transparent transparent transparent;
                         }
-                        
+
                         .amenities-list>li>img {
                             width: 19px;
                         }
