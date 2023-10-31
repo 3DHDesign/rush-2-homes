@@ -65,7 +65,9 @@ class SiteController extends Controller
             'bathrooms',
             'label',
             'slug'
-        )->with('propertyCategory')->take(6)->get();
+        )->with('propertyCategory')
+            ->orderByRaw('JSON_UNQUOTE(JSON_EXTRACT(label, "$[0]")) DESC')
+            ->take(6)->get();
 
         $local = app()->getLocale();
         return view('frontend.pages.home', compact('featureProperties', 'local'));
@@ -133,7 +135,7 @@ class SiteController extends Controller
         JsonLd::setTitle('About us');
         JsonLd::setDescription('Discover top-quality real estate solutions in Sri Lanka, Dubai, and beyond with Rush2Homes, your exclusive sales and marketing partner of Rush Lanka Group. Trust our expertise, integrity, and extensive property portfolio to find your dream home, investment, or development project.');
         JsonLd::addImage(asset('assets/img/rush2homes-white-logo.jpg'));
-        
+
 
         return view('frontend.pages.about');
     }

@@ -64,7 +64,8 @@ class PropertyFilterController extends Controller
                 'aminities',
                 'slug'
             ])
-            ->with('propertyCategory');
+            ->with('propertyCategory')
+            ->orderByRaw('JSON_UNQUOTE(JSON_EXTRACT(label, "$[0]")) DESC');
 
         if ($keyword) {
             $query->where(function ($q) use ($keyword) {
