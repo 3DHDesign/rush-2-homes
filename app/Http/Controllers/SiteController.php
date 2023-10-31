@@ -66,7 +66,7 @@ class SiteController extends Controller
             'label',
             'slug'
         )->with('propertyCategory')
-            ->orderByRaw('JSON_UNQUOTE(JSON_EXTRACT(label, "$[0]")) DESC')
+            ->orderByRaw('JSON_UNQUOTE(JSON_EXTRACT(label, "$[1]")) DESC')
             ->take(6)->get();
 
         $local = app()->getLocale();

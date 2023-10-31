@@ -65,7 +65,7 @@ class PropertyFilterController extends Controller
                 'slug'
             ])
             ->with('propertyCategory')
-            ->orderByRaw('JSON_UNQUOTE(JSON_EXTRACT(label, "$[0]")) DESC');
+            ->orderByRaw('JSON_UNQUOTE(JSON_EXTRACT(label, "$[1]")) DESC');
 
         if ($keyword) {
             $query->where(function ($q) use ($keyword) {
